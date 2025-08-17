@@ -1,0 +1,689 @@
+@charset "UTF-8";
+
+:root {
+    --lumo-primary-color: #F9C639;
+    --lumo-secondary-color: #3E86B3;
+    --lumo-text-light: #FFFFFF;
+    --lumo-text-dark: #181818;
+    --lumo-text-color: var(--lumo-text-dark);
+    --lumo-shadow-s: 0 0.125rem 0.25rem rgb(from var(--lumo-text-color) r g b / 0.1);
+    --lumo-shadow-m: 0 0.35rem 0.65rem rgb(from var(--lumo-text-color) r g b / 0.1);
+    --lumo-shadow-l: 0 0.75rem 1.5rem rgb(from var(--lumo-text-color) r g b / 0.1);
+    --lumo-font-family: system-ui, sans-serif;
+    --lumo-font-size: 16px;
+    --lumo-transition: 200ms ease-in-out;
+    --lumo-spacing: 1rem;
+    --lumo-grip-row-gap: var(--lumo-spacing);
+    --lumo-grip-column-gap: var(--lumo-spacing);
+    --lumo-border-radius: 0.35rem;
+    --lumo-font-weight: 400;
+    --lumo-line-height: 1.5;
+    --lumo-breadcrumb-divider: "/";
+    --lumo-container-width: 75vw;
+    --lumo-container-width-bp-l: 85vw;
+    --lumo-container-width-bp-m: 90vw;
+    --lumo-container-width-bp-s: 95vw;
+    --lumo-background-color: #FFFFFF;
+    --lumo-border-light: 1px solid rgb(from var(--lumo-text-color) r g b / 0.075);
+    --lumo-border-default: 1px solid rgb(from var(--lumo-text-color) r g b / 0.15);
+    --lumo-border-hard: 1px solid rgb(from var(--lumo-text-color) r g b / 0.45);
+    --lumo-accent-color: var(--lumo-secondary-color);
+    overflow-wrap: break-word
+}
+
+* {
+    position: relative;
+    max-width: 100%;
+    accent-color: var(--lumo-accent-color);
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--lumo-font-family);
+    font-size: var(--lumo-font-size)
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: var(--lumo-line-height);
+    background-color: var(--lumo-background-color);
+}
+
+a {
+    text-decoration: none;
+    color: #0084FF;
+}
+
+a:not([role="button"]):hover {
+    text-decoration: underline;
+}
+
+/*
+ * Container
+ */
+.container {
+    width: var(--lumo-container-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 1280px) {
+    .container {
+        width: var(--lumo-container-width-bp-l);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: var(--lumo-container-width-bp-m);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: var(--lumo-container-width-bp-s);
+    }
+}
+
+/*
+ * Header
+ */
+header {
+    width: 100vw;
+    display: flex;
+    padding: 0.5rem 0;
+    border-bottom: var(--lumo-border-default);
+    box-shadow: var(--lumo-shadow-s);
+    --lumo-spacing: 0;
+    background-color: rgb(from var(--lumo-background-color) r g b / 0.9);
+    backdrop-filter: blur(10px);
+}
+
+header.is-fixed {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+body>header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a {
+    color: var(--lumo-text-color);
+}
+
+/*
+ * Nav (main)
+ */
+
+header nav {
+    justify-content: space-between;
+    display: flex;
+    gap: 1rem;
+}
+
+header nav ul {
+    width: fit-content;
+    display: flex;
+    gap: calc(var(--lumo-grip-column-gap) * 0.5) !important;
+    list-style: none;
+    padding: 0;
+}
+
+/*
+ * Dropdown
+ */
+
+details.dropdown {
+    width: max-content;
+}
+
+details.dropdown summary {
+    cursor: pointer;
+}
+
+details.dropdown[open] summary {
+    cursor: default;
+}
+
+details>summary:first-of-type {
+    list-style-type: none;
+}
+
+details.dropdown summary::marker {
+    display: none;
+}
+
+details.dropdown ul {
+    list-style: none;
+    background-color: #FFFFFF;
+    border: var(--lumo-border-light);
+    padding: 0.35rem 0;
+    margin: 0;
+    width: max-content;
+    max-width: 300px;
+    border-radius: var(--lumo-border-radius);
+    box-shadow: var(--lumo-shadow-s);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9999;
+}
+
+details.dropdown ul[dir=rtl] {
+    right: 0;
+    left: auto;
+}
+
+details.dropdown ul li a {
+    color: var(--lumo-text-color);
+}
+
+details.dropdown ul li {
+    --lumo-transition: 100ms ease-in-out;
+    transition: background-color var(--lumo-transition);
+}
+
+details.dropdown ul li:hover {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.075);
+}
+
+details.dropdown ul li:hover * {
+    text-decoration: none;
+}
+
+details.dropdown ul li>* {
+    padding: 0.25rem 0.85rem !important;
+    display: flex;
+}
+
+/*
+ * Button
+ */
+
+button,
+[role=button],
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    --lumo-background-color: var(--lumo-primary-color);
+    display: inline-flex;
+    gap: 0.35rem;
+    background-color: var(--lumo-background-color);
+    color: var(--lumo-text-color);
+    padding: 0.45rem 0.75rem;
+    border-radius: var(--lumo-border-radius);
+    font-size: var(--lumo-font-size);
+    cursor: pointer;
+    filter: brightness(1);
+    line-height: var(--lumo-line-height);
+    --lumo-transition: 150ms ease-in-out;
+    border: none;
+    font-family: var(--lumo-font-family);
+    transition: filter var(--lumo-transition), box-shadow var(--lumo-transition);
+}
+
+button.secondary,
+[role=button].secondary,
+input[type=button].secondary,
+input[type=submit].secondary,
+input[type=reset].secondary {
+    --lumo-background-color: var(--lumo-secondary-color);
+    color: var(--lumo-text-light);
+}
+
+button.outline,
+[role=button].outline,
+input[type=button].outline,
+input[type=submit].outline,
+input[type=reset].outline {
+    background-color: transparent;
+    border: 1px solid var(--lumo-background-color);
+    color: var(--lumo-background-color);
+}
+
+button:hover,
+[role=button]:hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
+    filter: brightness(0.9);
+}
+
+button:focus,
+[role=button]:focus,
+input[type=button]:focus,
+input[type=submit]:focus,
+input[type=reset]:focus {
+    box-shadow: 0 0 0 0.125rem rgb(from var(--lumo-background-color) r g b / 0.5);
+}
+
+button:active,
+[role=button]:active,
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active {
+    filter: brightness(0.85);
+}
+
+/*
+ * Heading
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 1rem;
+    color: rgb(from var(--lumo-text-color) r g b / 0.5)
+}
+
+p {
+    margin: 0.25rem 0;
+}
+
+/*
+ * Main
+ */
+
+main {
+    margin-top: calc(var(--lumo-spacing) * 5);
+}
+
+@media screen and (max-width: 1024px) {
+    main {
+        margin-top: calc(var(--lumo-spacing) * 3);
+    }
+
+}
+
+main>.container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    column-gap: var(--lumo-grip-column-gap);
+    grid-template-areas:
+        "navigation page table-of-content"
+    ;
+}
+
+main>.container:has(#navigation, #page, #table-of-content) {
+    grid-template-columns: 15rem 1fr 10rem;
+}
+
+main>.container:has(#navigation, #page):not(:has(#table-of-content)) {
+    grid-template-columns: 15rem 1fr;
+}
+
+main>.container:has(#page):not(:has(#navigation, #table-of-content)) {
+    grid-template-columns: 1fr;
+}
+
+main>.container #page {
+    display: flex;
+    row-gap: var(--lumo-grip-row-gap);
+    column-gap: var(--lumo-grip-column-gap);
+    flex-direction: column;
+}
+
+main #navigation,
+main #navigation nav {
+    position: sticky;
+    top: 7rem;
+}
+
+@media screen and (max-width: 1024px) {
+    main>.container #navigation {
+        position: static;
+        border-bottom: 1px solid rgb(from var(--lumo-text-color) r g b / 0.15);
+        padding-bottom: var(--lumo-spacing);
+    }
+
+    main>.container #table-of-content {
+        display: none;
+    }
+
+    main>.container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    main>.container:has(#navigation, #page, #table-of-content) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "navigation"
+            "page"
+            "table-of-content";
+    }
+
+    main>.container:has(#navigation, #page):not(:has(#table-of-content)) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "navigation"
+            "page";
+    }
+
+
+    main>.container:has(#page):not(:has(#navigation, #table-of-content)) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "page";
+    }
+}
+
+
+main aside#navigation nav {
+    width: 100%;
+}
+
+main aside#navigation nav ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: calc(var(--lumo-grip-row-gap) * 0.5);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+main aside#navigation nav ul li>*,
+main aside#navigation nav ul li:has(details) summary {
+    padding: 0.35rem 0.55rem;
+    display: flex;
+    color: var(--lumo-text-color);
+    border-radius: var(--lumo-border-radius);
+    gap: calc(var(--lumo-spacing) * 0.5);
+    cursor: pointer;
+    --lumo-transition: 100ms ease-in-out;
+    transition: background-color var(--lumo-transition);
+}
+
+main aside#navigation nav ul li:not(:has(details))>*:hover {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
+}
+
+main aside#navigation nav ul li[aria-current="true"]>* {
+    font-weight: bold;
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.075);
+}
+
+main aside#navigation nav ul li:has(details) {
+    padding: 0;
+    cursor: default;
+}
+
+main aside#navigation nav ul li:has(details) summary:hover {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
+    text-decoration: underline;
+}
+
+main aside#navigation nav ul li details {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    cursor: default;
+}
+
+main aside#navigation nav ul li:has(details[open]) summary {
+    font-weight: bold;
+}
+
+main aside#navigation nav ul li details ul {
+    padding-left: 1rem;
+}
+
+/*
+ * Section
+ */
+section {
+    display: flex;
+    gap: var(--lumo-grip-column-gap);
+}
+
+section article {
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    section {
+        flex-direction: column;
+    }
+}
+
+/*
+ * Region (card)
+ */
+[role="region"] {
+    border: var(--lumo-border-default);
+    border-radius: var(--lumo-border-radius);
+    padding: var(--lumo-spacing);
+}
+
+[role="region"].shadow {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
+    box-shadow: var(--lumo-shadow-m);
+    border: none;
+}
+
+[role="region"]>hr {
+    width: calc(100% + var(--lumo-spacing) * 2);
+    max-width: unset;
+    margin-left: calc(var(--lumo-spacing) * -1);
+    margin-top: calc(var(--lumo-spacing) * 0.75);
+    margin-bottom: calc(var(--lumo-spacing) * 0.75);
+}
+
+/*
+ * footer
+ */
+footer {
+    margin-top: calc(var(--lumo-spacing) * 3);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
+}
+
+/*
+ * hr
+ */
+hr {
+    border: var(--lumo-border-default);
+    border-bottom: 0;
+    margin: calc(var(--lumo-spacing) * 0.5) 0;
+}
+
+/*
+ * input
+ */
+input[type=checkbox],
+input[type=radio] {
+    height: 0.95rem;
+    width: 0.95rem;
+    accent-color: var(--lumo-accent-color);
+    cursor: pointer;
+}
+
+:where(input[type=date],
+    input[type=datetime-local],
+    input[type=email],
+    input[type=month],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=time],
+    input[type=url],
+    input[type=week]) {
+    --lumo-border-radius: 0.25rem;
+    --lumo-transition: 75ms linear;
+    display: inline-flex;
+    width: fit-content;
+    border: var(--lumo-border-hard);
+    border-radius: var(--lumo-border-radius);
+    font-size: var(--lumo-font-size);
+    padding: 0.35rem 0.65rem;
+    font-family: var(--lumo-font-family);
+    line-height: var(--lumo-line-height);
+    margin: calc(var(--lumo-spacing) * 0.25) 0;
+    outline: 3px solid transparent;
+    box-shadow: 0 0 0 2px transparent;
+    outline-offset: -2px;
+    transition: outline var(--lumo-transition), box-shadow var(--lumo-transition);
+    cursor: text;
+    height: calc(var(--lumo-font-size) * 2.5);
+}
+
+input:disabled {
+    cursor: default;
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.075);
+    color: rgb(from var(--lumo-text-color) r g b / 0.85);
+}
+
+:where(input[type=date],
+    input[type=datetime-local],
+    input[type=email],
+    input[type=month],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=time],
+    input[type=url],
+    input[type=week]):focus {
+    outline: 2px solid var(--lumo-accent-color);
+    box-shadow: 0 0 0 2px #FFFFFF;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    border: none !important;
+    border-radius: 9999px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    cursor: pointer;
+}
+
+/*
+ * Table
+ */
+table {
+    min-width: 100%;
+    border-collapse: collapse;
+    border-radius: 1rem;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+table.striped tr:nth-child(even) td,
+table.striped tr:nth-child(even) th {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.035);
+}
+
+table thead {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
+}
+
+table thead th {
+    border-bottom: 2px solid rgb(from var(--lumo-text-color) r g b / 0.15);
+    white-space: nowrap;
+}
+
+table tfoot th,
+table tfoot td {
+    border-top: 2px solid rgb(from var(--lumo-text-color) r g b / 0.15);
+    border-bottom: none;
+    background-color: var(--lumo-background-color) !important;
+}
+
+table th,
+table td {
+    padding: 0.35rem 0.5rem;
+}
+
+table td {
+    border-bottom: 1px solid rgb(from var(--lumo-text-color) r g b / 0.1);
+}
+
+.overflow-auto {
+    overflow: auto !important;
+    margin-bottom: 1rem;
+}
+
+.overflow-auto>table {
+    width: max-content;
+    max-width: none;
+    margin-bottom: 0;
+}
+
+main>.container #page,
+section,
+section article {
+    min-width: 0;
+}
+
+/*
+ * Breadcrumb
+ */
+ul[aria-label="breadcrumb"] {
+    max-width: 100%;
+    width: fit-content;
+    display: flex;
+    gap: calc(var(--lumo-spacing) * 0.35);
+    padding: 0;
+    list-style: none;
+}
+
+ul[aria-label="breadcrumb"] li:not(:last-child)::after {
+    content: var(--lumo-breadcrumb-divider);
+    margin-left: calc(var(--lumo-spacing) * 0.35);
+}
+
+ul[aria-label="breadcrumb"] li:last-child a {
+    cursor: default;
+    pointer-events: none;
+    color: var(--lumo-text-color) !important;
+    text-decoration: none !important;
+}
