@@ -122,11 +122,42 @@
                         <input type="search">
                         <input type="submit">
                         <input type="tel">
-                        <input type="text">
+                        <input type="text" aria-invalid="true">
                         <input type="time">
                         <input type="url">
                         <input type="week">
                         <input type="text" value="Lorem ipsum dolor" disabled>
+                        <textarea></textarea>
+                        <select aria-invalid="false">
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                            <option value="">Option 4</option>
+                            <option value="">Option 5</option>
+                        </select>
+                        <input type="checkbox" role="switch">
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <details class="dropdown">
+                            <summary>Select a french dessert</summary>
+                            <ul>
+                                <li><label><input type="radio" name="french-dessert">Option 1</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 2</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 3</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 4</label></li>
+                            </ul>
+                        </details>
+                        <details class="dropdown">
+                            <summary role="button">Select a french dessert</summary>
+                            <ul>
+                                <li><label><input type="radio" name="french-dessert">Option 1</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 2</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 3</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 4</label></li>
+                            </ul>
+                        </details>
                     </article>
                 </section>
                 <section>
@@ -287,50 +318,53 @@
                                 </tr>
                             </tfoot>
                         </table>
-                        <table class="striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Planet</th>
-                                    <th scope="col">Diam. (km)</th>
-                                    <th scope="col">Dist. to Sun (AU)</th>
-                                    <th scope="col">Grav. (m/s²)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Mercury</th>
-                                    <td>4,880</td>
-                                    <td>0.39</td>
-                                    <td>3.7</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Venus</th>
-                                    <td>12,104</td>
-                                    <td>0.72</td>
-                                    <td>8.9</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Earth</th>
-                                    <td>12,742</td>
-                                    <td>1.00</td>
-                                    <td>9.8</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Mars</th>
-                                    <td>6,779</td>
-                                    <td>1.52</td>
-                                    <td>3.7</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th scope="row">Average</th>
-                                    <td>9,126</td>
-                                    <td>0.91</td>
-                                    <td>6.5</td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                        <div class="overflow-auto">
+                            <table class="striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Planet</th>
+                                        <th scope="col">Diam. (km)</th>
+                                        <th scope="col">Dist. to Sun (AU)</th>
+                                        <th scope="col">Grav. (m/s²)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Mercury</th>
+                                        <td>4,880</td>
+                                        <td>0.39</td>
+                                        <td>3.7</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Venus</th>
+                                        <td>12,104</td>
+                                        <td>0.72</td>
+                                        <td>8.9</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Earth</th>
+                                        <td>12,742</td>
+                                        <td>1.00</td>
+                                        <td>9.8</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Mars</th>
+                                        <td>6,779</td>
+                                        <td>1.52</td>
+                                        <td>3.7</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th scope="row">Average</th>
+                                        <td>9,126</td>
+                                        <td>0.91</td>
+                                        <td>6.5</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
                     </article>
                 </section>
                 <section>
@@ -341,6 +375,73 @@
                             <li><a href="#">Lorem ipsum</a></li>
                             <li><a href="#">Lorem ipsum</a></li>
                         </ul>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Forms</h4>
+                        <form>
+                            <fieldset>
+                                <label>Given name:<input type="text" name="name" placeholder="First name"
+                                        aria-label="Given name input"></label>
+                                <label>E-mail:<input type="email" name="email" placeholder="E-mail address"
+                                        aria-label="Email input"></label>
+                                <label><input type="checkbox"> I agree with Terms of Service.</label>
+                            </fieldset>
+                            <fieldset class="grid"><label>Given name:<input type="text" name="name"
+                                        placeholder="First name" aria-label="Given name input"></label>
+                                <label>E-mail:<input type="email" name="email" placeholder="E-mail address"
+                                        aria-label="Email input"></label>
+                            </fieldset>
+                            <fieldset role="group"><input type="email" name="email" placeholder="E-mail address"
+                                    aria-label="Email input"><button type="submit"
+                                    aria-label="Submit button">Send</button></fieldset>
+                            <fieldset>
+                                <label>E-mail: <input type="text" aria-invalid="true"><small>To pole zawiera
+                                        niepoprawnie wprowadzony adres e-mail.</small></label>
+                            </fieldset>
+                            <input type="submit" aria-label="Submit button">
+                        </form>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <details>
+                            <summary>Lorem ipsum dolor sit amet.</summary>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
+                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
+                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
+                                est?</p>
+                        </details>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <p data-tooltip="This is testing tooltip.">This text has a tooltip data attribute.</p>
+                    </article>
+                </section>
+                <section>
+                    <article><code>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, minima.</code>
+                        <pre>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque at voluptatem consectetur incidunt commodi saepe quidem amet. Asperiores placeat odit assumenda, 
+                            cum porro quos dicta minima hic tenetur esse est sequi iusto corrupti natus illo perspiciatis, nisi similique at explicabo quasi totam, fugit deleniti n
+                            ecessitatibus. Similique iste libero cupiditate magnam?</pre>
+                    </article>
+                </section>
+                <section>
+                    <article><kbd>CTRL</kbd><kbd>Shift</kbd></article>
+                </section>
+                <section>
+                    <article>
+                        <blockquote>
+                            “Design is a funny word. Some people think
+                            design means how it looks. But of course, if
+                            you dig deeper, it's really how it works.”
+                            <footer>
+                                <cite>— Steve Jobs</cite>
+                            </footer>
+                        </blockquote>
+                        <hr>
                     </article>
                 </section>
             </div>
