@@ -155,6 +155,7 @@ header nav ul {
  */
 
 details.dropdown {
+    display: inline-flex;
     width: max-content;
 }
 
@@ -388,6 +389,10 @@ main #navigation nav {
     top: 7rem;
 }
 
+main #navigation details summary {
+    background-color: transparent;
+}
+
 @media screen and (max-width: 1024px) {
     main>.container #navigation {
         position: static;
@@ -603,7 +608,7 @@ input[type=radio]:checked {
     input[type=text],
     input[type=time],
     input[type=url],
-    input[type=week], textarea, select, details.dropdown summary) {
+    input[type=week], textarea, select, details.dropdown summary[role="menu"]) {
     --lumo-border-radius: 0.25rem;
     --lumo-transition: 75ms linear;
     display: inline-flex;
@@ -882,6 +887,7 @@ label:has([type=checkbox], [type=radio]) {
  * Details (accordion)
  */
 details:not(.dropdown) summary {
+    --lumo-transition: 75ms linear;
     background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
     font-size: 1.05rem;
     padding: 0.5rem 0.75rem;
@@ -892,6 +898,15 @@ details:not(.dropdown) summary {
     background-repeat: no-repeat;
     background-position: center left 0.25rem;
     cursor: pointer;
+    outline: 3px solid transparent;
+    box-shadow: 0 0 0 2px transparent;
+    outline-offset: -2px;
+    transition: outline var(--lumo-transition), box-shadow var(--lumo-transition);
+}
+
+details:not(.dropdown) summary:focus {
+    outline: 2px solid var(--lumo-accent-color);
+    box-shadow: 0 0 0 2px #FFFFFF;
 }
 
 details:not(.dropdown)[open] summary {
