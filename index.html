@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="lumo.css">
+    <script src="lumo.js"></script>
 </head>
 
 <body>
@@ -14,10 +15,12 @@
             <a href="#"><img src="LumoCSS.svg" alt="Lumo.CSS logo" height="65"></a>
             <nav>
                 <ul>
+                    <button role="menu" aria-label="close"></button>
                     <li><a href="#">Lorem ipsum</a></li>
                     <li><a href="#">Lorem ipsum</a></li>
                     <li><a href="#">Lorem ipsum</a></li>
                 </ul>
+                <button role="menu"></button>
             </nav>
         </div>
     </header>
@@ -122,7 +125,7 @@
                         <input type="search">
                         <input type="submit">
                         <input type="tel">
-                        <input type="text" aria-invalid="true">
+                        <input type="text" aria-invalid="false">
                         <input type="time">
                         <input type="url">
                         <input type="week">
@@ -134,6 +137,7 @@
                             <option value="">Option 3</option>
                             <option value="">Option 4</option>
                             <option value="">Option 5</option>
+                            <option value="">Lorem ipsum dolor sit amet.</option>
                         </select>
                         <input type="checkbox" role="switch">
                     </article>
@@ -416,6 +420,17 @@
                             <fieldset role="group"><input type="email" name="email" placeholder="E-mail address"
                                     aria-label="Email input"><button type="submit"
                                     aria-label="Submit button">Send</button></fieldset>
+                            <fieldset role="group">
+                                <select style="width:fit-content">
+                                    <option value="">+1</option>
+                                    <option value="">+2</option>
+                                    <option value="">+3</option>
+                                    <option value="">+4</option>
+                                    <option value="">+5</option>
+                                </select>
+                                <input type="tel" name="tel" placeholder="Phone number" aria-label="Phone number input">
+                                <button type="submit" aria-label="Submit button">Send</button>
+                            </fieldset>
                             <fieldset>
                                 <label>E-mail: <input type="text" aria-invalid="true"><small>To pole zawiera
                                         niepoprawnie wprowadzony adres e-mail.</small></label>
@@ -462,6 +477,25 @@
                             </footer>
                         </blockquote>
                         <hr>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <button data-target="testing-dialog">Launch modal demo</button>
+                        <dialog id="testing-dialog">
+                            <section>
+                                <header>
+                                    <h4>Dialog title</h4>
+                                    <button class="close" data-close></button>
+                                </header>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
+                                    et temporibus magnam hic id, optio earum cumque!</p>
+                                <footer>
+                                    <button class="secondary" data-close>Cancel</button>
+                                    <button class="primary">Confirm</button>
+                                </footer>
+                            </section>
+                        </dialog>
                     </article>
                 </section>
             </div>
