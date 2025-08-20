@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lumo.CSS</title>
     <link rel="stylesheet" href="lumo.css">
     <script src="lumo.js"></script>
 </head>
 
-<body>
+<body data-theme="light">
     <header class="is-fixed">
         <div class="container">
             <a href="#"><img src="LumoCSS.svg" alt="Lumo.CSS logo" height="65"></a>
@@ -174,6 +174,25 @@
                         </details>
                         <details class="dropdown">
                             <summary role="button">Select a french dessert</summary>
+                            <ul>
+                                <li><a href="#">Option 1</a></li>
+                                <li><a href="#">Option 2</a></li>
+                                <li><a href="#">Option 3</a></li>
+                                <li><a href="#">Option 4</a></li>
+                                <li><a href="#">Option 5</a></li>
+                            </ul>
+                        </details>
+                        <details class="dropdown">
+                            <summary role="button" class="secondary">Select a french dessert</summary>
+                            <ul>
+                                <li><label><input type="radio" name="french-dessert">Option 1</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 2</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 3</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 4</label></li>
+                            </ul>
+                        </details>
+                        <details class="dropdown">
+                            <summary role="button" class="secondary outline">Select a french dessert</summary>
                             <ul>
                                 <li><a href="#">Option 1</a></li>
                                 <li><a href="#">Option 2</a></li>
@@ -440,9 +459,44 @@
                     </article>
                 </section>
                 <section>
+
                     <article>
+                        <h4>Accordion</h4>
+                        <hr>
                         <details>
                             <summary>Lorem ipsum dolor sit amet.</summary>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
+                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
+                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
+                                est?</p>
+                        </details>
+                        <details>
+                            <summary role="button">Lorem ipsum dolor sit amet.</summary>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
+                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
+                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
+                                est?</p>
+                        </details>
+                        <details>
+                            <summary role="button" class="secondary">Lorem ipsum dolor sit amet.</summary>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
+                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
+                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
+                                est?</p>
+                        </details>
+                        <details>
+                            <summary role="button" class="outline">Lorem ipsum dolor sit amet.</summary>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
+                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
+                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
+                                est?</p>
+                        </details>
+                        <details>
+                            <summary role="button" class="secondary outline">Lorem ipsum dolor sit amet.</summary>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
                                 similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
                                 voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
@@ -453,21 +507,31 @@
                 </section>
                 <section>
                     <article>
-                        <p data-tooltip="This is testing tooltip.">This text has a tooltip data attribute.</p>
+                        <h4>Tooltip</h4>
+                        <hr>
+                        <p data-tooltip="This is testing tooltip.">This text has a tooltip
+                            data attribute.</p>
                     </article>
                 </section>
                 <section>
-                    <article><code>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, minima.</code>
+                    <article>
+                        <h4>Code and pre</h4>
+                        <hr><code>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, minima.</code>
                         <pre>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque at voluptatem consectetur incidunt commodi saepe quidem amet. Asperiores placeat odit assumenda, 
                             cum porro quos dicta minima hic tenetur esse est sequi iusto corrupti natus illo perspiciatis, nisi similique at explicabo quasi totam, fugit deleniti n
                             ecessitatibus. Similique iste libero cupiditate magnam?</pre>
                     </article>
                 </section>
                 <section>
-                    <article><kbd>CTRL</kbd><kbd>Shift</kbd></article>
+                    <article>
+                        <h4>kbd</h4>
+                        <hr><kbd>CTRL</kbd><kbd>Shift</kbd>
+                    </article>
                 </section>
                 <section>
                     <article>
+                        <h4>Blockqoute</h4>
+                        <hr>
                         <blockquote>
                             “Design is a funny word. Some people think
                             design means how it looks. But of course, if
@@ -481,6 +545,8 @@
                 </section>
                 <section>
                     <article>
+                        <h4>Modal demo</h4>
+                        <hr>
                         <button data-target="testing-dialog">Launch modal demo</button>
                         <dialog id="testing-dialog">
                             <section>
@@ -496,6 +562,40 @@
                                 </footer>
                             </section>
                         </dialog>
+                    </article>
+                </section>
+                <section>
+                    <article class="tabs">
+                        <h4>Tabs</h4>
+                        <hr>
+                        <nav role="tablist">
+                            <button role="tab" aria-selected="true">Tab 1</button>
+                            <button role="tab" aria-selected="false">Tab 2</button>
+                            <button role="tab" aria-selected="false">Tab 3</button>
+                        </nav>
+                        <div class="tabs-content">
+                            <div role="tabpanel" tabindex="0">
+                                <p>Content for Tab 1.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
+                                    eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
+                                    eligendi
+                                    labore quibusdam asperiores.</p>
+                            </div>
+                            <div role="tabpanel" tabindex="0" hidden>
+                                <p>Content for Tab 2.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
+                                    eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
+                                    eligendi
+                                    labore quibusdam asperiores.</p>
+                            </div>
+                            <div role="tabpanel" tabindex="0" hidden>
+                                <p>Content for Tab 3.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
+                                    eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
+                                    eligendi
+                                    labore quibusdam asperiores.</p>
+                            </div>
+                        </div>
                     </article>
                 </section>
             </div>
