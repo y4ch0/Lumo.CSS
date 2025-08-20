@@ -7,12 +7,42 @@
     <title>Lumo.CSS</title>
     <link rel="stylesheet" href="lumo.css">
     <script src="lumo.js"></script>
+    <style>
+        button#theme-change {
+            background-image: url("data:image/svg+xml,%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'/%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M7 3V0H9V3H7Z' fill='%23000000'/%3E%3Cpath d='M9 13V16H7V13H9Z' fill='%23000000'/%3E%3Cpath d='M11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8Z' fill='%23000000'/%3E%3Cpath d='M0 9H3V7H0V9Z' fill='%23000000'/%3E%3Cpath d='M16 7H13V9H16V7Z' fill='%23000000'/%3E%3Cpath d='M3.75735 5.17157L1.63603 3.05025L3.05025 1.63603L5.17157 3.75735L3.75735 5.17157Z' fill='%23000000'/%3E%3Cpath d='M12.2426 10.8284L14.364 12.9497L12.9497 14.364L10.8284 12.2426L12.2426 10.8284Z' fill='%23000000'/%3E%3Cpath d='M3.05025 14.364L5.17157 12.2426L3.75735 10.8284L1.63603 12.9498L3.05025 14.364Z' fill='%23000000'/%3E%3Cpath d='M12.9497 1.63604L10.8284 3.75736L12.2426 5.17158L14.364 3.05026L12.9497 1.63604Z' fill='%23000000'/%3E%3C/g%3E%3C/svg%3E");
+            width: 2rem;
+            height: 2rem;
+            background-color: transparent;
+            border: none;
+            background-size: 1.5rem;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        body[data-theme="dark"] button#theme-change {
+            background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 400.001C0 237.781 96.566 98.115 235.35 35.3515L282.718 82.719C261.76 125.691 250 173.973 250 225.001C250 404.493 395.508 550 575 550C626.03 550 674.31 538.24 717.28 517.285L764.65 564.65C701.885 703.435 562.22 800 400 800C179.086 800 0 620.915 0 400.001Z' fill='white'/%3E%3Cpath d='M575 350.001L450 225.001L575 100.001L700 225.001L575 350.001Z' fill='white'/%3E%3C/svg%3E%0A");
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("theme-change").addEventListener("click", () => {
+                if (document.querySelector("body").getAttribute("data-theme") == "dark") {
+                    document.querySelector("body").setAttribute("data-theme", "light");
+                    document.getElementById("page-logo").src = "LumoCSS.svg";
+                } else {
+                    document.querySelector("body").setAttribute("data-theme", "dark");
+                    document.getElementById("page-logo").src = "LumoCSS_dark.svg";
+                }
+            })
+        })
+
+    </script>
 </head>
 
-<body data-theme="light">
+<body data-theme="dark">
     <header class="is-fixed">
         <div class="container">
-            <a href="#"><img src="LumoCSS.svg" alt="Lumo.CSS logo" height="65"></a>
+            <a href="#"><img src="LumoCSS.svg" alt="Lumo.CSS logo" height="65" id="page-logo"></a>
             <nav>
                 <ul>
                     <button role="menu" aria-label="close"></button>
@@ -20,6 +50,7 @@
                     <li><a href="#">Lorem ipsum</a></li>
                     <li><a href="#">Lorem ipsum</a></li>
                 </ul>
+                <button id="theme-change"></button>
                 <button role="menu"></button>
             </nav>
         </div>
