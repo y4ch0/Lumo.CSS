@@ -26,12 +26,11 @@
     --lumo-container-width-bp-m: 90vw;
     --lumo-container-width-bp-s: 95vw;
     --lumo-background-color: #FFFFFF;
-    --lumo-modal-background-color: rgba(0, 0, 0, 0.15);
+    --lumo-modal-background-color: rgba(0, 0, 0, 0.25);
     --lumo-border-light: 1px solid rgb(from var(--lumo-text-color) r g b / 0.075);
     --lumo-border-default: 1px solid rgb(from var(--lumo-text-color) r g b / 0.15);
     --lumo-border-hard: 1px solid rgb(from var(--lumo-text-color) r g b / 0.45);
     --lumo-accent-color: var(--lumo-secondary-color);
-    --lumo-tabs-border-color: 1px solid rgb(from var(--lumo-text-color) r g b / 0.15);
     --lumo-menu-icon: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Menu / Hamburger_MD'%3E%3Cpath id='Vector' d='M5 17H19M5 12H19M5 7H19' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
     --lumo-close-icon: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Menu / Close_MD'%3E%3Cpath id='Vector' d='M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
     --lumo-dropdown-icon: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Arrow / Chevron_Down'%3E%3Cpath id='Vector' d='M19 9L12 16L5 9' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
@@ -39,7 +38,7 @@
     overflow-wrap: break-word
 }
 
-/* begin dark mode definition */
+/* begin dark theme definition */
 
 body[data-theme="dark"] {
     --lumo-background-color: #131313;
@@ -61,6 +60,13 @@ body[data-theme="dark"] details.dropdown summary[role="button"].secondary.outlin
 body[data-theme="dark"] details:not(.dropdown) summary[role="button"]::before {
     filter: brightness(0) invert(1);
 }
+
+body[data-theme="dark"] pre,
+body[data-theme="dark"] code {
+    background-color: #1c1c1d;
+}
+
+/* end dark theme definition */
 
 * {
     position: relative;
@@ -142,7 +148,7 @@ header {
     width: 100vw;
     display: flex;
     padding: 0.5rem 0;
-    border-bottom: var(--lumo-border-default);
+    border-bottom: var(--lumo-border-light);
     box-shadow: var(--lumo-shadow-s);
     --lumo-spacing: 0;
     background-color: rgb(from var(--lumo-background-color) r g b / 0.9);
@@ -333,11 +339,15 @@ input[type=reset] {
     --lumo-transition: 150ms ease-in-out;
     display: inline-flex;
     gap: 0.35rem;
+    width: auto;
     background-color: var(--lumo-background-color);
     color: var(--lumo-primary-button-text);
     padding: 0.45rem 0.75rem;
     border-radius: var(--lumo-border-radius);
     font-size: 0.95rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     filter: brightness(1);
     border: 1px solid var(--lumo-background-color);
@@ -730,12 +740,13 @@ input[type=radio]:checked {
     --lumo-border-radius: 0.275rem;
     --lumo-transition: 75ms linear;
     display: inline-flex;
-    width: fit-content;
+    width: auto;
     border: var(--lumo-border-hard);
     border-radius: var(--lumo-border-radius);
     font-size: 0.95rem;
     padding: 0.35rem 0.65rem;
     color: var(--lumo-text-color);
+    text-align: left;
     font-family: var(--lumo-font-family);
     line-height: var(--lumo-line-height);
     margin: calc(var(--lumo-spacing) * 0.25) 0;
@@ -1035,6 +1046,7 @@ details:not(.dropdown) summary {
     display: flex;
     gap: 0.25rem;
     align-items: center;
+    justify-content: left;
     cursor: pointer;
 }
 
@@ -1196,7 +1208,7 @@ dialog>section {
     max-height: 80vh;
     display: block;
     border-radius: 0.5rem;
-    box-shadow: var(--lumo-shadow-s);
+    box-shadow: var(--lumo-shadow-m);
     overflow-y: auto;
     padding: 1rem;
     color: var(--lumo-text-color);
@@ -1273,7 +1285,7 @@ article.tabs nav[role="tablist"] {
     padding: 0;
     margin: 0 0 1rem;
     list-style: none;
-    border-bottom: var(--lumo-tabs-border-color);
+    border-bottom: var(--lumo-border-default);
     overflow-x: auto;
 }
 
@@ -1305,4 +1317,28 @@ article.tabs nav[role="tablist"]>button[role="tab"][aria-selected="true"] {
 
 article.tabs .tabs-content>div[hidden] {
     display: none;
+}
+
+/*
+ * Form
+ */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+form fieldset {
+    margin: 0 0 0.5rem 0;
+}
+
+form footer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background-color: transparent;
+    margin: 0;
 }
