@@ -232,7 +232,7 @@ header nav {
     align-items: center;
 }
 
-header nav ul {
+header nav>ul {
     width: fit-content;
     display: flex;
     gap: calc(var(--lumo-grip-column-gap) * 0.5) !important;
@@ -296,7 +296,7 @@ details.dropdown ul {
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 9999;
+    z-index: inherit;
 }
 
 details.dropdown ul[dir=rtl] {
