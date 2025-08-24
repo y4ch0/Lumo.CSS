@@ -193,7 +193,7 @@ header a {
 }
 
 @media screen and (max-width: 1024px) {
-    header nav:has(button[role="menu"]) ul {
+    header nav:has(button[role="menu"])>ul {
         width: 100vw;
         height: 100vh;
         display: none;
@@ -296,7 +296,7 @@ details.dropdown ul {
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: inherit;
+    z-index: 9999;
 }
 
 details.dropdown ul[dir=rtl] {
