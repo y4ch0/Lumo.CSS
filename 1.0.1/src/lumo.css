@@ -153,6 +153,7 @@ header {
     --lumo-spacing: 0;
     background-color: rgb(from var(--lumo-background-color) r g b / 0.9);
     backdrop-filter: blur(10px);
+    z-index: 999;
 }
 
 header nav>button[role="menu"],
@@ -193,7 +194,7 @@ header a {
 }
 
 @media screen and (max-width: 1024px) {
-    header nav:has(button[role="menu"]) ul {
+    header nav:has(button[role="menu"])>ul {
         width: 100vw;
         height: 100vh;
         display: none;
@@ -232,7 +233,7 @@ header nav {
     align-items: center;
 }
 
-header nav ul {
+header nav>ul {
     width: fit-content;
     display: flex;
     gap: calc(var(--lumo-grip-column-gap) * 0.5) !important;
@@ -272,7 +273,7 @@ details.dropdown summary[role="button"].secondary:not(.outline)::after {
 }
 
 details.dropdown[open] summary {
-    cursor: default;
+    cursor: default !important;
 }
 
 details>summary:first-of-type {
@@ -324,6 +325,22 @@ details.dropdown ul li:hover * {
 details.dropdown ul li>* {
     padding: 0.25rem 0.85rem !important;
     display: flex;
+}
+
+details.dropdown summary[role="menu"] {
+    display: inline-flex;
+    width: auto;
+    border: var(--lumo-border-hard);
+    border-radius: var(--lumo-border-radius);
+    font-size: 0.95rem;
+    padding: 0.35rem 0.65rem;
+    color: var(--lumo-text-color);
+    text-align: left;
+    font-family: var(--lumo-font-family);
+    line-height: var(--lumo-line-height);
+    background-color: var(--lumo-background-color);
+    cursor: pointer;
+    height: calc(var(--lumo-font-size) * 2.5);
 }
 
 /*
@@ -670,6 +687,11 @@ hr {
     margin: calc(var(--lumo-spacing) * 0.5) 0;
 }
 
+hr[aria-orientation="vertical"] {
+    border-right: 0;
+    margin: 0 calc(var(--lumo-spacing) * 0.5);
+}
+
 /*
  * input
  */
@@ -736,7 +758,7 @@ input[type=radio]:checked {
     input[type=text],
     input[type=time],
     input[type=url],
-    input[type=week], textarea, select, details.dropdown summary[role="menu"]) {
+    input[type=week], textarea, select) {
     --lumo-border-radius: 0.275rem;
     --lumo-transition: 75ms linear;
     display: inline-flex;
@@ -806,6 +828,13 @@ label *:where(input[type=date],
     input[type=week],
     textarea, select) {
     width: 100%;
+}
+
+label[aria-required="true"]::before {
+    content: "*";
+    margin-right: 0.25rem;
+    color: red;
+    font-weight: bold;
 }
 
 input:disabled,
