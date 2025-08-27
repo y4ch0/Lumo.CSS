@@ -688,6 +688,11 @@ section article,
     margin-bottom: calc(var(--lumo-spacing) * 0.75);
 }
 
+[role="region"]>:where(h1, h2, h3, h4, h5, h6):first-child {
+    padding-top: 0;
+    margin-top: 0;
+}
+
 /*
  * footer
  */
@@ -1432,4 +1437,96 @@ form footer {
 [role="alert"][aria-label="information"] {
     --lumo-background-color: rgba(0, 179, 255, 0.1);
     background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M400 233.667V233.334M400 566.667V333.333M700 400C700 565.687 565.687 700 400 700C234.315 700 100 565.687 100 400C100 234.315 234.315 100 400 100C565.687 100 700 234.315 700 400Z' stroke='%2314BDDA' stroke-width='50' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+}
+
+/*
+ * Slider
+ */
+[role="slider"] {
+    width: 100%;
+    overflow-x: auto;
+    margin: 1rem 0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    scroll-behavior: smooth;
+    anchor-name: --carousel;
+    scroll-snap-type: x mandatory;
+    scroll-marker-group: after;
+}
+
+[role="slider"]::scroll-marker-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: -1rem;
+}
+
+[role="slider"]::scroll-button(right),
+[role="slider"]::scroll-button(left) {
+    content: "";
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 0.35rem;
+    background-color: var(--lumo-primary-color);
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Arrow / Arrow_Right_SM'%3E%3Cpath id='Vector' d='M7 12H17M17 12L13 8M17 12L13 16' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: fixed;
+    position-anchor: --carousel;
+    position-area: right center;
+    translate: calc(-100% - 0.5rem);
+    z-index: 999;
+    transition: filter 100ms ease;
+}
+
+[role="slider"]::scroll-button(left) {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Arrow / Arrow_Left_SM'%3E%3Cpath id='Vector' d='M17 12H7M7 12L11 16M7 12L11 8' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
+    position-area: left center;
+    translate: calc(100% + 0.5rem);
+}
+
+[role="slider"]::scroll-button(right):hover,
+[role="slider"]::scroll-button(left):hover {
+    filter: brightness(0.8);
+}
+
+[role="slider"]::scroll-button(right):disabled,
+[role="slider"]::scroll-button(left):disabled {
+    opacity: 0.6;
+    cursor: not-allowed
+}
+
+[role="slider"]::-webkit-scrollbar {
+    display: none;
+}
+
+[role="slider"]>* {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+
+[role="slider"]>*::scroll-marker {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.25);
+    border-radius: 1rem;
+    outline-offset: 2px;
+    outline: 1px solid transparent;
+    transition: outline 100ms linear;
+}
+
+[role="slider"]>*::scroll-marker:focus {
+    outline: 1px solid var(--lumo-primary-color);
+}
+
+[role="slider"]>*::scroll-marker:target-current {
+    background-color: var(--lumo-primary-color);
+}
+
+[role="slider"]>*:not(img) {
+    padding: 0 3.5rem;
 }
