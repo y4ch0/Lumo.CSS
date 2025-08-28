@@ -167,8 +167,7 @@ header {
     border-bottom: var(--lumo-border-light);
     box-shadow: var(--lumo-shadow-s);
     --lumo-spacing: 0;
-    background-color: rgb(from var(--lumo-background-color) r g b / 0.9);
-    backdrop-filter: blur(10px);
+    background-color: var(--lumo-background-color);
     z-index: 999;
 }
 
@@ -671,7 +670,7 @@ section article,
 [role="region"] {
     border: var(--lumo-border-default);
     border-radius: var(--lumo-border-radius);
-    padding: var(--lumo-spacing);
+    padding: 1rem;
 }
 
 [role="region"].shadow {
@@ -681,9 +680,9 @@ section article,
 }
 
 [role="region"]>hr {
-    width: calc(100% + var(--lumo-spacing) * 2);
+    width: calc(100% + 2rem);
     max-width: unset;
-    margin-left: calc(var(--lumo-spacing) * -1);
+    margin-left: -1rem;
     margin-top: calc(var(--lumo-spacing) * 0.75);
     margin-bottom: calc(var(--lumo-spacing) * 0.75);
 }
@@ -691,6 +690,31 @@ section article,
 [role="region"]>:where(h1, h2, h3, h4, h5, h6):first-child {
     padding-top: 0;
     margin-top: 0;
+}
+
+[role="region"]>header {
+    box-shadow: none;
+    margin-left: -1rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    border-bottom: var(--lumo-border-default);
+    z-index: inherit;
+}
+
+[role="region"]>footer {
+    box-shadow: none;
+    margin-left: -1rem;
+    margin-bottom: -1rem;
+    margin-top: 1rem;
+    border-top: var(--lumo-border-default);
+}
+
+[role="region"]>header,
+[role="region"]>footer {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.045);
+    max-width: unset;
+    width: calc(100% + 2rem);
+    padding: 0.5rem 1rem;
 }
 
 /*
@@ -715,6 +739,12 @@ hr {
 hr[aria-orientation="vertical"] {
     border-right: 0;
     margin: 0 calc(var(--lumo-spacing) * 0.5);
+}
+
+@media screen and (max-width: 1024px) {
+    hr[aria-orientation="vertical"] {
+        margin: calc(var(--lumo-spacing) * 0.5) 0;
+    }
 }
 
 /*
@@ -839,6 +869,11 @@ select {
     cursor: default;
 }
 
+select[multiple] {
+    height: max-content;
+    max-height: 300px;
+}
+
 label *:where(input[type=date],
     input[type=datetime-local],
     input[type=email],
@@ -942,7 +977,7 @@ input[role="switch"] {
     border-radius: 2rem;
     padding: 0;
     margin: 0;
-    width: 2.85rem;
+    width: 2.9rem;
     height: 1.65rem;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Ccircle cx='11' cy='11' r='8' fill='white'/%3E%3C/svg%3E");
     background-size: contain;
@@ -1199,10 +1234,10 @@ pre {
  * kbd
  */
 kbd {
-    padding: 0.15rem 0.5rem;
+    padding: 0.1rem 0.35rem;
     background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
     border: 1px solid rgba(from var(--lumo-text-color) r g b / 0.2);
-    border-bottom: 2px solid rgba(from var(--lumo-text-color) r g b / 0.2);
+    border-bottom: 3px solid rgba(from var(--lumo-text-color) r g b / 0.2);
     font-weight: bold;
     border-radius: 0.25rem;
     margin: 0;
@@ -1478,7 +1513,7 @@ form footer {
     position-anchor: --carousel;
     position-area: right center;
     translate: calc(-100% - 0.5rem);
-    z-index: 999;
+    z-index: inherit;
     transition: filter 100ms ease;
 }
 
@@ -1529,4 +1564,29 @@ form footer {
 
 [role="slider"]>*:not(img) {
     padding: 0 3.5rem;
+}
+
+/*
+ * ins/del
+ */
+ins,
+del,
+mark {
+    padding: 0.15rem 0.25rem;
+    border-radius: 0.25rem;
+}
+
+ins {
+    background-color: rgb(from #1FBC36 r g b / 0.2);
+    text-decoration: none;
+}
+
+del {
+    background-color: rgb(from #FF453A r g b / 0.15);
+    color: #FF453A;
+}
+
+mark {
+    background-color: rgb(from #fac131 r g b / 0.5);
+    color: var(--lumo-text-color);
 }

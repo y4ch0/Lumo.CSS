@@ -698,6 +698,7 @@ section article,
     margin-top: -1rem;
     margin-bottom: 1rem;
     border-bottom: var(--lumo-border-default);
+    z-index: inherit;
 }
 
 [role="region"]>footer {
@@ -1512,7 +1513,7 @@ form footer {
     position-anchor: --carousel;
     position-area: right center;
     translate: calc(-100% - 0.5rem);
-    z-index: 999;
+    z-index: inherit;
     transition: filter 100ms ease;
 }
 
