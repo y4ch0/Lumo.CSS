@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const { target } = event;
         const openTrigger = target.closest("[data-target]");
         const closeTrigger = target.closest("[data-close]");
+
         const isBackgroundClick = target.matches("dialog[open]");
 
         if (openTrigger) {
@@ -54,9 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
             if (modal) {
                 openModal(modal);
             }
-        } else if (closeTrigger || isBackgroundClick) {
+        } else {
             const openModalElement = document.querySelector("dialog[open]");
-            if (openModalElement) {
+            if (!openModalElement) return;
+
+            const isLocked = openModalElement.hasAttribute("data-locked");
+
+            if (closeTrigger || (isBackgroundClick && !isLocked)) {
                 closeModal(openModalElement);
             }
         }
@@ -65,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
             const openModalElement = document.querySelector("dialog[open]");
-            if (openModalElement) {
+            if (openModalElement && !openModalElement.hasAttribute("data-locked")) {
                 closeModal(openModalElement);
             }
         }

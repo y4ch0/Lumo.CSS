@@ -1139,6 +1139,10 @@ details:not(.dropdown) summary {
     cursor: pointer;
 }
 
+details:not(.dropdown) summary:not([role="button"]):hover {
+    text-decoration: underline;
+}
+
 details:not(.dropdown) summary:not([role="button"]) {
     --lumo-transition: 75ms linear;
     background-color: transparent;
@@ -1357,11 +1361,37 @@ dialog>section>footer {
     gap: 0.5rem;
 }
 
+dialog>section[data-width="s"] {
+    min-width: 20vw;
+    max-width: 30vw;
+    width: 20vw;
+    max-height: 50vh;
+}
+
+dialog>section[data-width="l"] {
+    min-width: 40vw;
+    max-width: 55vw;
+    width: 40vw;
+    max-height: 60vh;
+}
+
+dialog>section[data-width="xl"] {
+    min-width: 60vw;
+    max-width: 80vw;
+    width: 60vw;
+    max-height: 70vh;
+}
+
+dialog>section>:where(h1, h2, h3, h4, h5, h6):first-child {
+    padding-top: 0;
+    margin-top: 0;
+}
+
 @media screen and (max-width: 1024px) {
     dialog>section {
-        min-width: 70vw;
-        max-width: 95vw;
-        width: 95vw;
+        min-width: 95vw !important;
+        max-width: 95vw !important;
+        width: 95vw !important;
     }
 }
 

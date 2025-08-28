@@ -603,9 +603,54 @@
                     <article>
                         <h4>Modal demo</h4>
                         <hr>
-                        <button data-target="testing-dialog">Launch modal demo</button>
+                        <button data-target="testing-dialog-wide-1">Launch modal demo 1</button>
+                        <button data-target="testing-dialog">Launch modal demo 2</button>
+                        <button data-target="testing-dialog-wide-2">Launch modal demo 3</button>
+                        <button data-target="testing-dialog-wide-3">Launch modal demo 4</button>
                         <dialog id="testing-dialog">
                             <section>
+                                <header>
+                                    <h4>Dialog title</h4>
+                                    <button class="close" data-close></button>
+                                </header>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
+                                    et temporibus magnam hic id, optio earum cumque!</p>
+                                <footer>
+                                    <button class="secondary" data-close>Cancel</button>
+                                    <button class="primary">Confirm</button>
+                                </footer>
+                            </section>
+                        </dialog>
+                        <dialog id="testing-dialog-wide-1">
+                            <section data-width="s">
+                                <header>
+                                    <h4>Dialog title</h4>
+                                    <button class="close" data-close></button>
+                                </header>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
+                                    et temporibus magnam hic id, optio earum cumque!</p>
+                                <footer>
+                                    <button class="secondary" data-close>Cancel</button>
+                                    <button class="primary">Confirm</button>
+                                </footer>
+                            </section>
+                        </dialog>
+                        <dialog id="testing-dialog-wide-2">
+                            <section data-width="l">
+                                <header>
+                                    <h4>Dialog title</h4>
+                                    <button class="close" data-close></button>
+                                </header>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
+                                    et temporibus magnam hic id, optio earum cumque!</p>
+                                <footer>
+                                    <button class="secondary" data-close>Cancel</button>
+                                    <button class="primary">Confirm</button>
+                                </footer>
+                            </section>
+                        </dialog>
+                        <dialog id="testing-dialog-wide-3">
+                            <section data-width="xl">
                                 <header>
                                     <h4>Dialog title</h4>
                                     <button class="close" data-close></button>
@@ -730,6 +775,21 @@
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
                             delectus similique dolorum perspiciatis ea adipisci hic.</p>
                         <footer>Footer of card</footer>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <button data-target="cookie-modal">Launch modal demo (cookie modal)</button>
+                        <dialog id="cookie-modal" data-locked="true">
+                            <section>
+                                <h2>Cookie Settings</h2>
+                                <p>We use cookies to improve your experience. By clicking "Accept", you agree to our use
+                                    of cookies.</p>
+                                <footer>
+                                    <button data-close>Accept</button>
+                                </footer>
+                            </section>
+                        </dialog>
                     </article>
                 </section>
             </div>
