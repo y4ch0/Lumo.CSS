@@ -172,6 +172,16 @@
                         <input type="week">
                         <input type="text" value="Lorem ipsum dolor" disabled>
                         <textarea></textarea>
+                        <select multiple>
+                            <option disabled>
+                                Select your favorite snacks...
+                            </option>
+                            <option>Cheese</option>
+                            <option selected>Fruits</option>
+                            <option selected>Nuts</option>
+                            <option>Chocolate</option>
+                            <option>Crackers</option>
+                        </select>
                         <select aria-invalid="false">
                             <option value="">Option 1</option>
                             <option value="">Option 2</option>
@@ -620,21 +630,21 @@
                             <button role="tab" aria-selected="false">Tab 3</button>
                         </nav>
                         <div class="tabs-content">
-                            <div role="tabpanel" tabindex="0">
+                            <div role="tabpanel">
                                 <p>Content for Tab 1.</p>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
                                     eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
                                     eligendi
                                     labore quibusdam asperiores.</p>
                             </div>
-                            <div role="tabpanel" tabindex="0" hidden>
+                            <div role="tabpanel" hidden>
                                 <p>Content for Tab 2.</p>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
                                     eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
                                     eligendi
                                     labore quibusdam asperiores.</p>
                             </div>
-                            <div role="tabpanel" tabindex="0" hidden>
+                            <div role="tabpanel" hidden>
                                 <p>Content for Tab 3.</p>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
                                     eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
@@ -699,6 +709,27 @@
                                     recusandae, at illum quo alias nobis quibusdam optio.</p>
                             </div>
                         </div>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <p>This is a <del>deleted</del> text.</p>
+                        <p>This is a <del>deleted</del> <ins>inserted</ins> text.</p>
+                        <p>This is <mark>highlighted text</mark>.</p>
+                        <p>To copy text select it and press <kbd>CTRL + C</kbd></p>
+                    </article>
+                </section>
+                <section>
+                    <article role="region">
+                        <header>
+                            <h4>Header of card</h4>
+
+                        </header>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                        <footer>Footer of card</footer>
                     </article>
                 </section>
             </div>
