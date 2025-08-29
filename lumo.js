@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- Modal Handling ---
 
-    function animateModal(dialog, direction) {
+    function animateModal(dialog, direction, onFinishCallback) {
         const modalBody = dialog.querySelector("section");
         const isOpening = direction === "open";
         const opacityKeyframes = [{ opacity: isOpening ? "0" : "1" }, { opacity: isOpening ? "1" : "0" }];
@@ -29,7 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
         animation1.play();
 
         if (!isOpening) {
-            animation.onfinish = () => dialog.close();
+            animation.onfinish = () => {
+                dialog.close();
+                if (onFinishCallback) {
+                    onFinishCallback();
+                }
+            };
         }
     }
 
@@ -38,31 +43,42 @@ document.addEventListener("DOMContentLoaded", () => {
         animateModal(modal, "open");
     }
 
-    function closeModal(modal) {
-        animateModal(modal, "close");
+    function closeModal(modal, callback) {
+        animateModal(modal, "close", callback);
     }
 
     document.addEventListener("click", (event) => {
         const { target } = event;
         const openTrigger = target.closest("[data-target]");
         const closeTrigger = target.closest("[data-close]");
+        const currentlyOpenModal = document.querySelector("dialog[open]");
 
-        const isBackgroundClick = target.matches("dialog[open]");
-
+        // --- Handle Modal Opening ---
         if (openTrigger) {
             const modalId = openTrigger.getAttribute("data-target");
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                openModal(modal);
-            }
-        } else {
-            const openModalElement = document.querySelector("dialog[open]");
-            if (!openModalElement) return;
+            const modalToOpen = document.getElementById(modalId);
 
-            const isLocked = openModalElement.hasAttribute("data-locked");
+            if (modalToOpen) {
+                if (currentlyOpenModal && currentlyOpenModal !== modalToOpen) {
+                    // A different modal is open; close it, then open the new one.
+                    closeModal(currentlyOpenModal, () => openModal(modalToOpen));
+                } else if (!currentlyOpenModal) {
+                    // No modal is open; just open it.
+                    openModal(modalToOpen);
+                }
+                // If the targeted modal is already the one that's open, do nothing.
+            }
+            return; // An open action was attempted, so we are done.
+        }
+
+        // --- Handle Modal Closing ---
+        // This logic runs only if the click was not on an openTrigger.
+        if (currentlyOpenModal) {
+            const isBackgroundClick = target.matches("dialog[open]");
+            const isLocked = currentlyOpenModal.hasAttribute("data-locked");
 
             if (closeTrigger || (isBackgroundClick && !isLocked)) {
-                closeModal(openModalElement);
+                closeModal(currentlyOpenModal);
             }
         }
     });
