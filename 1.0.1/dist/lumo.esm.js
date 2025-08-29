@@ -1,8 +1,41 @@
-function initializeUI(container = document) {
+function initNavbar() {
+    const navButton = document.querySelector("header nav > button[role='menu']");
+    const navList = document.querySelector("header nav > ul");
+    const navCloseButton = document.querySelector("header nav ul button[aria-label='close']");
+
+    function toggleNavbar() {
+        if (navList) {
+            const isVisible = navList.style.display === "flex";
+            navList.style.display = isVisible ? "none" : "flex";
+        }
+    }
+
+    if (navButton) {
+        navButton.addEventListener("click", toggleNavbar);
+    }
+
+    if (navCloseButton) {
+        navCloseButton.addEventListener("click", toggleNavbar);
+    }
+}
+
+function initDropdowns() {
+    document.addEventListener("click", (event) => {
+        const isClickInsideDropdown = event.target.closest("details.dropdown[open]");
+        if (!isClickInsideDropdown) {
+            document.querySelectorAll("details.dropdown[open]").forEach((dropdown) => {
+                dropdown.removeAttribute("open");
+            });
+        }
+    });
+}
+
+function initModals() {
     const modalAnimationDuration = 300;
 
     // --- Modal Handling ---
-    function animateModal(dialog, direction) {
+
+    function animateModal(dialog, direction, onFinishCallback) {
         const modalBody = dialog.querySelector("section");
         const isOpening = direction === "open";
         const opacityKeyframes = [{ opacity: isOpening ? "0" : "1" }, { opacity: isOpening ? "1" : "0" }];
@@ -28,7 +61,12 @@ function initializeUI(container = document) {
         animation1.play();
 
         if (!isOpening) {
-            animation.onfinish = () => dialog.close();
+            animation.onfinish = () => {
+                dialog.close();
+                if (onFinishCallback) {
+                    onFinishCallback();
+                }
+            };
         }
     }
 
@@ -37,71 +75,58 @@ function initializeUI(container = document) {
         animateModal(modal, "open");
     }
 
-    function closeModal(modal) {
-        animateModal(modal, "close");
+    function closeModal(modal, callback) {
+        animateModal(modal, "close", callback);
     }
 
-    container.addEventListener("click", (event) => {
+    document.addEventListener("click", (event) => {
         const { target } = event;
         const openTrigger = target.closest("[data-target]");
         const closeTrigger = target.closest("[data-close]");
-        const isBackgroundClick = target.matches("dialog[open]");
+        const currentlyOpenModal = document.querySelector("dialog[open]");
 
+        // --- Handle Modal Opening ---
         if (openTrigger) {
             const modalId = openTrigger.getAttribute("data-target");
-            const modal = container.getElementById(modalId);
-            if (modal) {
-                openModal(modal);
+            const modalToOpen = document.getElementById(modalId);
+
+            if (modalToOpen) {
+                if (currentlyOpenModal && currentlyOpenModal !== modalToOpen) {
+                    // A different modal is open; close it, then open the new one.
+                    closeModal(currentlyOpenModal, () => openModal(modalToOpen));
+                } else if (!currentlyOpenModal) {
+                    // No modal is open; just open it.
+                    openModal(modalToOpen);
+                }
+                // If the targeted modal is already the one that's open, do nothing.
             }
-        } else if (closeTrigger || isBackgroundClick) {
-            const openModalElement = container.querySelector("dialog[open]");
-            if (openModalElement) {
-                closeModal(openModalElement);
+            return; // An open action was attempted, so we are done.
+        }
+
+        // --- Handle Modal Closing ---
+        // This logic runs only if the click was not on an openTrigger.
+        if (currentlyOpenModal) {
+            const isBackgroundClick = target.matches("dialog[open]");
+            const isLocked = currentlyOpenModal.hasAttribute("data-locked");
+
+            if (closeTrigger || (isBackgroundClick && !isLocked)) {
+                closeModal(currentlyOpenModal);
             }
         }
     });
 
-    container.addEventListener("keydown", (event) => {
+    document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
-            const openModalElement = container.querySelector("dialog[open]");
-            if (openModalElement) {
+            const openModalElement = document.querySelector("dialog[open]");
+            if (openModalElement && !openModalElement.hasAttribute("data-locked")) {
                 closeModal(openModalElement);
             }
         }
     });
+}
 
-    // --- Dropdown Handling ---
-    container.addEventListener("click", (event) => {
-        const isClickInsideDropdown = event.target.closest("details.dropdown[open]");
-        if (!isClickInsideDropdown) {
-            container.querySelectorAll("details.dropdown[open]").forEach((dropdown) => {
-                dropdown.removeAttribute("open");
-            });
-        }
-    });
-
-    // --- Navbar Handling ---
-    const navButton = container.querySelector("header nav > button[role='menu']");
-    const navList = container.querySelector("header nav > ul");
-    const navCloseButton = container.querySelector("header nav ul button[aria-label='close']");
-
-    function toggleNavbar() {
-        if (navList) {
-            const isVisible = navList.style.display === "flex";
-            navList.style.display = isVisible ? "none" : "flex";
-        }
-    }
-
-    if (navButton) {
-        navButton.addEventListener("click", toggleNavbar);
-    }
-
-    if (navCloseButton) {
-        navCloseButton.addEventListener("click", toggleNavbar);
-    }
-
-    // --- Tabs Handling ---
-    const tabsComponents = container.querySelectorAll("article.tabs");
+function initTabs() {
+    const tabsComponents = document.querySelectorAll("article.tabs");
 
     tabsComponents.forEach((component) => {
         const tabsList = component.querySelector('[role="tablist"]');
@@ -150,4 +175,26 @@ function initializeUI(container = document) {
     });
 }
 
-export { initializeUI };
+// Manual init for frameworks
+function initAll() {
+    initNavbar(), initDropdowns(), initModals(), initTabs();
+}
+
+// Auto-initialize for plain HTML
+if (typeof window !== "undefined") {
+    window.LumoCSS = {
+        initAll,
+        initNavbar,
+        initDropdowns,
+        initModals,
+        initTabs,
+    };
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initAll);
+    } else {
+        initAll();
+    }
+}
+
+export { initAll };
