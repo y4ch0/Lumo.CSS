@@ -107,12 +107,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const navButton = document.querySelector("header nav > button[role='menu']");
     const navList = document.querySelector("header nav > ul");
+    const navList1 = document.querySelector("body>nav>.container>ul");
     const navCloseButton = document.querySelector("header nav ul button[aria-label='close']");
+    const navCloseButton1 = document.querySelector("body>nav>.container>ul button[aria-label='close']");
 
     function toggleNavbar() {
         if (navList) {
             const isVisible = navList.style.display === "flex";
             navList.style.display = isVisible ? "none" : "flex";
+        } else if (navList1) {
+            const isVisible = navList1.style.display === "flex";
+            navList1.style.display = isVisible ? "none" : "flex";
         }
     }
 
@@ -122,6 +127,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (navCloseButton) {
         navCloseButton.addEventListener("click", toggleNavbar);
+    } else if (navCloseButton1) {
+        navCloseButton1.addEventListener("click", toggleNavbar);
     }
 
     const tabsComponents = document.querySelectorAll("article.tabs");

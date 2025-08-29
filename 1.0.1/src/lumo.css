@@ -172,7 +172,9 @@ header {
 }
 
 header nav>button[role="menu"],
-header nav button[aria-label="close"] {
+header nav button[aria-label="close"],
+body>nav button[role="menu"],
+body>nav ul button[aria-label="close"] {
     width: 3rem;
     height: 3rem;
     background-color: transparent;
@@ -184,7 +186,17 @@ header nav button[aria-label="close"] {
     display: none;
 }
 
-header nav button[aria-label="close"] {
+body:has(nav)>header {
+    box-shadow: none;
+}
+
+body>nav {
+    width: 100%;
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.035);
+}
+
+header nav button[aria-label="close"],
+body>nav ul button[aria-label="close"] {
     display: none;
     position: absolute;
     top: 1.25rem;
@@ -204,12 +216,15 @@ body>header .container {
     justify-content: space-between;
 }
 
-header a {
+header a,
+body>nav a {
     color: var(--lumo-text-color);
 }
 
 @media screen and (max-width: 1024px) {
-    header nav:has(button[role="menu"])>ul {
+
+    header nav:has(button[role="menu"])>ul,
+    html body>nav>.container>ul {
         width: 100vw;
         height: 100vh;
         display: none;
@@ -232,8 +247,13 @@ header a {
         display: flex;
     }
 
-    header nav button[aria-label="close"] {
+    header nav button[aria-label="close"],
+    body>nav ul button[aria-label="close"] {
         display: flex;
+    }
+
+    body:has(nav) header {
+        box-shadow: var(--lumo-shadow-s);
     }
 }
 
@@ -248,7 +268,8 @@ header nav {
     align-items: center;
 }
 
-header nav>ul {
+header nav>ul,
+body>nav .container>ul {
     width: fit-content;
     display: flex;
     gap: 0.75rem;
@@ -256,7 +277,8 @@ header nav>ul {
     padding: 0;
 }
 
-header nav details.dropdown summary:hover {
+header nav details.dropdown summary:hover,
+body>nav details.dropdown summary:hover {
     text-decoration: underline;
 }
 
