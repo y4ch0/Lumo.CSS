@@ -186,7 +186,7 @@ body>nav ul button[aria-label="close"] {
     display: none;
 }
 
-body:has(nav)>header {
+body:has(>nav)>header {
     box-shadow: none;
 }
 
@@ -252,7 +252,7 @@ body>nav a {
         display: flex;
     }
 
-    body:has(nav) header {
+    body:has(>nav)>header {
         box-shadow: var(--lumo-shadow-s);
     }
 }
