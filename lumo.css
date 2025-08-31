@@ -673,7 +673,7 @@ section,
     gap: var(--lumo-grip-column-gap);
 }
 
-section article,
+section>*,
 .grid>* {
     width: 100%;
 }
@@ -701,6 +701,19 @@ section article,
     border: none;
 }
 
+[role="region"].centered {
+    text-align: center;
+}
+
+[role="region"].centered>*:not(hr) {
+    display: block;
+    margin: auto 0;
+}
+
+[role="region"].no-border {
+    border: 0;
+}
+
 [role="region"]>hr {
     width: calc(100% + 2rem);
     max-width: unset;
@@ -712,6 +725,11 @@ section article,
 [role="region"]>:where(h1, h2, h3, h4, h5, h6):first-child {
     padding-top: 0;
     margin-top: 0;
+}
+
+[role="region"]:is(a) {
+    color: var(--lumo-text-color);
+    cursor: pointer;
 }
 
 [role="region"]>header {
