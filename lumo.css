@@ -673,8 +673,8 @@ section,
     gap: var(--lumo-grip-column-gap);
 }
 
-section>*,
-.grid>* {
+section>*:not(hr),
+.grid>*:not(hr) {
     width: 100%;
 }
 
