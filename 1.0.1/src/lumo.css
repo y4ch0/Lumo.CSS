@@ -741,6 +741,11 @@ section>*:not(hr),
     z-index: inherit;
 }
 
+[role="region"]>header>*:where(h1, h2, h3, h4, h5, h6) {
+    padding: 0;
+    margin: 0;
+}
+
 [role="region"]>footer {
     box-shadow: none;
     margin-left: -1rem;
