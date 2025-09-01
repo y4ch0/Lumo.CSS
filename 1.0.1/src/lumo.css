@@ -471,7 +471,7 @@ h4,
 h5,
 h6 {
     padding: 0;
-    margin: 0.5rem 0;
+    margin: 0.35rem 0;
 }
 
 h1 {
@@ -706,8 +706,8 @@ section>*:not(hr),
 }
 
 [role="region"].centered>*:not(hr) {
-    display: block;
-    margin: auto 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 [role="region"].no-border {
@@ -728,8 +728,15 @@ section>*:not(hr),
 }
 
 [role="region"]:is(a) {
+    --lumo-transition: 100ms ease;
     color: var(--lumo-text-color);
     cursor: pointer;
+    transition: background-color var(--lumo-transition);
+    background-color: var(--lumo-background-color);
+}
+
+[role="region"]:is(a):hover {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.035);
 }
 
 [role="region"]>header {
