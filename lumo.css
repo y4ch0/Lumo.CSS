@@ -163,7 +163,7 @@ a:not([role="button"]):hover {
 header {
     width: 100vw;
     display: flex;
-    padding: 0.5rem 0;
+    padding: 0.35rem 0;
     border-bottom: var(--lumo-border-light);
     box-shadow: var(--lumo-shadow-s);
     --lumo-spacing: 0;
@@ -219,6 +219,13 @@ body>header .container {
 header a,
 body>nav a {
     color: var(--lumo-text-color);
+}
+
+header>.container>a {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 1024px) {
