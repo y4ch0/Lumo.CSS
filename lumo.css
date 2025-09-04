@@ -343,6 +343,7 @@ details.dropdown ul {
     border-radius: var(--lumo-border-radius);
     box-shadow: var(--lumo-shadow-s);
     position: absolute;
+    text-align: left !important;
     top: 100%;
     left: 0;
     z-index: 9999;
@@ -351,6 +352,7 @@ details.dropdown ul {
 details.dropdown ul[dir=rtl] {
     right: 0;
     left: auto;
+    text-align: left;
 }
 
 details.dropdown ul li a {
@@ -360,6 +362,7 @@ details.dropdown ul li a {
 details.dropdown ul li {
     --lumo-transition: 100ms ease-in-out;
     transition: background-color var(--lumo-transition);
+    text-align: left;
 }
 
 details.dropdown ul li:hover {
@@ -373,6 +376,7 @@ details.dropdown ul li:hover * {
 details.dropdown ul li>* {
     padding: 0.25rem 0.85rem !important;
     display: flex;
+    text-align: left;
 }
 
 details.dropdown summary[role="menu"] {
