@@ -352,7 +352,11 @@ details.dropdown ul {
 details.dropdown ul[dir=rtl] {
     right: 0;
     left: auto;
-    text-align: left;
+    align-items: left;
+}
+
+details.dropdown ul[dir=rtl] li {
+    direction: ltr;
 }
 
 details.dropdown ul li a {
@@ -363,6 +367,7 @@ details.dropdown ul li {
     --lumo-transition: 100ms ease-in-out;
     transition: background-color var(--lumo-transition);
     text-align: left;
+    align-items: left;
 }
 
 details.dropdown ul li:hover {
