@@ -818,7 +818,7 @@
                         </dialog>
                         <button data-target="testing-dialog-1">Launch modal demo 5</button>
                         <dialog id="testing-dialog-1">
-                            <section>
+                            <section aria-busy="false">
                                 <header>
                                     <h4>Dialog title</h4>
                                     <button class="close" data-close></button>
@@ -831,6 +831,19 @@
                             </section>
                         </dialog>
                     </article>
+                </section>
+                <section>
+                    <article>
+                        <button aria-busy="true">Loading offers...</button>
+                        <button aria-busy="true" class="secondary">Loading offers...</button>
+                        <button aria-busy="true" class="secondary" disabled>Loading offers...</button>
+                    </article>
+                    <article>
+                        <h4 aria-busy="true">Loading your assets.</h4>
+                        <p aria-busy="true">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi saepe officia
+                            velit neque minus reprehenderit?</p>
+                    </article>
+                    <article aria-busy="true"></article>
                 </section>
             </div>
         </div>
