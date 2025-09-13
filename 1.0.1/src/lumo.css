@@ -121,7 +121,7 @@ body:has(dialog[open]) {
 
 a {
     text-decoration: none;
-    color: #0084FF;
+    color: #0078e9;
 }
 
 a:not([role="button"]):hover {
@@ -1730,6 +1730,7 @@ mark {
     display: flex !important;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
 }
 
 [aria-busy="true"]:is([role="button"].secondary:not(:disabled), button.secondary:not(:disabled))::before {
