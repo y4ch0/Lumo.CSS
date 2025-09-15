@@ -2,7 +2,7 @@
 
 :root {
     --lumo-primary-color: #fac131;
-    --lumo-secondary-color: #3E86B3;
+    --lumo-secondary-color: #127EEB;
     --lumo-text-light: #FFFFFF;
     --lumo-text-dark: #181818;
     --lumo-primary-button-text: var(--lumo-text-dark);
@@ -30,7 +30,7 @@
     --lumo-border-light: 1px solid rgb(from var(--lumo-text-color) r g b / 0.075);
     --lumo-border-default: 1px solid rgb(from var(--lumo-text-color) r g b / 0.15);
     --lumo-border-hard: 1px solid rgb(from var(--lumo-text-color) r g b / 0.45);
-    --lumo-accent-color: var(--lumo-secondary-color);
+    --lumo-accent-color: #127EEB;
     --lumo-menu-icon: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Menu / Hamburger_MD'%3E%3Cpath id='Vector' d='M5 17H19M5 12H19M5 7H19' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
     --lumo-close-icon: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Menu / Close_MD'%3E%3Cpath id='Vector' d='M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
     --lumo-dropdown-icon: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Arrow / Chevron_Down'%3E%3Cpath id='Vector' d='M19 9L12 16L5 9' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
@@ -401,7 +401,12 @@ details.dropdown summary[role="menu"] {
     line-height: var(--lumo-line-height);
     background-color: var(--lumo-background-color);
     cursor: pointer;
-    height: calc(var(--lumo-font-size) * 2.5);
+    height: calc(var(--lumo-font-size) * 2.35);
+}
+
+details.dropdown summary[role="menu"]:focus {
+    outline-offset: -2px;
+    outline: 2px solid var(--lumo-accent-color);
 }
 
 /*
@@ -420,7 +425,7 @@ input[type=reset] {
     width: auto;
     background-color: var(--lumo-background-color);
     color: var(--lumo-primary-button-text);
-    padding: 0.45rem 0.75rem;
+    padding: 0.4rem 0.7rem;
     border-radius: var(--lumo-border-radius);
     font-size: 0.95rem;
     text-align: center;
@@ -911,7 +916,6 @@ input[type=radio]:checked {
     outline: 3px solid transparent;
     box-shadow: 0 0 0 2px transparent;
     outline-offset: -2px;
-    transition: outline var(--lumo-transition), box-shadow var(--lumo-transition);
     cursor: text;
     height: calc(var(--lumo-font-size) * 2.5);
 }
@@ -941,7 +945,7 @@ input[type=color]::-webkit-color-swatch {
 }
 
 textarea {
-    min-height: 3rem;
+    min-height: 4rem;
     resize: vertical;
 }
 
@@ -952,6 +956,14 @@ select {
 select[multiple] {
     height: max-content;
     max-height: 300px;
+}
+
+label {
+    font-size: 0.95rem;
+}
+
+label:has(small) *:where(input, textarea, select) {
+    margin-bottom: 0;
 }
 
 label *:where(input[type=date],
@@ -1246,6 +1258,10 @@ details:not(.dropdown) summary::before {
     transition: transform var(--lumo-transition);
 }
 
+details:not(.dropdown)[open] {
+    padding-bottom: 0.5rem;
+}
+
 details:not(.dropdown)[open] summary::before {
     transform: rotate(90deg);
 }
@@ -1270,7 +1286,7 @@ details:not(.dropdown)[open] summary {
     position: relative;
 }
 
-[data-tooltip]:hover::before {
+[data-tooltip]:hover::after {
     display: block;
     position: absolute;
     bottom: 100%;
@@ -1278,7 +1294,7 @@ details:not(.dropdown)[open] summary {
     opacity: 1;
 }
 
-[data-tooltip]::before {
+[data-tooltip]::after {
     content: attr(data-tooltip);
     font-size: 0.9rem;
     background-color: var(--lumo-text-dark);
@@ -1289,7 +1305,7 @@ details:not(.dropdown)[open] summary {
     opacity: 0;
     left: 50%;
     width: max-content;
-    max-width: 350px;
+    max-width: 250px;
     transition: opacity 100ms ease-in-out;
     z-index: 999;
 }
@@ -1420,13 +1436,15 @@ dialog>section>header {
     margin-bottom: 0.75rem !important;
 }
 
-dialog>section>footer {
+dialog>section>footer,
+dialog>section>form:last-child>footer {
     padding: 0.5rem;
     margin-top: 0.75rem !important;
 }
 
 dialog>section>header,
-dialog>section>footer {
+dialog>section>footer,
+dialog>section>form:last-child>footer {
     background-color: rgb(from var(--lumo-text-color) r g b / 0.035);
     box-shadow: none;
     border: none;
@@ -1435,7 +1453,12 @@ dialog>section>footer {
     width: calc(100% + 2rem);
 }
 
-dialog>section>footer {
+dialog>section>form:last-child>footer {
+    margin-bottom: -1.5rem;
+}
+
+dialog>section>footer,
+dialog>section>form:last-child>footer {
     display: flex;
     justify-content: right;
     gap: 0.5rem;
