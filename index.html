@@ -164,6 +164,17 @@
                         <button class="outline">Primary button outline</button>
                         <button class="secondary">Secondary button</button>
                         <button class="secondary outline">Secondary button outline</button>
+                        <div role="group" class="buttons" style="margin-top: 1rem;">
+                            <button>Primary button</button>
+                            <button class="outline">Primary button outline</button>
+                            <button class="secondary">Secondary button</button>
+                            <button class="secondary outline">Secondary button outline</button>
+                        </div>
+                        <div role="group" class="buttons" data-align="center">
+                            <button class="secondary">Secondary button</button>
+                            <button class="secondary">Secondary button</button>
+                            <button class="secondary">Secondary button</button>
+                        </div>
                     </article>
                 </section>
                 <section>
@@ -533,7 +544,7 @@
                                 <label>E-mail: <input type="text" aria-invalid="true"><small>To pole zawiera
                                         niepoprawnie wprowadzony adres e-mail.</small></label>
                             </fieldset>
-                            <input type="submit" aria-label="Submit button">
+                            <input type="submit" class="secondary" aria-label="Submit button">
                         </form>
                         <hr>
                         <form action="">
@@ -859,6 +870,13 @@
                             velit neque minus reprehenderit?</p>
                     </article>
                     <article aria-busy="true"></article>
+                </section>
+                <section>
+                    <article>
+                        <p>Messages<span role="note" data-style="primary">123</span></p>
+                        <p>Result row count<span role="note" data-style="secondary">5</span></p>
+                        <h1>Lorem ipsum<span role="note" data-style="secondary">3</span></h1>
+                    </article>
                 </section>
             </div>
         </div>

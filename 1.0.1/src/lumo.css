@@ -425,7 +425,7 @@ input[type=reset] {
     width: auto;
     background-color: var(--lumo-background-color);
     color: var(--lumo-primary-button-text);
-    padding: 0.4rem 0.7rem;
+    padding: 0.4rem 0.8rem;
     border-radius: var(--lumo-border-radius);
     font-size: 0.95rem;
     text-align: center;
@@ -491,6 +491,54 @@ input[type=button]:active,
 input[type=submit]:active,
 input[type=reset]:active {
     filter: brightness(0.85);
+}
+
+/*
+ * Buttons group
+ */
+[role="group"].buttons {
+    width: 100%;
+    max-width: unset;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 0.25rem;
+    margin: -0.25rem;
+}
+
+[role="group"].buttons>*:where(button, [role=button], input[type=button], input[type=submit], input[type=reset]) {
+    white-space: nowrap;
+}
+
+[role="group"].buttons>*:where(button, [role=button], input[type=button], input[type=submit], input[type=reset]):not(:last-child) {
+    border-right: 1px solid color-mix(in srgb, var(--lumo-background-color) 80%, black) !important;
+}
+
+[role="group"].buttons>*:where(button, [role=button], input[type=button], input[type=submit], input[type=reset]):not(:last-child, :first-child) {
+    border-radius: 0 !important;
+}
+
+[role="group"].buttons>*:where(button, [role=button], input[type=button], input[type=submit], input[type=reset]):last-child {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+[role="group"].buttons>*:where(button, [role=button], input[type=button], input[type=submit], input[type=reset]):first-child {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+[role="group"].buttons[data-align="center"] {
+    justify-content: center;
+}
+
+[role="group"].buttons[data-align="right"] {
+    justify-content: end;
+}
+
+[role="group"].buttons[data-align="left"] {
+    justify-content: left;
 }
 
 /*
@@ -1758,4 +1806,28 @@ mark {
 
 [aria-busy="true"]:is([role="button"].secondary:not(:disabled), button.secondary:not(:disabled))::before {
     filter: brightness(0) invert(1);
+}
+
+/*
+ * Badge
+ */
+span[role="note"] {
+    font-size: 0.8em;
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.2);
+    border-radius: 0.25rem;
+    padding: 0.15rem 0.35rem;
+    font-weight: bold;
+    margin-inline: 0.35em;
+    display: inline-flex;
+    height: min-content !important;
+}
+
+span[role="note"][data-style="primary"] {
+    color: var(--lumo-primary-button-text);
+    background-color: var(--lumo-primary-color);
+}
+
+span[role="note"][data-style="secondary"] {
+    color: var(--lumo-secondary-button-text);
+    background-color: var(--lumo-secondary-color);
 }
