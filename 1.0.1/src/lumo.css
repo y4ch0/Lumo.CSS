@@ -4,7 +4,7 @@
     --lumo-primary-color: #fac131;
     --lumo-secondary-color: #127EEB;
     --lumo-text-light: #FFFFFF;
-    --lumo-text-dark: #181818;
+    --lumo-text-dark: #1d1d1d;
     --lumo-primary-button-text: var(--lumo-text-dark);
     --lumo-secondary-button-text: var(--lumo-text-light);
     --lumo-text-color: var(--lumo-text-dark);
@@ -47,6 +47,8 @@ body[data-theme="dark"] {
     --lumo-border-light: 1px solid rgb(from var(--lumo-text-color) r g b / 0.15);
     --lumo-border-default: 1px solid rgb(from var(--lumo-text-color) r g b / 0.4);
     --lumo-border-hard: 1px solid rgb(from var(--lumo-text-color) r g b / 0.55);
+    --lumo-secondary-color: #1288FF;
+    --lumo-accent-color: #1288FF;
     --lumo-accordion-closed-icon: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M300 166.667L533.333 400L300 633.333' stroke='white' stroke-width='66.6667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
     --lumo-menu-icon: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M166.667 566.667H633.333M166.667 400H633.333M166.667 233.333H633.333' stroke='white' stroke-width='66.6667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
     --lumo-close-icon: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M600 600L400 400M400 400L200 200M400 400L600 200M400 400L200 600' stroke='white' stroke-width='66.6667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
@@ -883,6 +885,110 @@ hr[aria-orientation="vertical"] {
 /*
  * input
  */
+:where(input[type=date],
+    input[type=datetime-local],
+    input[type=email],
+    input[type=month],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=time],
+    input[type=url],
+    input[type=week], textarea, select) {
+    --lumo-border-radius: 0.275rem;
+    --lumo-transition: 75ms linear;
+    --lumo-contrast-color: var(--lumo-accent-color);
+    display: inline-flex;
+    width: auto;
+    border: var(--lumo-border-hard);
+    border-radius: var(--lumo-border-radius);
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+    color: var(--lumo-text-color);
+    text-align: left;
+    line-height: var(--lumo-line-height);
+    margin: calc(var(--lumo-spacing) * 0.25) 0;
+    background-color: var(--lumo-background-color);
+    outline: 3px solid transparent;
+    box-shadow: 0 0 0 2px transparent;
+    outline-offset: 0;
+    cursor: text;
+    height: calc(var(--lumo-font-size) * 2.35);
+    font-family: var(--lumo-font-family);
+    box-shadow: 0 0 0 0 #FFFFFF;
+    transition: outline var(--lumo-transition), border-color var(--lumo-transition), box-shadow var(--lumo-transition);
+}
+
+/*:where(input[type=date],
+    input[type=datetime-local],
+    input[type=email],
+    input[type=month],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=time],
+    input[type=url],
+    input[type=week],
+    textarea, select):focus {
+    outline: 2px solid var(--lumo-accent-color);
+    box-shadow: 0 0 0 2px #FFFFFF;
+}*/
+
+:where(input[type=date],
+    input[type=datetime-local],
+    input[type=email],
+    input[type=month],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=time],
+    input[type=url],
+    input[type=week],
+    textarea, select):focus {
+    border-color: var(--lumo-contrast-color);
+    outline-offset: 0;
+    outline: 3px solid rgb(from var(--lumo-contrast-color) r g b / 0.4);
+    box-shadow: 0 0 0 3px #FFFFFF;
+}
+
+:where(input[type=date],
+    input[type=datetime-local],
+    input[type=email],
+    input[type=month],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=time],
+    input[type=url],
+    input[type=week],
+    textarea, select)[aria-invalid="false"]:focus {
+    --lumo-contrast-color: #1FBC36;
+}
+
+:where(input[type=date],
+    input[type=datetime-local],
+    input[type=email],
+    input[type=month],
+    input[type=number],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=text],
+    input[type=time],
+    input[type=url],
+    input[type=week],
+    textarea, select)[aria-invalid="true"]:focus {
+    --lumo-contrast-color: #FF453A;
+}
+
 input[type=checkbox],
 input[type=radio] {
     --lumo-transition: 150ms ease-in-out;
@@ -933,39 +1039,6 @@ input[type=radio] {
 input[type=radio]:checked {
     border: 5px solid var(--lumo-accent-color);
     background-color: #FFFFFF;
-}
-
-:where(input[type=date],
-    input[type=datetime-local],
-    input[type=email],
-    input[type=month],
-    input[type=number],
-    input[type=password],
-    input[type=search],
-    input[type=tel],
-    input[type=text],
-    input[type=time],
-    input[type=url],
-    input[type=week], textarea, select) {
-    --lumo-border-radius: 0.275rem;
-    --lumo-transition: 75ms linear;
-    display: inline-flex;
-    width: auto;
-    border: var(--lumo-border-hard);
-    border-radius: var(--lumo-border-radius);
-    font-size: 0.95rem;
-    padding: 0.35rem 0.65rem;
-    color: var(--lumo-text-color);
-    text-align: left;
-    font-family: var(--lumo-font-family);
-    line-height: var(--lumo-line-height);
-    margin: calc(var(--lumo-spacing) * 0.25) 0;
-    background-color: var(--lumo-background-color);
-    outline: 3px solid transparent;
-    box-shadow: 0 0 0 2px transparent;
-    outline-offset: -2px;
-    cursor: text;
-    height: calc(var(--lumo-font-size) * 2.5);
 }
 
 input[type=color] {
@@ -1042,57 +1115,6 @@ textarea:disabled {
     cursor: default;
     background-color: rgb(from var(--lumo-text-color) r g b / 0.075);
     color: rgb(from var(--lumo-text-color) r g b / 0.85);
-}
-
-:where(input[type=date],
-    input[type=datetime-local],
-    input[type=email],
-    input[type=month],
-    input[type=number],
-    input[type=password],
-    input[type=search],
-    input[type=tel],
-    input[type=text],
-    input[type=time],
-    input[type=url],
-    input[type=week],
-    textarea, select):focus {
-    outline: 2px solid var(--lumo-accent-color);
-    box-shadow: 0 0 0 2px #FFFFFF;
-}
-
-:where(input[type=date],
-    input[type=datetime-local],
-    input[type=email],
-    input[type=month],
-    input[type=number],
-    input[type=password],
-    input[type=search],
-    input[type=tel],
-    input[type=text],
-    input[type=time],
-    input[type=url],
-    input[type=week],
-    textarea, select)[aria-invalid="false"]:focus {
-    outline: 2px solid #1FBC36;
-    box-shadow: 0 0 0 2px #FFFFFF;
-}
-
-:where(input[type=date],
-    input[type=datetime-local],
-    input[type=email],
-    input[type=month],
-    input[type=number],
-    input[type=password],
-    input[type=search],
-    input[type=tel],
-    input[type=text],
-    input[type=time],
-    input[type=url],
-    input[type=week],
-    textarea, select)[aria-invalid="true"]:focus {
-    outline: 2px solid #FF453A;
-    box-shadow: 0 0 0 2px #FFFFFF;
 }
 
 input[type=range]::-webkit-slider-thumb {
