@@ -1087,6 +1087,13 @@ label:has(small) *:where(input, textarea, select) {
     margin-bottom: 0;
 }
 
+:where(input[type=date],
+    input[type=datetime-local],
+    input[type=month],
+    input[type=week]) {
+    appearance: none;
+}
+
 label *:where(input[type=date],
     input[type=datetime-local],
     input[type=email],
