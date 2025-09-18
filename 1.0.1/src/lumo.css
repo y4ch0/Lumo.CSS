@@ -403,7 +403,7 @@ details.dropdown summary[role="menu"] {
     line-height: var(--lumo-line-height);
     background-color: var(--lumo-background-color);
     cursor: pointer;
-    height: calc(var(--lumo-font-size) * 2.35);
+    height: 2.35rem;
 }
 
 details.dropdown summary[role="menu"]:focus {
@@ -438,6 +438,7 @@ input[type=reset] {
     border: 1px solid var(--lumo-background-color);
     line-height: var(--lumo-line-height);
     font-family: var(--lumo-font-family);
+    font-weight: normal;
     transition: filter var(--lumo-transition), box-shadow var(--lumo-transition);
 }
 
@@ -901,7 +902,7 @@ hr[aria-orientation="vertical"] {
     --lumo-transition: 75ms linear;
     --lumo-contrast-color: var(--lumo-accent-color);
     display: inline-flex;
-    width: auto;
+    width: 100%;
     border: var(--lumo-border-hard);
     border-radius: var(--lumo-border-radius);
     font-size: 0.95rem;
@@ -915,7 +916,7 @@ hr[aria-orientation="vertical"] {
     box-shadow: 0 0 0 2px transparent;
     outline-offset: 0;
     cursor: text;
-    height: calc(var(--lumo-font-size) * 2.35);
+    height: 2.35rem;
     font-family: var(--lumo-font-family);
     box-shadow: 0 0 0 0 #FFFFFF;
     transition: outline var(--lumo-transition), border-color var(--lumo-transition), box-shadow var(--lumo-transition);
@@ -1092,6 +1093,9 @@ label:has(small) *:where(input, textarea, select) {
     input[type=month],
     input[type=week]) {
     appearance: none;
+    width: 100%;
+    background-clip: padding-box;
+    display: block;
 }
 
 label *:where(input[type=date],
