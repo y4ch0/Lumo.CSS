@@ -172,7 +172,6 @@ header {
     display: flex;
     padding: 0.35rem 0;
     border-bottom: var(--lumo-border-light);
-    box-shadow: var(--lumo-shadow-s);
     --lumo-spacing: 0;
     background-color: var(--lumo-background-color);
     z-index: 999;
@@ -725,6 +724,10 @@ main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary {
     font-weight: 500;
 }
 
+main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary::before {
+    filter: brightness(0) invert(1);
+}
+
 main aside#navigation nav ul li:not(:has(details))>*[aria-current="false"]:hover {
     background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
 }
@@ -799,9 +802,10 @@ section>*:not(hr),
  * Region (card)
  */
 [role="region"] {
-    border: var(--lumo-border-default);
+    border: var(--lumo-border-light);
     border-radius: var(--lumo-border-radius);
     padding: 1rem;
+    overflow: hidden;
 }
 
 [role="region"].shadow {
@@ -852,8 +856,8 @@ section>*:not(hr),
     box-shadow: none;
     margin-left: -1rem;
     margin-top: -1rem;
+    border: none;
     margin-bottom: 1rem;
-    border-bottom: var(--lumo-border-default);
     z-index: inherit;
 }
 
@@ -867,7 +871,6 @@ section>*:not(hr),
     margin-left: -1rem;
     margin-bottom: -1rem;
     margin-top: 1rem;
-    border-top: var(--lumo-border-default);
 }
 
 [role="region"]>header,
@@ -1107,7 +1110,7 @@ input[type=color]::-webkit-color-swatch {
 }
 
 textarea {
-    min-height: 4rem;
+    min-height: 6rem;
     resize: vertical;
 }
 
