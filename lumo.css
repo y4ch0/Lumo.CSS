@@ -1125,6 +1125,12 @@ select[multiple] {
 
 label {
     font-size: 0.95rem;
+    font-weight: 500;
+}
+
+label>*,
+label:has(input[type=checkbox], input[type=radio]) {
+    font-weight: normal !important;
 }
 
 label:has(small) *:where(input, textarea, select) {
