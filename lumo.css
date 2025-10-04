@@ -614,20 +614,29 @@ main>.container {
     grid-template-columns: 1fr;
     column-gap: var(--lumo-grip-column-gap);
     grid-template-areas:
-        "navigation page table-of-content"
+        "page"
     ;
 }
 
 main>.container:has(#navigation, #page, #table-of-content) {
     grid-template-columns: 15rem 1fr 10rem;
+    grid-template-areas:
+        "navigation page table-of-content"
+    ;
 }
 
 main>.container:has(#navigation, #page):not(:has(#table-of-content)) {
     grid-template-columns: 15rem 1fr;
+    grid-template-areas:
+        "navigation page"
+    ;
 }
 
 main>.container:has(#page):not(:has(#navigation, #table-of-content)) {
     grid-template-columns: 1fr;
+    grid-template-areas:
+        "page"
+    ;
 }
 
 main>.container #page {
@@ -809,9 +818,12 @@ section>*:not(hr),
 }
 
 [role="region"].shadow {
-    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
-    box-shadow: var(--lumo-shadow-m);
+    background-color: var(--lumo-background-color);
+    box-shadow: var(--lumo-shadow-m),
+        0.15rem -0.15rem 0.75rem rgb(from var(--lumo-text-color) r g b / 0.05);
     border: none;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
 }
 
 [role="region"].centered {
