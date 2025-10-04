@@ -83,6 +83,18 @@
                         <li><a href="#">Testing link</a></li>
                         <li><a href="#">Testing link</a></li>
                         <li><a href="#">Testing link</a></li>
+                        <li aria-current="true">
+                            <details>
+                                <summary>Reveal on click</summary>
+                                <ul>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                </ul>
+                            </details>
+                        </li>
                         <li>
                             <details>
                                 <summary>Reveal on click</summary>
@@ -135,6 +147,21 @@
                     </article>
                 </section>
                 <section>
+                    <article role="region" class="centered">
+                        <h2>This is card</h2>
+                        <hr>
+                        <a href="#" role="button">Read more</a>
+                    </article>
+                    <article role="region" class="no-border">
+                        <h2>This is card with shadow</h2>
+                    </article>
+                    <a role="region" class="no-border">
+                        <h2>This is card as link</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                        <button>Lorem ipsum</button>
+                    </a>
+                </section>
+                <section>
                     <article>
                         <h4>Buttons</h4>
                         <hr>
@@ -142,6 +169,17 @@
                         <button class="outline">Primary button outline</button>
                         <button class="secondary">Secondary button</button>
                         <button class="secondary outline">Secondary button outline</button>
+                        <div role="group" class="buttons" style="margin-top: 1rem;">
+                            <button>Primary button</button>
+                            <button class="outline">Primary button outline</button>
+                            <button class="secondary">Secondary button</button>
+                            <button class="secondary outline">Secondary button outline</button>
+                        </div>
+                        <div role="group" class="buttons" data-align="center">
+                            <button class="secondary">Secondary button</button>
+                            <button class="secondary">Secondary button</button>
+                            <button class="secondary">Secondary button</button>
+                        </div>
                     </article>
                 </section>
                 <section>
@@ -196,7 +234,21 @@
                             <option value="">Option 5</option>
                             <option value="">Lorem ipsum dolor sit amet.</option>
                         </select>
+                        <select>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                            <option value="">Option 4</option>
+                            <option value="">Option 5</option>
+                            <option value="">Lorem ipsum dolor sit amet.</option>
+                        </select>
+                        <label><input type="radio" name="radio-button" checked> Radio button</label>
+                        <label><input type="radio" name="radio-button"> Radio button</label>
+                        <label><input type="radio" name="radio-button"> Radio button</label>
                         <input type="checkbox" role="switch">
+                        <input type="checkbox" role="switch" disabled>
+                        <input type="checkbox" disabled>
+                        <input type="radio" disabled>
                     </article>
                 </section>
                 <section>
@@ -511,7 +563,7 @@
                                 <label>E-mail: <input type="text" aria-invalid="true"><small>To pole zawiera
                                         niepoprawnie wprowadzony adres e-mail.</small></label>
                             </fieldset>
-                            <input type="submit" aria-label="Submit button">
+                            <input type="submit" class="secondary" aria-label="Submit button">
                         </form>
                         <hr>
                         <form action="">
@@ -571,7 +623,8 @@
                     <article>
                         <h4>Tooltip</h4>
                         <hr>
-                        <p data-tooltip="This is testing tooltip.">This text has a tooltip
+                        <p data-tooltip="Lorem ipsum dolor sit amet.">
+                            This text has a tooltip
                             data attribute.</p>
                     </article>
                 </section>
@@ -621,10 +674,22 @@
                                 </header>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
                                     et temporibus magnam hic id, optio earum cumque!</p>
-                                <footer>
-                                    <button class="secondary" data-close>Cancel</button>
-                                    <button class="primary">Confirm</button>
-                                </footer>
+                                <hr>
+                                <form>
+                                    <label>Email:<input type="text" aria-label="Email address"></label>
+                                    <label>Password:<input type="password" aria-label="Email password"></label>
+                                    <footer>
+                                        <button class="primary" type="submit">Confirm</button>
+                                    </footer>
+                                </form>
+                                <form>
+                                    <label>Email:<input type="text" aria-label="Email address"></label>
+                                    <label>Password:<input type="password" aria-label="Email password"></label>
+                                    <footer>
+                                        <button class="secondary" data-close>Cancel</button>
+                                        <button class="primary" type="submit">Confirm</button>
+                                    </footer>
+                                </form>
                             </section>
                         </dialog>
                         <dialog id="testing-dialog-wide-1">
@@ -798,7 +863,7 @@
                         </dialog>
                         <button data-target="testing-dialog-1">Launch modal demo 5</button>
                         <dialog id="testing-dialog-1">
-                            <section>
+                            <section aria-busy="false">
                                 <header>
                                     <h4>Dialog title</h4>
                                     <button class="close" data-close></button>
@@ -810,6 +875,26 @@
                                 </footer>
                             </section>
                         </dialog>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <button aria-busy="true">Loading offers...</button>
+                        <button aria-busy="true" class="secondary">Loading offers...</button>
+                        <button aria-busy="true" class="secondary" disabled>Loading offers...</button>
+                    </article>
+                    <article>
+                        <h4 aria-busy="true">Loading your assets.</h4>
+                        <p aria-busy="true">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi saepe officia
+                            velit neque minus reprehenderit?</p>
+                    </article>
+                    <article aria-busy="true"></article>
+                </section>
+                <section>
+                    <article>
+                        <p>Messages<span role="note" data-style="primary">123</span></p>
+                        <p>Result row count<span role="note" data-style="secondary">5</span></p>
+                        <h1>Lorem ipsum<span role="note" data-style="secondary">3</span></h1>
                     </article>
                 </section>
             </div>
