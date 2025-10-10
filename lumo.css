@@ -720,7 +720,7 @@ main aside#navigation nav ul li:has(details) summary {
     display: flex;
     color: var(--lumo-text-color);
     border-radius: var(--lumo-border-radius);
-    gap: calc(var(--lumo-spacing) * 0.5);
+    column-gap: calc(var(--lumo-spacing) * 0.5);
     cursor: pointer;
     --lumo-transition: 100ms ease-in-out;
     transition: background-color var(--lumo-transition), filter var(--lumo-transition);
@@ -742,7 +742,7 @@ main aside#navigation nav ul li:not(:has(details))>*[aria-current="false"]:hover
 }
 
 main aside#navigation nav ul li:has(details) {
-    padding: 0;
+    padding: 0 !important;
     cursor: default;
 }
 
