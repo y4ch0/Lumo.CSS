@@ -91,6 +91,11 @@ body[data-theme="dark"] [aria-busy="true"]:is(article, section, div, h1, h2, h3,
 
 /* end dark theme definition */
 
+:focus-visible {
+    outline: 2px solid var(--lumo-accent-color);
+    outline-offset: 3px;
+}
+
 * {
     position: relative;
     max-width: 100%;
@@ -525,6 +530,10 @@ input[type="file"]::-webkit-file-upload-button:active {
 
 [role="group"].buttons>*:where(button, [role=button], input[type=button], input[type=submit], input[type=reset]):not(:last-child, :first-child) {
     border-radius: 0 !important;
+}
+
+[role="group"].buttons>*:where(button.outline, [role=button].outline, input[type=button].outline, input[type=submit].outline, input[type=reset].outline):not(:last-child, :first-child) {
+    border-left: 0 !important;
 }
 
 [role="group"].buttons>*:where(button, [role=button], input[type=button], input[type=submit], input[type=reset]):last-child {
@@ -1431,7 +1440,6 @@ details:not(.dropdown) summary[role="button"].secondary:not(.outline)::before {
 
 details:not(.dropdown) summary:not([role="button"]):focus {
     outline: 2px solid var(--lumo-accent-color);
-    box-shadow: 0 0 0 2px #FFFFFF;
 }
 
 details:not(.dropdown)[open] summary {
