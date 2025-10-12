@@ -798,6 +798,14 @@ main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary:focus
     outline: none;
 }
 
+@media screen and (max-width: 1024px) {
+
+    main aside#navigation nav ul li>*,
+    main aside#navigation nav ul li:has(details) summary {
+        padding: 0.55rem 0.8rem;
+    }
+}
+
 /*
  * Section
  */
@@ -825,10 +833,14 @@ section>*:not(hr),
  * Region (card)
  */
 [role="region"] {
-    border: var(--lumo-border-light);
+    border: var(--lumo-border-default);
     border-radius: var(--lumo-border-radius);
     padding: 1rem;
     overflow: hidden;
+}
+
+[role="region"]:has(header, footer) {
+    border: var(--lumo-border-light);
 }
 
 [role="region"].shadow {
@@ -1147,6 +1159,7 @@ select {
 select[multiple] {
     height: max-content;
     max-height: 300px;
+    cursor: default;
 }
 
 label {
@@ -1250,6 +1263,11 @@ input[role="switch"] {
     input[role="switch"] {
         width: 3.5rem;
         height: 1.95rem;
+    }
+
+    input[type="checkbox"]:not([role="switch"]),
+    input[type="radio"] {
+        scale: 1.25;
     }
 }
 
