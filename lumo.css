@@ -449,7 +449,7 @@ input[type="file"]::-webkit-file-upload-button {
     line-height: var(--lumo-line-height);
     font-family: var(--lumo-font-family);
     font-weight: normal;
-    transition: filter var(--lumo-transition), box-shadow var(--lumo-transition);
+    transition: filter var(--lumo-transition), box-shadow var(--lumo-transition), background-color var(--lumo-transition), color var(--lumo-transition);
 }
 
 button:disabled,
@@ -480,6 +480,17 @@ input[type=reset].outline {
     color: var(--lumo-background-color);
 }
 
+button.tertiary.outline,
+[role=button].tertiary.outline,
+input[type=button].tertiary.outline,
+input[type=submit].tertiary.outline,
+input[type=reset].tertiary.outline {
+    --lumo-background-color: var(--lumo-text-color);
+    background-color: transparent;
+    border: var(--lumo-border-default);
+    color: var(--lumo-text-color);
+}
+
 button:hover,
 [role=button]:hover,
 input[type=button]:hover,
@@ -487,6 +498,10 @@ input[type=submit]:hover,
 input[type=reset]:hover,
 input[type="file"]::-webkit-file-upload-button:hover {
     filter: brightness(0.9);
+}
+
+button.outline:hover {
+    background-color: rgb(from var(--lumo-background-color) r g b / 0.1);
 }
 
 :where(button,
