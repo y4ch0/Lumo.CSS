@@ -21,8 +21,8 @@
     --lumo-font-weight: 400;
     --lumo-line-height: 1.5;
     --lumo-breadcrumb-divider: "/";
-    --lumo-container-width: 75vw;
-    --lumo-container-width-bp-l: 85vw;
+    --lumo-container-width: calc(75vw + var(--lumo-spacing));
+    --lumo-container-width-bp-l: calc(85vw + var(--lumo-spacing));
     --lumo-container-width-bp-m: 90vw;
     --lumo-container-width-bp-s: 95vw;
     --lumo-background-color: #FFFFFF;
@@ -93,6 +93,10 @@ body[data-theme="dark"] details.dropdown ul li:hover {
     background-color: rgb(from var(--lumo-text-color) r g b / 0.125);
 }
 
+body[data-theme="dark"] dialog>section button.close:hover {
+    background-color: rgb(from var(--lumo-primary-color) r g b / 0.25);
+}
+
 /* end dark theme definition */
 
 :focus-visible {
@@ -151,12 +155,14 @@ a:not([role="button"]):hover {
     width: var(--lumo-container-width);
     margin-left: auto;
     margin-right: auto;
+    padding-inline: var(--lumo-spacing);
 }
 
 .container-fluid {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding-inline: var(--lumo-spacing);
 }
 
 @media screen and (max-width: 1280px) {
@@ -185,7 +191,6 @@ header {
     display: flex;
     padding: 0.35rem 0;
     border-bottom: var(--lumo-border-light);
-    --lumo-spacing: 0;
     background-color: var(--lumo-background-color);
     z-index: 999;
 }
@@ -1642,6 +1647,7 @@ dialog>section button.close {
     align-items: center;
     justify-content: center;
     background-color: transparent;
+    padding: 0;
     border: none;
     color: var(--lumo-text-color);
     transition: background-color var(--lumo-transition), box-shadow var(--lumo-transition);
@@ -1652,9 +1658,13 @@ dialog>section button.close:hover {
 }
 
 dialog>section button.close::after {
-    content: "\00D7";
-    font-size: 2.5rem;
-    margin-top: -0.35rem;
+    content: "";
+    background-image: var(--lumo-close-icon);
+    background-size: contain;
+    width: 75%;
+    height: 75%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 dialog>section>header {
