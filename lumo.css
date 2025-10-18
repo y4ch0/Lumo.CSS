@@ -89,6 +89,10 @@ body[data-theme="dark"] [aria-busy="true"]:is(article, section, div, h1, h2, h3,
     filter: brightness(0) invert(1);
 }
 
+body[data-theme="dark"] details.dropdown ul li:hover {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.125);
+}
+
 /* end dark theme definition */
 
 :focus-visible {
@@ -335,9 +339,6 @@ details.dropdown summary[role="button"].secondary:not(.outline)::after {
     filter: brightness(0) invert(1);
 }
 
-details.dropdown[open] summary {
-    cursor: default !important;
-}
 
 details>summary:first-of-type {
     list-style-type: none;
@@ -351,11 +352,11 @@ details.dropdown ul {
     list-style: none;
     background-color: var(--lumo-background-color);
     border: var(--lumo-border-light);
-    padding: 0.35rem 0;
+    padding: 0.25rem;
     margin: 0;
     width: max-content;
     max-width: 300px;
-    border-radius: var(--lumo-border-radius);
+    border-radius: calc(var(--lumo-border-radius) * 1.5);
     box-shadow: var(--lumo-shadow-s);
     position: absolute;
     text-align: left !important;
@@ -379,10 +380,9 @@ details.dropdown ul li a {
 }
 
 details.dropdown ul li {
-    --lumo-transition: 100ms ease-in-out;
-    transition: background-color var(--lumo-transition);
     text-align: left;
     align-items: left;
+    border-radius: var(--lumo-border-radius);
 }
 
 details.dropdown ul li:hover {
@@ -394,9 +394,10 @@ details.dropdown ul li:hover * {
 }
 
 details.dropdown ul li>* {
-    padding: 0.25rem 0.85rem !important;
+    padding: 0.25rem 0.5rem !important;
     display: flex;
     text-align: left;
+    gap: 0.35rem;
 }
 
 details.dropdown summary[role="menu"] {
@@ -500,7 +501,11 @@ input[type="file"]::-webkit-file-upload-button:hover {
     filter: brightness(0.9);
 }
 
-button.outline:hover {
+button.outline:hover,
+[role=button].outline:hover,
+input[type=button].outline:hover,
+input[type=submit].outline:hover,
+input[type=reset].outline:hover {
     background-color: rgb(from var(--lumo-background-color) r g b / 0.1);
 }
 
@@ -776,7 +781,7 @@ main aside#navigation nav ul li:has(details) {
 
 main aside#navigation nav ul li:has(details):not([aria-current="true"]) summary:hover,
 main aside#navigation nav ul li:not(:has(details), [aria-current="true"])>*:hover {
-    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.075);
     text-decoration: underline;
 }
 
