@@ -1505,13 +1505,12 @@ details:not(.dropdown)[open] summary {
     position: relative;
 }
 
+[data-tooltip]:not(:hover)::after {
+    transition: opacity 0.15s ease, bottom 0.15s ease;
+}
+
 [data-tooltip]:hover::after {
-    display: block;
-    position: absolute;
-    bottom: 100%;
-    transform: translate(-50%, 0);
     opacity: 1;
-    animation: tooltip_fadein 150ms ease;
 }
 
 [data-tooltip]::after {
@@ -1523,12 +1522,15 @@ details:not(.dropdown)[open] summary {
     border-radius: 0.3rem;
     border: 1px solid rgb(from var(--lumo-text-color) r g b / 0.25);
     box-shadow: var(--lumo-shadow-s);
-    display: none;
-    opacity: 0;
+    transform: translate(-50%, 0);
     left: 50%;
+    bottom: 100%;
+    position: absolute;
     width: max-content;
     max-width: 250px;
-    transition: opacity 100ms ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, bottom 0.15s ease;
     z-index: 999;
 }
 
