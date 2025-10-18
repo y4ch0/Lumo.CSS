@@ -24,7 +24,7 @@
     --lumo-container-width: calc(75vw + var(--lumo-spacing));
     --lumo-container-width-bp-l: calc(85vw + var(--lumo-spacing));
     --lumo-container-width-bp-m: 90vw;
-    --lumo-container-width-bp-s: 95vw;
+    --lumo-container-width-bp-s: 100vw;
     --lumo-background-color: #FFFFFF;
     --lumo-modal-background-color: rgba(0, 0, 0, 0.25);
     --lumo-border-light: 1px solid rgb(from var(--lumo-text-color) r g b / 0.075);
