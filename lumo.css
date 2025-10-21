@@ -20,6 +20,7 @@
     --lumo-border-radius: 0.35rem;
     --lumo-font-weight: 400;
     --lumo-line-height: 1.5;
+    --lumo-header-height: 5rem;
     --lumo-breadcrumb-divider: "/";
     --lumo-container-width: calc(75vw + var(--lumo-spacing));
     --lumo-container-width-bp-l: calc(85vw + var(--lumo-spacing));
@@ -240,6 +241,10 @@ body>header .container {
     justify-content: space-between;
 }
 
+body>header {
+    height: var(--lumo-header-height);
+}
+
 header a,
 body>nav a {
     color: var(--lumo-text-color);
@@ -252,26 +257,32 @@ header>.container>a {
     justify-content: space-between;
 }
 
+header nav {
+    position: relative;
+    height: 100%;
+    display: flex;
+}
+
 @media screen and (max-width: 1024px) {
 
     header nav:has(button[role="menu"])>ul,
     html body>nav>.container>ul {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
         display: none;
         flex-direction: column;
-        font-size: 1.25rem;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         padding: 1rem;
         margin: 0;
         position: fixed;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
+        top: var(--lumo-header-height);
         background-color: var(--lumo-background-color);
-        z-index: 9999;
+        z-index: 9998;
+        box-shadow: none;
+        border-bottom: var(--lumo-border-light);
+        box-shadow: var(--lumo-shadow-s);
     }
 
     header nav>button[role="menu"] {
@@ -283,9 +294,6 @@ header>.container>a {
         display: flex;
     }
 
-    body:has(>nav)>header {
-        box-shadow: var(--lumo-shadow-s);
-    }
 }
 
 /*
@@ -1255,6 +1263,10 @@ input[role="switch"]:disabled {
 
 input[type=range]::-webkit-slider-thumb {
     cursor: pointer;
+}
+
+input[type=range] {
+    width: 100%;
 }
 
 label:has([aria-invalid="true"])>small {

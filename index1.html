@@ -52,7 +52,7 @@
     <nav>
         <div class="container">
             <ul>
-                <button role="menu" aria-label="close"></button>
+                <!--<button role="menu" aria-label="close"></button>-->
                 <li><a href="#">Lorem ipsum</a></li>
                 <li><a href="#">Lorem ipsum</a></li>
                 <li><a href="#">Lorem ipsum</a></li>
@@ -155,11 +155,32 @@
                     <article role="region" class="no-border">
                         <h2>This is card with shadow</h2>
                     </article>
-                    <a role="region" class="no-border">
+                    <a role="region" href="#" class="no-border">
                         <h2>This is card as link</h2>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
                         <button>Lorem ipsum</button>
                     </a>
+                </section>
+                <section>
+                    <article>
+
+                    </article>
+                    <article role="region">
+                        <h2>Login</h2>
+                        <p>Provide your credentials to log in.</p>
+                        <form>
+                            <label>Login<input type="text" aria-label="login input"></label>
+                            <label>Password<input type="password" aria-label="password input"></label>
+                            <button class="secondary">Log in</button>
+                        </form>
+                        <hr>
+                        <button style="width:100%;margin-bottom:0.5rem" class="outline tertiary">I forgot
+                            password</button>
+                        <button style="width:100%;" class="outline tertiary">Login with Google</button>
+                    </article>
+                    <article>
+
+                    </article>
                 </section>
                 <section>
                     <article>
@@ -175,10 +196,14 @@
                             <button class="secondary">Secondary button</button>
                             <button class="secondary outline">Secondary button outline</button>
                         </div>
+                        <button class="outline tertiary">Tertiary outline button</button>
                         <div role="group" class="buttons" data-align="center">
-                            <button class="secondary">Secondary button</button>
-                            <button class="secondary">Secondary button</button>
-                            <button class="secondary">Secondary button</button>
+                            <button class="secondary">
+                                < </button>
+                                    <button class="secondary outline">1</button>
+                                    <button class="secondary outline">2</button>
+                                    <button class="secondary outline">3</button>
+                                    <button class="secondary">></button>
                         </div>
                     </article>
                 </section>
@@ -249,6 +274,9 @@
                         <input type="checkbox" role="switch" disabled>
                         <input type="checkbox" disabled>
                         <input type="radio" disabled>
+                        <label>Lorem ipsum dolor sit amet:
+                            <input type="range">
+                        </label>
                     </article>
                 </section>
                 <section>
@@ -545,9 +573,10 @@
                                 <label>E-mail:<input type="email" name="email" placeholder="E-mail address"
                                         aria-label="Email input"></label>
                             </fieldset>
-                            <fieldset role="group"><input type="email" name="email" placeholder="E-mail address"
-                                    aria-label="Email input"><button type="submit"
-                                    aria-label="Submit button">Send</button></fieldset>
+                            <label>E-mail:<fieldset role="group"><input type="email" name="email"
+                                        placeholder="E-mail address" aria-label="Email input"><button type="submit"
+                                        aria-label="Submit button">Send</button></fieldset></label>
+
                             <fieldset role="group">
                                 <select style="width:fit-content">
                                     <option value="">+1</option>
@@ -838,9 +867,24 @@
                 <section>
                     <article role="region">
                         <header>
-                            <h4>Header of card</h4>
-
+                            <h5>Header of card</h5>
                         </header>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                        <footer>Footer of card</footer>
+                    </article>
+                    <article role="region">
+                        <header>
+                            <h5>Header of card</h5>
+                        </header>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                    </article>
+                    <article role="region">
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
                             delectus similique dolorum perspiciatis ea adipisci hic.</p>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
