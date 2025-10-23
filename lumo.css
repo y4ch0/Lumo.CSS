@@ -462,7 +462,7 @@ input[type="file"]::-webkit-file-upload-button {
     border: 1px solid var(--lumo-background-color);
     line-height: var(--lumo-line-height);
     font-family: var(--lumo-font-family);
-    font-weight: normal;
+    font-weight: 500;
     transition: filter var(--lumo-transition), box-shadow var(--lumo-transition), background-color var(--lumo-transition), color var(--lumo-transition);
 }
 
@@ -776,7 +776,7 @@ main aside#navigation nav ul li[aria-current="true"]>*:not(details),
 main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary {
     background-color: var(--lumo-accent-color);
     color: var(--lumo-accent-contrast-color);
-    font-weight: 500;
+    font-weight: bold;
 }
 
 main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary::before {
@@ -807,7 +807,7 @@ main aside#navigation nav ul li details {
 }
 
 main aside#navigation nav ul li:has(details[open]) summary {
-    font-weight: 500;
+    font-weight: bold;
 }
 
 main aside#navigation nav ul li details ul {
