@@ -40,6 +40,55 @@
     overflow-wrap: break-word;
 }
 
+/* Begin accessibility theme definition */
+
+/* When user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* When <body data-reduce-motion="true"> is set */
+body[data-reduce-motion="true"] * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}
+
+body[data-reduce-motion="true"] details:not(.dropdown) summary::before,
+body[data-reduce-motion="mid"] details:not(.dropdown) summary::before {
+    transition: none !important;
+}
+
+body[data-reduce-motion="mid"] * {
+    animation: none !important;
+    scroll-behavior: auto !important;
+}
+
+body[data-reduce-motion="mid"] button,
+body[data-reduce-motion="mid"] [role=button],
+body[data-reduce-motion="mid"] input[type=button],
+body[data-reduce-motion="mid"] input[type=submit],
+body[data-reduce-motion="mid"] input[type=reset],
+body[data-reduce-motion="mid"] input[type="file"]::-webkit-file-upload-button {
+    --lumo-transition: 150ms ease-in-out;
+    transition: box-shadow var(--lumo-transition), color var(--lumo-transition);
+}
+
+body[data-reduce-motion="mid"] main aside#navigation nav ul li>*,
+body[data-reduce-motion="mid"] main aside#navigation nav ul li:has(details) summary {
+    transition: none !important;
+}
+
+body[data-reduce-motion="mid"] [role="region"]:is(a) {
+    transition: none;
+}
+
+/* End accessibility theme definition */
+
 /* begin dark theme definition */
 
 body[data-theme="dark"] {
