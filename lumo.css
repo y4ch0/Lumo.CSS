@@ -58,33 +58,8 @@ body[data-reduce-motion="true"] * {
     scroll-behavior: auto !important;
 }
 
-body[data-reduce-motion="true"] details:not(.dropdown) summary::before,
-body[data-reduce-motion="mid"] details:not(.dropdown) summary::before {
+body[data-reduce-motion="true"] details:not(.dropdown) summary::before {
     transition: none !important;
-}
-
-body[data-reduce-motion="mid"] * {
-    animation: none !important;
-    scroll-behavior: auto !important;
-}
-
-body[data-reduce-motion="mid"] button,
-body[data-reduce-motion="mid"] [role=button],
-body[data-reduce-motion="mid"] input[type=button],
-body[data-reduce-motion="mid"] input[type=submit],
-body[data-reduce-motion="mid"] input[type=reset],
-body[data-reduce-motion="mid"] input[type="file"]::-webkit-file-upload-button {
-    --lumo-transition: 150ms ease-in-out;
-    transition: box-shadow var(--lumo-transition), color var(--lumo-transition);
-}
-
-body[data-reduce-motion="mid"] main aside#navigation nav ul li>*,
-body[data-reduce-motion="mid"] main aside#navigation nav ul li:has(details) summary {
-    transition: none !important;
-}
-
-body[data-reduce-motion="mid"] [role="region"]:is(a) {
-    transition: none;
 }
 
 /* End accessibility theme definition */
@@ -512,7 +487,7 @@ input[type="file"]::-webkit-file-upload-button {
     line-height: var(--lumo-line-height);
     font-family: var(--lumo-font-family);
     font-weight: 500;
-    transition: filter var(--lumo-transition), box-shadow var(--lumo-transition), background-color var(--lumo-transition), color var(--lumo-transition);
+    transition: box-shadow var(--lumo-transition);
 }
 
 button:disabled,
@@ -817,8 +792,6 @@ main aside#navigation nav ul li:has(details) summary {
     border-radius: var(--lumo-border-radius);
     column-gap: calc(var(--lumo-spacing) * 0.5);
     cursor: pointer;
-    --lumo-transition: 100ms ease-in-out;
-    transition: background-color var(--lumo-transition), filter var(--lumo-transition);
 }
 
 main aside#navigation nav ul li[aria-current="true"]>*:not(details),
@@ -866,8 +839,7 @@ main aside#navigation nav ul li details ul {
 main aside#navigation nav ul li[aria-current="true"]>*,
 main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary {
     --lumo-transition: 150ms ease-in-out;
-    transition: box-shadow var(--lumo-transition), background-color var(--lumo-transition), filter var(--lumo-transition);
-    ;
+    transition: box-shadow var(--lumo-transition);
 }
 
 main aside#navigation nav ul li[aria-current="true"]>*:hover {
@@ -961,10 +933,8 @@ section>*:not(hr),
 }
 
 [role="region"]:is(a) {
-    --lumo-transition: 100ms ease;
     color: var(--lumo-text-color);
     cursor: pointer;
-    transition: background-color var(--lumo-transition);
     background-color: var(--lumo-background-color);
 }
 
