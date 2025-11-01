@@ -1396,7 +1396,7 @@ table tbody tr th {
 }
 
 .overflow-auto:has(table) {
-    border: var(--lumo-border-light);
+    border: var(--lumo-border-default);
     padding: 0;
     margin: 0;
     border-radius: 0.35rem;
