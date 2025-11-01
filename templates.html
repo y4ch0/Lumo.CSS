@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumo.CSS</title>
+    <link rel="stylesheet" href="lumo.css">
+    <script src="lumo.js"></script>
+    <style>
+        button#theme-change {
+            background-image: url("data:image/svg+xml,%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'/%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M7 3V0H9V3H7Z' fill='%23000000'/%3E%3Cpath d='M9 13V16H7V13H9Z' fill='%23000000'/%3E%3Cpath d='M11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8Z' fill='%23000000'/%3E%3Cpath d='M0 9H3V7H0V9Z' fill='%23000000'/%3E%3Cpath d='M16 7H13V9H16V7Z' fill='%23000000'/%3E%3Cpath d='M3.75735 5.17157L1.63603 3.05025L3.05025 1.63603L5.17157 3.75735L3.75735 5.17157Z' fill='%23000000'/%3E%3Cpath d='M12.2426 10.8284L14.364 12.9497L12.9497 14.364L10.8284 12.2426L12.2426 10.8284Z' fill='%23000000'/%3E%3Cpath d='M3.05025 14.364L5.17157 12.2426L3.75735 10.8284L1.63603 12.9498L3.05025 14.364Z' fill='%23000000'/%3E%3Cpath d='M12.9497 1.63604L10.8284 3.75736L12.2426 5.17158L14.364 3.05026L12.9497 1.63604Z' fill='%23000000'/%3E%3C/g%3E%3C/svg%3E");
+            width: 2rem;
+            height: 2rem;
+            background-color: transparent;
+            border: none;
+            background-size: 1.5rem;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        body[data-theme="dark"] button#theme-change {
+            background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 400.001C0 237.781 96.566 98.115 235.35 35.3515L282.718 82.719C261.76 125.691 250 173.973 250 225.001C250 404.493 395.508 550 575 550C626.03 550 674.31 538.24 717.28 517.285L764.65 564.65C701.885 703.435 562.22 800 400 800C179.086 800 0 620.915 0 400.001Z' fill='white'/%3E%3Cpath d='M575 350.001L450 225.001L575 100.001L700 225.001L575 350.001Z' fill='white'/%3E%3C/svg%3E%0A");
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("theme-change").addEventListener("click", () => {
+                if (document.querySelector("body").getAttribute("data-theme") == "dark") {
+                    document.querySelector("body").setAttribute("data-theme", "light");
+                    document.getElementById("page-logo").src = "LumoCSS.svg";
+                } else {
+                    document.querySelector("body").setAttribute("data-theme", "dark");
+                    document.getElementById("page-logo").src = "LumoCSS_dark.svg";
+                }
+            })
+        })
+
+    </script>
+</head>
+
+<body data-theme="light">
+    <header class="is-fixed">
+        <div class="container">
+            <a href="#"><img src="LumoCSS.svg" alt="Lumo.CSS logo" height="65" id="page-logo">
+            </a>
+            <nav>
+                <ul>
+                    <!--<button role="menu" aria-label="close"></button>-->
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li>
+                        <details class="dropdown">
+                            <summary>Dropdown</summary>
+                            <ul dir="rtl">
+                                <li><a href="#">Lorem ipsum 1</a></li>
+                                <li><a href="#">Lorem ipsum 12</a></li>
+                                <li><a href="#">Lorem ipsum 123</a></li>
+                                <li><a href="#">Lorem ipsum 1234</a></li>
+                                <li><a href="#">Lorem ipsum 12345</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+                <details class="dropdown">
+                    <summary>Dropdown</summary>
+                    <ul dir="rtl">
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                        <li><a href="#">Lorem ipsum</a></li>
+                    </ul>
+                </details>
+                <button id="theme-change"></button>
+                <button role="menu"></button>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <aside id="navigation">
+                <nav>
+                    <ul>
+                        <li aria-current="true"><a href="#">Testing link</a></li>
+                        <li><a href="#">Testing link</a></li>
+                        <li><a href="#">Testing link</a></li>
+                        <li><a href="#">Testing link</a></li>
+                        <li><a href="#">Testing link</a></li>
+                        <li><a href="#">Testing link</a></li>
+                        <li><a href="#">Testing link</a></li>
+                        <li aria-current="true">
+                            <details>
+                                <summary>Reveal on click</summary>
+                                <ul>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary>Reveal on click</summary>
+                                <ul>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#">Testing link</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <div id="page">
+                <hgroup>
+                    <p>Lumo.CSS</p>
+                    <h1>Components</h1>
+                </hgroup>
+                <section>
+                    <article>
+                        <h4>Heading</h4>
+                        <hr>
+                        <h1>Heading 1</h1>
+                        <h2>Heading 2</h2>
+                        <h3>Heading 3</h3>
+                        <h4>Heading 4</h4>
+                        <h5>Heading 5</h5>
+                        <h6>Heading 6</h6>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Grid</h4>
+                        <hr>
+                    </article>
+                </section>
+                <section>
+                    <article role="region">
+                        <h2>This is card</h2>
+                        <hr>
+                        <a href="#" role="button">Read more</a>
+                    </article>
+                    <article role="region" class="shadow">
+                        <h2>This is card with shadow</h2>
+                    </article>
+                    <article>
+                        <h2>This is column</h2>
+                    </article>
+                </section>
+                <section>
+                    <article role="region" class="centered">
+                        <h2>This is card</h2>
+                        <hr>
+                        <a href="#" role="button">Read more</a>
+                    </article>
+                    <article role="region" class="no-border">
+                        <h2>This is card with shadow</h2>
+                    </article>
+                    <a role="region" href="#" class="no-border">
+                        <h2>This is card as link</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                        <button>Lorem ipsum</button>
+                    </a>
+                </section>
+                <section>
+                    <article>
+
+                    </article>
+                    <article role="region">
+                        <h2>Login</h2>
+                        <p>Provide your credentials to log in.</p>
+                        <form>
+                            <label>Login<input type="text" aria-label="login input"></label>
+                            <label>Password<input type="password" aria-label="password input"></label>
+                            <button class="secondary">Log in</button>
+                        </form>
+                        <hr>
+                        <button style="width:100%;margin-bottom:0.5rem" class="outline tertiary">I forgot
+                            password</button>
+                        <button style="width:100%;" class="outline tertiary">Login with Google</button>
+                    </article>
+                    <article>
+
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Buttons</h4>
+                        <hr>
+                        <button>Primary button</button>
+                        <button class="outline">Primary button outline</button>
+                        <button class="secondary">Secondary button</button>
+                        <button class="secondary outline">Secondary button outline</button>
+                        <div role="group" class="buttons" style="margin-top: 1rem;">
+                            <button>Primary button</button>
+                            <button class="outline">Primary button outline</button>
+                            <button class="secondary">Secondary button</button>
+                            <button class="secondary outline">Secondary button outline</button>
+                        </div>
+                        <button class="outline tertiary">Tertiary outline button</button>
+                        <div role="group" class="buttons" data-align="center">
+                            <button class="secondary">
+                                < </button>
+                                    <button class="secondary outline">1</button>
+                                    <button class="secondary outline">2</button>
+                                    <button class="secondary outline">3</button>
+                                    <button class="secondary">></button>
+                        </div>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Link</h4>
+                        <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
+                            eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate eligendi
+                            labore quibusdam asperiores.</a>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Inputs</h4>
+                        <input type="button" value="Input button">
+                        <input type="checkbox">
+                        <input type="color">
+                        <input type="date">
+                        <input type="datetime-local">
+                        <input type="email">
+                        <input type="file">
+                        <input type="image">
+                        <input type="month">
+                        <input type="number">
+                        <input type="password">
+                        <input type="radio">
+                        <input type="range">
+                        <input type="reset">
+                        <input type="search">
+                        <input type="submit">
+                        <input type="tel">
+                        <input type="text" aria-invalid="false">
+                        <input type="time">
+                        <input type="url">
+                        <input type="week">
+                        <input type="text" value="Lorem ipsum dolor" disabled>
+                        <textarea></textarea>
+                        <select multiple>
+                            <option disabled>
+                                Select your favorite snacks...
+                            </option>
+                            <option>Cheese</option>
+                            <option selected>Fruits</option>
+                            <option selected>Nuts</option>
+                            <option>Chocolate</option>
+                            <option>Crackers</option>
+                        </select>
+                        <select aria-invalid="false">
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                            <option value="">Option 4</option>
+                            <option value="">Option 5</option>
+                            <option value="">Lorem ipsum dolor sit amet.</option>
+                        </select>
+                        <select>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                            <option value="">Option 4</option>
+                            <option value="">Option 5</option>
+                            <option value="">Lorem ipsum dolor sit amet.</option>
+                        </select>
+                        <label><input type="radio" name="radio-button" checked> Radio button</label>
+                        <label><input type="radio" name="radio-button"> Radio button</label>
+                        <label><input type="radio" name="radio-button"> Radio button</label>
+                        <input type="checkbox" role="switch">
+                        <input type="checkbox" role="switch" disabled>
+                        <input type="checkbox" disabled>
+                        <input type="radio" disabled>
+                        <label>Lorem ipsum dolor sit amet:
+                            <input type="range">
+                        </label>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <details class="dropdown">
+                            <summary role="menu">Select a french dessert</summary>
+                            <ul>
+                                <li><label><input type="radio" name="french-dessert">Option 1</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 2</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 3</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 4</label></li>
+                            </ul>
+                        </details>
+                        <details class="dropdown">
+                            <summary>Select a french dessert</summary>
+                            <ul>
+                                <li><a href="#">Option 1</a></li>
+                                <li><a href="#">Option 2</a></li>
+                                <li><a href="#">Option 3</a></li>
+                                <li><a href="#">Option 4</a></li>
+                                <li><a href="#">Option 5</a></li>
+                            </ul>
+                        </details>
+                        <details class="dropdown">
+                            <summary role="button">Select a french dessert</summary>
+                            <ul>
+                                <li><label><input type="radio" name="french-dessert">Option 1</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 2</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 3</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 4</label></li>
+                            </ul>
+                        </details>
+                        <details class="dropdown">
+                            <summary role="button">Select a french dessert</summary>
+                            <ul>
+                                <li><a href="#">Option 1</a></li>
+                                <li><a href="#">Option 2</a></li>
+                                <li><a href="#">Option 3</a></li>
+                                <li><a href="#">Option 4</a></li>
+                                <li><a href="#">Option 5</a></li>
+                            </ul>
+                        </details>
+                        <details class="dropdown">
+                            <summary role="button" class="secondary">Select a french dessert</summary>
+                            <ul>
+                                <li><label><input type="radio" name="french-dessert">Option 1</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 2</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 3</label></li>
+                                <li><label><input type="radio" name="french-dessert">Option 4</label></li>
+                            </ul>
+                        </details>
+                        <details class="dropdown">
+                            <summary role="button" class="secondary outline">Select a french dessert</summary>
+                            <ul>
+                                <li><a href="#">Option 1</a></li>
+                                <li><a href="#">Option 2</a></li>
+                                <li><a href="#">Option 3</a></li>
+                                <li><a href="#">Option 4</a></li>
+                                <li><a href="#">Option 5</a></li>
+                            </ul>
+                        </details>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Table</h4>
+                        <div class="overflow-auto">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                        <th>Lorem ipsum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                        <td>Lorem ipsum</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Lorem ipsum</th>
+                                    <th>Lorem ipsum</th>
+                                    <th>Lorem ipsum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Lorem ipsum</th>
+                                    <th>Lorem ipsum</th>
+                                    <th>Lorem ipsum</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th>Lorem ipsum</th>
+                                    <th>Lorem ipsum</th>
+                                    <th>Lorem ipsum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                                <tr>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Lorem ipsum</th>
+                                    <td>Lorem ipsum</td>
+                                    <td>Lorem ipsum</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <div class="overflow-auto">
+                            <table class="striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Planet</th>
+                                        <th scope="col">Diam. (km)</th>
+                                        <th scope="col">Dist. to Sun (AU)</th>
+                                        <th scope="col">Grav. (m/s²)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Mercury</th>
+                                        <td>4,880</td>
+                                        <td>0.39</td>
+                                        <td>3.7</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Venus</th>
+                                        <td>12,104</td>
+                                        <td>0.72</td>
+                                        <td>8.9</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Earth</th>
+                                        <td>12,742</td>
+                                        <td>1.00</td>
+                                        <td>9.8</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Mars</th>
+                                        <td>6,779</td>
+                                        <td>1.52</td>
+                                        <td>3.7</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th scope="row">Average</th>
+                                        <td>9,126</td>
+                                        <td>0.91</td>
+                                        <td>6.5</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Breadcrumb</h4>
+                        <ul aria-label="breadcrumb">
+                            <li><a href="#">Lorem ipsum</a></li>
+                            <li><a href="#">Lorem ipsum</a></li>
+                            <li><a href="#">Lorem ipsum</a></li>
+                        </ul>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Forms</h4>
+                        <form>
+                            <fieldset>
+                                <label aria-required="true">Given name:<input type="text" name="name"
+                                        placeholder="First name" aria-label="Given name input"></label>
+                                <label>E-mail:<input type="email" name="email" placeholder="E-mail address"
+                                        aria-label="Email input"></label>
+                                <label><input type="checkbox"> I agree with Terms of Service.</label>
+                            </fieldset>
+                            <fieldset class="grid"><label>Given name:<input type="text" name="name"
+                                        placeholder="First name" aria-label="Given name input"></label>
+                                <label>E-mail:<input type="email" name="email" placeholder="E-mail address"
+                                        aria-label="Email input"></label>
+                            </fieldset>
+                            <label>E-mail:<fieldset role="group"><input type="email" name="email"
+                                        placeholder="E-mail address" aria-label="Email input"><button type="submit"
+                                        aria-label="Submit button">Send</button></fieldset></label>
+
+                            <fieldset role="group">
+                                <select style="width:fit-content">
+                                    <option value="">+1</option>
+                                    <option value="">+2</option>
+                                    <option value="">+3</option>
+                                    <option value="">+4</option>
+                                    <option value="">+5</option>
+                                </select>
+                                <input type="tel" name="tel" placeholder="Phone number" aria-label="Phone number input">
+                                <button type="submit" aria-label="Submit button">Send</button>
+                            </fieldset>
+                            <fieldset>
+                                <label>E-mail: <input type="text" aria-invalid="true"><small>To pole zawiera
+                                        niepoprawnie wprowadzony adres e-mail.</small></label>
+                            </fieldset>
+                            <input type="submit" class="secondary" aria-label="Submit button">
+                        </form>
+                        <hr>
+                        <form action="">
+                            <input type="text">
+                            <footer><button type="submit">Wyślij</button></footer>
+                        </form>
+                    </article>
+                </section>
+                <section>
+
+                    <article>
+                        <h4>Accordion</h4>
+                        <hr>
+                        <details>
+                            <summary>Lorem ipsum dolor sit amet.</summary>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
+                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
+                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
+                                est?</p>
+                        </details>
+                        <details>
+                            <summary role="button">Lorem ipsum dolor sit amet.</summary>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
+                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
+                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
+                                est?</p>
+                        </details>
+                        <details>
+                            <summary role="button" class="secondary">Lorem ipsum dolor sit amet.</summary>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
+                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
+                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
+                                est?</p>
+                        </details>
+                        <details>
+                            <summary role="button" class="outline">Lorem ipsum dolor sit amet.</summary>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
+                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
+                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
+                                est?</p>
+                        </details>
+                        <details>
+                            <summary role="button" class="secondary outline">Lorem ipsum dolor sit amet.</summary>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
+                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
+                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
+                                est?</p>
+                        </details>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Tooltip</h4>
+                        <hr>
+                        <p data-tooltip="Lorem ipsum dolor sit amet.">
+                            This text has a tooltip
+                            data attribute.</p>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Code and pre</h4>
+                        <hr><code>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, minima.</code>
+                        <pre>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque at voluptatem consectetur incidunt commodi saepe quidem amet. Asperiores placeat odit assumenda, 
+                            cum porro quos dicta minima hic tenetur esse est sequi iusto corrupti natus illo perspiciatis, nisi similique at explicabo quasi totam, fugit deleniti n
+                            ecessitatibus. Similique iste libero cupiditate magnam?</pre>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>kbd</h4>
+                        <hr><kbd>CTRL</kbd><kbd>Shift</kbd>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Blockqoute</h4>
+                        <hr>
+                        <blockquote>
+                            “Design is a funny word. Some people think
+                            design means how it looks. But of course, if
+                            you dig deeper, it's really how it works.”
+                            <footer>
+                                <cite>— Steve Jobs</cite>
+                            </footer>
+                        </blockquote>
+                        <hr>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <h4>Modal demo</h4>
+                        <hr>
+                        <button data-target="testing-dialog-wide-1">Launch modal demo 1</button>
+                        <button data-target="testing-dialog">Launch modal demo 2</button>
+                        <button data-target="testing-dialog-wide-2">Launch modal demo 3</button>
+                        <button data-target="testing-dialog-wide-3">Launch modal demo 4</button>
+                        <dialog id="testing-dialog">
+                            <section>
+                                <header>
+                                    <h4>Dialog title</h4>
+                                    <button class="close" data-close></button>
+                                </header>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
+                                    et temporibus magnam hic id, optio earum cumque!</p>
+                                <hr>
+                                <form>
+                                    <label>Email:<input type="text" aria-label="Email address"></label>
+                                    <label>Password:<input type="password" aria-label="Email password"></label>
+                                    <footer>
+                                        <button class="primary" type="submit">Confirm</button>
+                                    </footer>
+                                </form>
+                                <form>
+                                    <label>Email:<input type="text" aria-label="Email address"></label>
+                                    <label>Password:<input type="password" aria-label="Email password"></label>
+                                    <footer>
+                                        <button class="secondary" data-close>Cancel</button>
+                                        <button class="primary" type="submit">Confirm</button>
+                                    </footer>
+                                </form>
+                            </section>
+                        </dialog>
+                        <dialog id="testing-dialog-wide-1">
+                            <section data-width="s">
+                                <header>
+                                    <h4>Dialog title</h4>
+                                    <button class="close" data-close></button>
+                                </header>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
+                                    et temporibus magnam hic id, optio earum cumque!</p>
+                                <footer>
+                                    <button class="secondary" data-close>Cancel</button>
+                                    <button class="primary">Confirm</button>
+                                </footer>
+                            </section>
+                        </dialog>
+                        <dialog id="testing-dialog-wide-2">
+                            <section data-width="l">
+                                <header>
+                                    <h4>Dialog title</h4>
+                                    <button class="close" data-close></button>
+                                </header>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
+                                    et temporibus magnam hic id, optio earum cumque!</p>
+                                <footer>
+                                    <button class="secondary" data-close>Cancel</button>
+                                    <button class="primary">Confirm</button>
+                                </footer>
+                            </section>
+                        </dialog>
+                        <dialog id="testing-dialog-wide-3">
+                            <section data-width="xl">
+                                <header>
+                                    <h4>Dialog title</h4>
+                                    <button class="close" data-close></button>
+                                </header>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
+                                    et temporibus magnam hic id, optio earum cumque!</p>
+                                <footer>
+                                    <button class="secondary" data-close>Cancel</button>
+                                    <button class="primary">Confirm</button>
+                                </footer>
+                            </section>
+                        </dialog>
+                    </article>
+                </section>
+                <section>
+                    <article class="tabs">
+                        <h4>Tabs</h4>
+                        <hr>
+                        <nav role="tablist">
+                            <button role="tab" aria-selected="true">Tab 1</button>
+                            <button role="tab" aria-selected="false">Tab 2</button>
+                            <button role="tab" aria-selected="false">Tab 3</button>
+                        </nav>
+                        <div class="tabs-content">
+                            <div role="tabpanel">
+                                <p>Content for Tab 1.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
+                                    eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
+                                    eligendi
+                                    labore quibusdam asperiores.</p>
+                            </div>
+                            <div role="tabpanel" hidden>
+                                <p>Content for Tab 2.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
+                                    eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
+                                    eligendi
+                                    labore quibusdam asperiores.</p>
+                            </div>
+                            <div role="tabpanel" hidden>
+                                <p>Content for Tab 3.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
+                                    eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
+                                    eligendi
+                                    labore quibusdam asperiores.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section>
+                    <article role="region">
+                        <h2>Test</h2>
+                    </article>
+                    <hr aria-orientation="vertical">
+                    <article role="region">
+                        <h2>Test</h2>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <div role="alert">
+                            <h5>Default alert type</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, amet..</p>
+                        </div>
+                        <div role="alert" aria-label="error">
+                            <h5>Unknown error occured</h5>
+                            <p>An unknown error has occured and your browser need to restart.</p>
+                        </div>
+                        <div role="alert" aria-label="warning">
+                            <h5>Last changes are unsaved</h5>
+                            <p>Before closing the app remember to save changes. Otherwise you will lose all progress!
+                            </p>
+                        </div>
+                        <div role="alert" aria-label="confirmation">
+                            <h5>Transaction successfull</h5>
+                        </div>
+                        <div role="alert" aria-label="information">
+                            <h5>Dashboard system maintenance</h5>
+                            <p>The dashboard system will be under maintenance at April 7th 2025 from 4:00PM to 8:00PM.
+                            </p>
+                        </div>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <div role="slider">
+                            <img src="https://placehold.co/800x300" alt="">
+                            <img src="https://placehold.co/800x300" alt="">
+                            <img src="https://placehold.co/800x300" alt="">
+                            <div>
+                                <h3>lorem ipsum</h3>
+                            </div>
+                            <img src="https://placehold.co/800x300" alt="">
+                            <img src="https://placehold.co/800x300" alt="">
+                            <div>
+                                <h3>lorem ipsum</h3>
+                                <p>Dolor sit amet</p>
+                            </div>
+                            <div>
+                                <h3>lorem ipsum</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo mollitia sed vero
+                                    recusandae, at illum quo alias nobis quibusdam optio.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <p>This is a <del>deleted</del> text.</p>
+                        <p>This is a <del>deleted</del> <ins>inserted</ins> text.</p>
+                        <p>This is <mark>highlighted text</mark>.</p>
+                        <p>To copy text select it and press <kbd>CTRL + C</kbd></p>
+                    </article>
+                </section>
+                <section>
+                    <article role="region">
+                        <header>
+                            <h5>Header of card</h5>
+                        </header>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                        <footer>Footer of card</footer>
+                    </article>
+                    <article role="region">
+                        <header>
+                            <h5>Header of card</h5>
+                        </header>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                    </article>
+                    <article role="region">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
+                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                        <footer>Footer of card</footer>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <button data-target="cookie-modal">Launch modal demo (cookie modal)</button>
+                        <dialog id="cookie-modal" data-locked="true">
+                            <section>
+                                <h2>Cookie Settings</h2>
+                                <p>We use cookies to improve your experience. By clicking "Accept", you agree to our use
+                                    of cookies.</p>
+                                <footer>
+                                    <button data-close>Accept</button>
+                                </footer>
+                            </section>
+                        </dialog>
+                        <button data-target="testing-dialog-1">Launch modal demo 5</button>
+                        <dialog id="testing-dialog-1">
+                            <section aria-busy="false">
+                                <header>
+                                    <h4>Dialog title</h4>
+                                    <button class="close" data-close></button>
+                                </header>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
+                                    et temporibus magnam hic id, optio earum cumque!</p>
+                                <footer>
+                                    <button class="primary" data-target="cookie-modal">Launch another dialog</button>
+                                </footer>
+                            </section>
+                        </dialog>
+                    </article>
+                </section>
+                <section>
+                    <article>
+                        <button aria-busy="true">Loading offers...</button>
+                        <button aria-busy="true" class="secondary">Loading offers...</button>
+                        <button aria-busy="true" class="secondary" disabled>Loading offers...</button>
+                    </article>
+                    <article>
+                        <h4 aria-busy="true">Loading your assets.</h4>
+                        <p aria-busy="true">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi saepe officia
+                            velit neque minus reprehenderit?</p>
+                    </article>
+                    <article aria-busy="true"></article>
+                </section>
+                <section>
+                    <article>
+                        <p>Messages<span role="note" data-style="primary">123</span></p>
+                        <p>Result row count<span role="note" data-style="secondary">5</span></p>
+                        <h1>Lorem ipsum<span role="note" data-style="secondary">3</span></h1>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <section>
+                <article>
+                    <p>&copy; 2025 y4ch0</p>
+                    <p>Lumo.CSS is shared via Github Pages service.</p>
+                </article>
+            </section>
+        </div>
+    </footer>
+</body>
+
+</html>

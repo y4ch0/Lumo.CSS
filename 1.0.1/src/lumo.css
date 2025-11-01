@@ -1217,6 +1217,8 @@ select[multiple] {
 label {
     font-size: 0.95rem;
     font-weight: 500;
+    width: 100%;
+    display: block;
 }
 
 label>*,
@@ -1393,6 +1395,10 @@ table tbody tr th {
     margin-bottom: 0;
     border-radius: 0;
     overflow: initial;
+}
+
+.overflow-auto>table>tr:last-child>td {
+    border-bottom: none;
 }
 
 .overflow-auto:has(table) {

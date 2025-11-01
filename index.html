@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumo.CSS</title>
+    <title>Lumo.CSS | Documentation</title>
     <link rel="stylesheet" href="lumo.css">
     <script src="lumo.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
     <style>
         button#theme-change {
             background-image: url("data:image/svg+xml,%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'/%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M7 3V0H9V3H7Z' fill='%23000000'/%3E%3Cpath d='M9 13V16H7V13H9Z' fill='%23000000'/%3E%3Cpath d='M11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8Z' fill='%23000000'/%3E%3Cpath d='M0 9H3V7H0V9Z' fill='%23000000'/%3E%3Cpath d='M16 7H13V9H16V7Z' fill='%23000000'/%3E%3Cpath d='M3.75735 5.17157L1.63603 3.05025L3.05025 1.63603L5.17157 3.75735L3.75735 5.17157Z' fill='%23000000'/%3E%3Cpath d='M12.2426 10.8284L14.364 12.9497L12.9497 14.364L10.8284 12.2426L12.2426 10.8284Z' fill='%23000000'/%3E%3Cpath d='M3.05025 14.364L5.17157 12.2426L3.75735 10.8284L1.63603 12.9498L3.05025 14.364Z' fill='%23000000'/%3E%3Cpath d='M12.9497 1.63604L10.8284 3.75736L12.2426 5.17158L14.364 3.05026L12.9497 1.63604Z' fill='%23000000'/%3E%3C/g%3E%3C/svg%3E");
@@ -21,6 +24,10 @@
 
         body[data-theme="dark"] button#theme-change {
             background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 400.001C0 237.781 96.566 98.115 235.35 35.3515L282.718 82.719C261.76 125.691 250 173.973 250 225.001C250 404.493 395.508 550 575 550C626.03 550 674.31 538.24 717.28 517.285L764.65 564.65C701.885 703.435 562.22 800 400 800C179.086 800 0 620.915 0 400.001Z' fill='white'/%3E%3Cpath d='M575 350.001L450 225.001L575 100.001L700 225.001L575 350.001Z' fill='white'/%3E%3C/svg%3E%0A");
+        }
+
+        pre:has(code) {
+            padding: 0;
         }
     </style>
     <script>
@@ -37,6 +44,11 @@
         })
 
     </script>
+    <script>
+        window.onload = () => {
+            hljs.highlightAll();
+        }
+    </script>
 </head>
 
 <body data-theme="light">
@@ -45,72 +57,57 @@
             <a href="#"><img src="LumoCSS.svg" alt="Lumo.CSS logo" height="65" id="page-logo">
             </a>
             <nav>
-                <ul>
-                    <!--<button role="menu" aria-label="close"></button>-->
-                    <li><a href="#">Lorem ipsum</a></li>
-                    <li><a href="#">Lorem ipsum</a></li>
-                    <li><a href="#">Lorem ipsum</a></li>
-                    <li>
-                        <details class="dropdown">
-                            <summary>Dropdown</summary>
-                            <ul dir="rtl">
-                                <li><a href="#">Lorem ipsum 1</a></li>
-                                <li><a href="#">Lorem ipsum 12</a></li>
-                                <li><a href="#">Lorem ipsum 123</a></li>
-                                <li><a href="#">Lorem ipsum 1234</a></li>
-                                <li><a href="#">Lorem ipsum 12345</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                </ul>
-                <details class="dropdown">
-                    <summary>Dropdown</summary>
-                    <ul dir="rtl">
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">Lorem ipsum</a></li>
-                    </ul>
-                </details>
                 <button id="theme-change"></button>
-                <button role="menu"></button>
             </nav>
         </div>
     </header>
     <main>
         <div class="container">
             <aside id="navigation">
-                <nav>
+                <nav style="overflow-y: auto;max-height: 85vh;">
                     <ul>
-                        <li aria-current="true"><a href="#">Testing link</a></li>
-                        <li><a href="#">Testing link</a></li>
-                        <li><a href="#">Testing link</a></li>
-                        <li><a href="#">Testing link</a></li>
-                        <li><a href="#">Testing link</a></li>
-                        <li><a href="#">Testing link</a></li>
-                        <li><a href="#">Testing link</a></li>
-                        <li aria-current="true">
-                            <details>
-                                <summary>Reveal on click</summary>
+                        <li>
+                            <details open>
+                                <summary>Introduction</summary>
                                 <ul>
-                                    <li><a href="#">Testing link</a></li>
-                                    <li><a href="#">Testing link</a></li>
-                                    <li><a href="#">Testing link</a></li>
-                                    <li><a href="#">Testing link</a></li>
-                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#welcome">Welcome!</a></li>
+                                    <li><a href="#download">Download</a></li>
+                                    <li><a href="#accessibility">Accessibility</a></li>
+                                    <li><a href="#what_next">What next?</a></li>
                                 </ul>
                             </details>
                         </li>
                         <li>
-                            <details>
-                                <summary>Reveal on click</summary>
+                            <details open>
+                                <summary>Components</summary>
                                 <ul>
-                                    <li><a href="#">Testing link</a></li>
-                                    <li><a href="#">Testing link</a></li>
-                                    <li><a href="#">Testing link</a></li>
-                                    <li><a href="#">Testing link</a></li>
-                                    <li><a href="#">Testing link</a></li>
+                                    <li><a href="#accordion">Accordion (Details)</a></li>
+                                    <li><a href="#alert">Alert</a></li>
+                                    <li><a href="#badge">Badge</a></li>
+                                    <li><a href="#blockquote">Blockquote</a></li>
+                                    <li><a href="#breadcrumb">Breadcrumb</a></li>
+                                    <li><a href="#button">Button</a></li>
+                                    <li><a href="#buttons_group">Buttons group</a></li>
+                                    <li><a href="#code_block">Code / Pre</a></li>
+                                    <li><a href="#container">Container</a></li>
+                                    <li><a href="#dialog">Dialog (Modal)</a></li>
+                                    <li><a href="#divider_hr">Divider</a></li>
+                                    <li><a href="#dropdown">Dropdown</a></li>
+                                    <li><a href="#fieldset">Fieldset</a></li>
+                                    <li><a href="#footer">Footer</a></li>
+                                    <li><a href="#form">Form</a></li>
+                                    <li><a href="#form_input">Form input</a></li>
+                                    <li><a href="#grid">Grid</a></li>
+                                    <li><a href="#heading">Heading</a></li>
+                                    <li><a href="#header">Header</a></li>
+                                    <li><a href="#kbd">Keyboard Input</a></li>
+                                    <li><a href="#loading_state">Loading state</a></li>
+                                    <li><a href="#nav">Navigation</a></li>
+                                    <li><a href="#region_card">Region (Card)</a></li>
+                                    <li><a href="#slider">Slider (Carousel)</a></li>
+                                    <li><a href="#table">Table</a></li>
+                                    <li><a href="#tabs">Tabs</a></li>
+                                    <li><a href="#tooltip">Tooltip</a></li>
                                 </ul>
                             </details>
                         </li>
@@ -119,262 +116,1175 @@
             </aside>
             <div id="page">
                 <hgroup>
-                    <p>Lumo.CSS</p>
-                    <h1>Components</h1>
+                    <h1>Lumo.CSS</h1>
+                    <p>Documentation page</p>
+                    <hr>
                 </hgroup>
                 <section>
                     <article>
-                        <h4>Heading</h4>
-                        <hr>
-                        <h1>Heading 1</h1>
-                        <h2>Heading 2</h2>
-                        <h3>Heading 3</h3>
-                        <h4>Heading 4</h4>
-                        <h5>Heading 5</h5>
-                        <h6>Heading 6</h6>
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <h4>Grid</h4>
-                        <hr>
-                    </article>
-                </section>
-                <section>
-                    <article role="region">
-                        <h2>This is card</h2>
-                        <hr>
-                        <a href="#" role="button">Read more</a>
-                    </article>
-                    <article role="region" class="shadow">
-                        <h2>This is card with shadow</h2>
-                    </article>
-                    <article>
-                        <h2>This is column</h2>
-                    </article>
-                </section>
-                <section>
-                    <article role="region" class="centered">
-                        <h2>This is card</h2>
-                        <hr>
-                        <a href="#" role="button">Read more</a>
-                    </article>
-                    <article role="region" class="no-border">
-                        <h2>This is card with shadow</h2>
-                    </article>
-                    <a role="region" href="#" class="no-border">
-                        <h2>This is card as link</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-                        <button>Lorem ipsum</button>
-                    </a>
-                </section>
-                <section>
-                    <article>
+                        <hgroup>
+                            <h6>Introduction</h6>
+                            <h2 id="welcome">Welcome!</h2>
+                        </hgroup>
+                        <p>Welcome to <b>Lumo.CSS</b>, which is low-class CSS and JavaScript framework for web pages. It
+                            includes nearly 30 pre-styled components ready to use in your website with ability to
+                            customize some of the elements of the framework.</p>
+                        <p>The main idea behind this framework is to keep it simple and intuitive so in 90% of the cases
+                            it uses semantic HTML elements with <code>aria-</code> attributes with just a little of the
+                            CSS classes
+                            used in it (less than 15).</p>
+                        <br>
+                        <h3>Quick start</h3>
+                        <p>There are 2 ways to get started with Lumo.CSS:</p>
+                        <br>
+                        <div role="region" style="margin-bottom: 1rem;">
+                            <header>
+                                <h5 id="download">1st way: Download manually and link files in website</h5>
+                            </header>
+                            <ol>
+                                <li>
+                                    First download <a href="1.0.1/dist/lumo.min.css" download><b>lumo.min.css</b></a>
+                                    and
+                                    <a href="1.0.1/dist/lumo.min.js" download><b>lumo.min.js</b></a>.
+                                </li>
+                                <li>
+                                    Then link it in
+                                    your
+                                    <code>.html</code> file:
+                                    <pre id="code-block"><code>&lt;link rel="stylesheet" href="lumo.min.css"&gt;
+&lt;script src="lumo.min.js"&gt;&lt;/script&gt;</code></pre>
+                                </li>
+                            </ol>
+                        </div>
+                        <div role="region">
+                            <header>
+                                <h5>2nd way: Use jsDelivr CDN in your website</h5>
+                            </header>
+                            <ol>
+                                <li>
+                                    Create website <code>html</code> file
+                                </li>
+                                <li>
+                                    Include CDN links in the <code>&lt;head&gt;</code> section:
+                                    <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/y4ch0/Lumo.CSS/1.0.1/dist/lumo.min.css"&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/y4ch0/Lumo.CSS/1.0.1/dist/lumo.min.js"&gt;&lt;/script&gt;</code></pre>
+                                </li>
+                            </ol>
+                        </div>
 
-                    </article>
-                    <article role="region">
-                        <h2>Login</h2>
-                        <p>Provide your credentials to log in.</p>
-                        <form>
-                            <label>Login<input type="text" aria-label="login input"></label>
-                            <label>Password<input type="password" aria-label="password input"></label>
-                            <button class="secondary">Log in</button>
-                        </form>
-                        <hr>
-                        <button style="width:100%;margin-bottom:0.5rem" class="outline tertiary">I forgot
-                            password</button>
-                        <button style="width:100%;" class="outline tertiary">Login with Google</button>
-                    </article>
-                    <article>
+                        <h3 style="margin-top: 2rem;" id="accessibility">Accessibility</h3>
+                        <p>Lumo.CSS includes features for accessibility, such as respecting
+                            <code>prefers-reduced-motion</code>. You can also manually disable animations by adding
+                            <code>data-reduce-motion="true"</code> to the <code>&lt;body&gt;</code> tag.
+                        </p>
+                        <pre><code>&lt;body data-reduce-motion="true"&gt;
+  &lt;!-- All animations will be disabled --&gt;
+&lt;/body&gt;</code></pre>
 
+                        <h3 style="margin-top: 2rem;" id="what_next">What next?</h3>
+                        <p>Check out the components documentation on the left to start building your website!</p>
                     </article>
                 </section>
                 <section>
                     <article>
-                        <h4>Buttons</h4>
-                        <hr>
-                        <button>Primary button</button>
-                        <button class="outline">Primary button outline</button>
-                        <button class="secondary">Secondary button</button>
-                        <button class="secondary outline">Secondary button outline</button>
-                        <div role="group" class="buttons" style="margin-top: 1rem;">
+                        <h2 id="accordion">Components</h2>
+                        <h4>Accordion</h4>
+                        <p>Expands or collapses hidden content when toggled, useful for organizing large sections of
+                            information. Uses the standard <code>&lt;details&gt;</code> element.</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <details>
+                                <summary>Lorem ipsum dolor sit amet.</summary>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                    similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque,
+                                    corporis
+                                    voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet
+                                    deserunt
+                                    saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus,
+                                    quod
+                                    est?</p>
+                            </details>
+                            <details>
+                                <summary role="button">Lorem ipsum dolor sit amet.</summary>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                    similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque,
+                                    corporis
+                                    voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet
+                                    deserunt
+                                    saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus,
+                                    quod
+                                    est?</p>
+                            </details>
+                            <details>
+                                <summary role="button" class="secondary">Lorem ipsum dolor sit amet.</summary>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                    similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque,
+                                    corporis
+                                    voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet
+                                    deserunt
+                                    saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus,
+                                    quod
+                                    est?</p>
+                            </details>
+                            <details>
+                                <summary role="button" class="outline">Lorem ipsum dolor sit amet.</summary>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                    similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque,
+                                    corporis
+                                    voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet
+                                    deserunt
+                                    saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus,
+                                    quod
+                                    est?</p>
+                            </details>
+                            <details>
+                                <summary role="button" class="secondary outline">Lorem ipsum dolor sit amet.</summary>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+                                    similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque,
+                                    corporis
+                                    voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet
+                                    deserunt
+                                    saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus,
+                                    quod
+                                    est?</p>
+                            </details>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;details&gt;
+    &lt;summary&gt;Lorem ipsum dolor sit amet.&lt;/summary&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
+        similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque,
+        corporis
+        voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet
+        deserunt
+        saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus,
+        quod
+        est?&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+    &lt;summary role="button"&gt;Accordion as a button&lt;/summary&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+    &lt;summary role="button" class="secondary outline"&gt;Styled accordion&lt;/summary&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="alert">Alert</h4>
+                        <p>Alerts provide contextual feedback messages. Use <code>role="alert"</code> and specify the
+                            type with <code>aria-label</code> (error, warning, confirmation, information).</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <div role="alert">
+                                <h5>Default alert type</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, amet..</p>
+                            </div>
+                            <div role="alert" aria-label="error">
+                                <h5>Unknown error occured</h5>
+                                <p>An unknown error has occured and your browser need to restart.</p>
+                            </div>
+                            <div role="alert" aria-label="warning">
+                                <h5>Last changes are unsaved</h5>
+                                <p>Before closing the app remember to save changes. Otherwise you will lose all
+                                    progress!
+                                </p>
+                            </div>
+                            <div role="alert" aria-label="confirmation">
+                                <h5>Transaction successfull</h5>
+                            </div>
+                            <div role="alert" aria-label="information">
+                                <h5>Dashboard system maintenance</h5>
+                                <p>The dashboard system will be under maintenance at April 7th 2025 from 4:00PM to
+                                    8:00PM.
+                                </p>
+                            </div>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;div role="alert"&gt;
+    &lt;h5&gt;Default alert type&lt;/h5&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;
+&lt;div role="alert" aria-label="error"&gt;
+    &lt;h5&gt;Unknown error occured&lt;/h5&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;
+&lt;div role="alert" aria-label="warning"&gt;
+    &lt;h5&gt;Last changes are unsaved&lt;/h5&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;
+&lt;div role="alert" aria-label="confirmation"&gt;
+    &lt;h5&gt;Transaction successfull&lt;/h5&gt;
+&lt;/div&gt;
+&lt;div role="alert" aria-label="information"&gt;
+    &lt;h5&gt;Dashboard system maintenance&lt;/h5&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="badge">Badge</h4>
+                        <p>Badges are used to highlight small pieces of information, like counts or statuses, using
+                            <code>span[role="note"]</code>. Use <code>data-style="primary"</code> or
+                            <code>data-style="secondary"</code> for colors.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <p>Messages<span role="note" data-style="primary">123</span></p>
+                            <p>Result row count<span role="note" data-style="secondary">5</span></p>
+                            <h1>Lorem ipsum<span role="note" data-style="secondary">3</span></h1>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;p&gt;Messages&lt;span role="note" data-style="primary"&gt;123&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Result row count&lt;span role="note" data-style="secondary"&gt;5&lt;/span&gt;&lt;/p&gt;
+&lt;h1&gt;Lorem ipsum&lt;span role="note" data-style="secondary"&gt;3&lt;/span&gt;&lt;/h1&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="blockquote">Blockquote</h4>
+                        <p>Used for quoting blocks of text from another source. Automatically styles
+                            <code>&lt;blockquote&gt;</code> and its <code>&lt;footer&gt;</code>.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <blockquote>
+                                “Design is a funny word. Some people think
+                                design means how it looks. But of course, if
+                                you dig deeper, it's really how it works.”
+                                <footer>
+                                    <cite>— Steve Jobs</cite>
+                                </footer>
+                            </blockquote>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;blockquote&gt;
+    “Design is a funny word. Some people think
+    design means how it looks. But of course, if
+    you dig deeper, it's really how it works.”
+    &lt;footer&gt;
+        &lt;cite&gt;— Steve Jobs&lt;/cite&gt;
+    &lt;/footer&gt;
+&lt;/blockquote&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="breadcrumb">Breadcrumb</h4>
+                        <p>Indicates the current page's location within a navigational hierarchy using
+                            <code>ul[aria-label="breadcrumb"]</code>.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <ul aria-label="breadcrumb">
+                                <li><a href="#">Lorem ipsum</a></li>
+                                <li><a href="#">Lorem ipsum</a></li>
+                                <li><a href="#">Lorem ipsum</a></li>
+                            </ul>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;ul aria-label="breadcrumb"&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="button">Button</h4>
+                        <p>Used for user actions. Styles include primary (default), <code>.secondary</code>,
+                            <code>.outline</code>, and <code>.tertiary</code>.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
                             <button>Primary button</button>
                             <button class="outline">Primary button outline</button>
                             <button class="secondary">Secondary button</button>
                             <button class="secondary outline">Secondary button outline</button>
+                            <button class="outline tertiary">Tertiary outline button</button>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;button&gt;Primary button&lt;/button&gt;
+&lt;button class="outline"&gt;Primary button outline&lt;/button&gt;
+&lt;button class="secondary"&gt;Secondary button&lt;/button&gt;
+&lt;button class="secondary outline"&gt;Secondary button outline&lt;/button&gt;
+&lt;button class="outline tertiary"&gt;Tertiary outline button&lt;/button&gt;</code></pre>
                         </div>
-                        <button class="outline tertiary">Tertiary outline button</button>
-                        <div role="group" class="buttons" data-align="center">
-                            <button class="secondary">
-                                < </button>
-                                    <button class="secondary outline">1</button>
-                                    <button class="secondary outline">2</button>
-                                    <button class="secondary outline">3</button>
-                                    <button class="secondary">></button>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="buttons_group">Buttons group</h4>
+                        <p>Group multiple buttons together in a single line using <code>role="group"</code> and the
+                            <code>.buttons</code> class. You can align the group using <code>data-align="left"</code>
+                            (default), <code>data-align="center"</code>, or <code>data-align="right"</code>.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <div role="group" class="buttons" style="margin-bottom: 1rem;">
+                                <button>Primary button</button>
+                                <button class="outline">Primary button outline</button>
+                                <button class="secondary">Secondary button</button>
+                                <button class="secondary outline">Secondary button outline</button>
+                            </div>
+                            <div role="group" class="buttons" data-align="center">
+                                <button class="secondary">&lt;</button>
+                                <button class="secondary outline">1</button>
+                                <button class="secondary outline">2</button>
+                                <button class="secondary outline">3</button>
+                                <button class="secondary">&gt;</button>
+                            </div>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;div role="group" class="buttons"&gt;
+    &lt;button&gt;Primary&lt;/button&gt;
+    &lt;button class="outline"&gt;Primary outline&lt;/button&gt;
+    &lt;button class="secondary"&gt;Secondary&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div role="group" class="buttons" data-align="center"&gt;
+    &lt;button class="secondary"&gt;&amp;lt;&lt;/button&gt;
+    &lt;button class="secondary outline"&gt;1&lt;/button&gt;
+    &lt;button class="secondary outline"&gt;2&lt;/button&gt;
+    &lt;button class="secondary"&gt;&amp;gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </article>
                 </section>
+
                 <section>
                     <article>
-                        <h4>Link</h4>
-                        <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
-                            eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate eligendi
-                            labore quibusdam asperiores.</a>
+                        <h4 id="code_block">Code / Pre</h4>
+                        <p>For displaying inline code snippets (<code>&lt;code&gt;</code>) or larger, pre-formatted code
+                            blocks (<code>&lt;pre&gt;</code>). For syntax highlighting, wrap code in
+                            <code>&lt;pre&gt;&lt;code&gt;...&lt;/code&gt;&lt;/pre&gt;</code>.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <code>This is an inline code snippet.</code>
+                            <pre style="margin-top: 1rem;">This is a pre-formatted code block.
+    It preserves whitespace
+    and line breaks.</pre>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;code&gt;This is an inline code snippet.&lt;/code&gt;
+
+&lt;pre&gt;This is a pre-formatted code block.&lt;/pre&gt;</code></pre>
+                        </div>
                     </article>
                 </section>
+
                 <section>
                     <article>
-                        <h4>Inputs</h4>
-                        <input type="button" value="Input button">
-                        <input type="checkbox">
-                        <input type="color">
-                        <input type="date">
-                        <input type="datetime-local">
-                        <input type="email">
-                        <input type="file">
-                        <input type="image">
-                        <input type="month">
-                        <input type="number">
-                        <input type="password">
-                        <input type="radio">
-                        <input type="range">
-                        <input type="reset">
-                        <input type="search">
-                        <input type="submit">
-                        <input type="tel">
-                        <input type="text" aria-invalid="false">
-                        <input type="time">
-                        <input type="url">
-                        <input type="week">
-                        <input type="text" value="Lorem ipsum dolor" disabled>
-                        <textarea></textarea>
-                        <select multiple>
-                            <option disabled>
-                                Select your favorite snacks...
-                            </option>
-                            <option>Cheese</option>
-                            <option selected>Fruits</option>
-                            <option selected>Nuts</option>
-                            <option>Chocolate</option>
-                            <option>Crackers</option>
-                        </select>
-                        <select aria-invalid="false">
-                            <option value="">Option 1</option>
-                            <option value="">Option 2</option>
-                            <option value="">Option 3</option>
-                            <option value="">Option 4</option>
-                            <option value="">Option 5</option>
-                            <option value="">Lorem ipsum dolor sit amet.</option>
-                        </select>
-                        <select>
-                            <option value="">Option 1</option>
-                            <option value="">Option 2</option>
-                            <option value="">Option 3</option>
-                            <option value="">Option 4</option>
-                            <option value="">Option 5</option>
-                            <option value="">Lorem ipsum dolor sit amet.</option>
-                        </select>
-                        <label><input type="radio" name="radio-button" checked> Radio button</label>
-                        <label><input type="radio" name="radio-button"> Radio button</label>
-                        <label><input type="radio" name="radio-button"> Radio button</label>
-                        <input type="checkbox" role="switch">
-                        <input type="checkbox" role="switch" disabled>
-                        <input type="checkbox" disabled>
-                        <input type="radio" disabled>
-                        <label>Lorem ipsum dolor sit amet:
-                            <input type="range">
-                        </label>
+                        <h4 id="container">Container</h4>
+                        <p>A layout utility to center content. Use <code>.container</code> for a responsive max-width or
+                            <code>.container-fluid</code> for 100% width.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <div class="container" style="border: 1px dashed gray;">
+                                <p>This content is inside a <code>.container</code>.</p>
+                            </div>
+                            <div class="container-fluid" style="border: 1px dashed gray; margin-top: 1rem;">
+                                <p>This content is inside a <code>.container-fluid</code>.</p>
+                            </div>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;div class="container"&gt;
+  &lt;p&gt;This content is inside a &lt;code&gt;.container&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="container-fluid"&gt;
+  &lt;p&gt;This content is inside a &lt;code&gt;.container-fluid&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
                     </article>
                 </section>
+
                 <section>
                     <article>
-                        <details class="dropdown">
-                            <summary role="menu">Select a french dessert</summary>
-                            <ul>
-                                <li><label><input type="radio" name="french-dessert">Option 1</label></li>
-                                <li><label><input type="radio" name="french-dessert">Option 2</label></li>
-                                <li><label><input type="radio" name="french-dessert">Option 3</label></li>
-                                <li><label><input type="radio" name="french-dessert">Option 4</label></li>
-                            </ul>
-                        </details>
-                        <details class="dropdown">
-                            <summary>Select a french dessert</summary>
-                            <ul>
-                                <li><a href="#">Option 1</a></li>
-                                <li><a href="#">Option 2</a></li>
-                                <li><a href="#">Option 3</a></li>
-                                <li><a href="#">Option 4</a></li>
-                                <li><a href="#">Option 5</a></li>
-                            </ul>
-                        </details>
-                        <details class="dropdown">
-                            <summary role="button">Select a french dessert</summary>
-                            <ul>
-                                <li><label><input type="radio" name="french-dessert">Option 1</label></li>
-                                <li><label><input type="radio" name="french-dessert">Option 2</label></li>
-                                <li><label><input type="radio" name="french-dessert">Option 3</label></li>
-                                <li><label><input type="radio" name="french-dessert">Option 4</label></li>
-                            </ul>
-                        </details>
-                        <details class="dropdown">
-                            <summary role="button">Select a french dessert</summary>
-                            <ul>
-                                <li><a href="#">Option 1</a></li>
-                                <li><a href="#">Option 2</a></li>
-                                <li><a href="#">Option 3</a></li>
-                                <li><a href="#">Option 4</a></li>
-                                <li><a href="#">Option 5</a></li>
-                            </ul>
-                        </details>
-                        <details class="dropdown">
-                            <summary role="button" class="secondary">Select a french dessert</summary>
-                            <ul>
-                                <li><label><input type="radio" name="french-dessert">Option 1</label></li>
-                                <li><label><input type="radio" name="french-dessert">Option 2</label></li>
-                                <li><label><input type="radio" name="french-dessert">Option 3</label></li>
-                                <li><label><input type="radio" name="french-dessert">Option 4</label></li>
-                            </ul>
-                        </details>
-                        <details class="dropdown">
-                            <summary role="button" class="secondary outline">Select a french dessert</summary>
-                            <ul>
-                                <li><a href="#">Option 1</a></li>
-                                <li><a href="#">Option 2</a></li>
-                                <li><a href="#">Option 3</a></li>
-                                <li><a href="#">Option 4</a></li>
-                                <li><a href="#">Option 5</a></li>
-                            </ul>
-                        </details>
+                        <h4 id="dialog">Dialog (Modal)</h4>
+                        <p>Displays content in a modal dialog over the page. Trigger with
+                            <code>data-target="modal-id"</code> on a button. Close with <code>data-close</code> on a
+                            button or by clicking the backdrop (unless <code>data-locked="true"</code> is set on the
+                            <code>&lt;dialog&gt;</code>). You can control the modal's width by adding
+                            <code>data-width="s"</code>, <code>data-width="l"</code>, or <code>data-width="xl"</code> to
+                            the inner <code>&lt;section&gt;</code> element.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <button data-target="testing-dialog">Launch default modal</button>
+                            <dialog id="testing-dialog">
+                                <section>
+                                    <header>
+                                        <h4>Dialog title</h4>
+                                        <button class="close" data-close></button>
+                                    </header>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia
+                                        itaque
+                                        et temporibus magnam hic id, optio earum cumque!</p>
+                                    <footer>
+                                        <button class="secondary" data-close>Cancel</button>
+                                        <button class="primary" type="submit">Confirm</button>
+                                    </footer>
+                                </section>
+                            </dialog>
+
+                            <button data-target="testing-dialog-wide-1">Launch 'small' modal</button>
+                            <dialog id="testing-dialog-wide-1">
+                                <section data-width="s">
+                                    <header>
+                                        <h4>Dialog title (small)</h4>
+                                        <button class="close" data-close></button>
+                                    </header>
+                                    <p>This modal has <code>data-width="s"</code>.</p>
+                                    <footer>
+                                        <button class="secondary" data-close>Cancel</button>
+                                        <button class="primary">Confirm</button>
+                                    </footer>
+                                </section>
+                            </dialog>
+
+                            <button data-target="cookie-modal">Launch 'locked' modal</button>
+                            <dialog id="cookie-modal" data-locked="true">
+                                <section>
+                                    <h2>Cookie Settings</h2>
+                                    <p>This modal has <code>data-locked="true"</code> and cannot be closed by clicking
+                                        the background.</p>
+                                    <footer>
+                                        <button data-close>Accept</button>
+                                    </footer>
+                                </section>
+                            </dialog>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;!-- Button to open the modal --&gt;
+&lt;button data-target="testing-dialog"&gt;Launch modal demo&lt;/button&gt;
+
+&lt;!-- The modal dialog --&gt;
+&lt;dialog id="testing-dialog"&gt;
+    &lt;section&gt;
+        &lt;header&gt;
+            &lt;h4&gt;Dialog title&lt;/h4&gt;
+            &lt;button class="close" data-close&gt;&lt;/button&gt;
+        &lt;/header&gt;
+        &lt;p&gt;Modal content...&lt;/p&gt;
+        &lt;footer&gt;
+            &lt;button class="secondary" data-close&gt;Cancel&lt;/button&gt;
+            &lt;button class="primary"&gt;Confirm&lt;/button&gt;
+        &lt;/footer&gt;
+    &lt;/section&gt;
+&lt;/dialog&gt;
+
+&lt;!-- Small modal --&gt;
+&lt;button data-target="testing-dialog-small"&gt;Launch 'small' modal&lt;/button&gt;
+&lt;dialog id="testing-dialog-small"&gt;
+    &lt;section data-width="s"&gt;
+        &lt;header&gt;
+            &lt;h4&gt;Dialog title (small)&lt;/h4&gt;
+            &lt;button class="close" data-close&gt;&lt;/button&gt;
+        &lt;/header&gt;
+        &lt;p&gt;This modal has &lt;code&gt;data-width="s"&lt;/code&gt;.&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/dialog&gt;
+
+&lt;!-- Locked modal --&gt;
+&lt;button data-target="cookie-modal"&gt;Launch locked modal&lt;/button&gt;
+&lt;dialog id="cookie-modal" data-locked="true"&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Cookie Settings&lt;/h2&gt;
+        &lt;p&gt;This modal is locked.&lt;/p&gt;
+        &lt;footer&gt;
+            &lt;button data-close&gt;Accept&lt;/button&gt;
+        &lt;/footer&gt;
+    &lt;/section&gt;
+&lt;/dialog&gt;</code></pre>
+                        </div>
                     </article>
                 </section>
+
                 <section>
                     <article>
-                        <h4>Table</h4>
-                        <div class="overflow-auto">
+                        <h4 id="divider_hr">Divider</h4>
+                        <p>A thematic break between content. Use <code>&lt;hr&gt;</code> for horizontal or
+                            <code>&lt;hr aria-orientation="vertical"&gt;</code> for vertical (inside a flex/grid
+                            container).
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <p>Content above the divider.</p>
+                            <hr>
+                            <p>Content below the divider.</p>
+                            <section style="margin-top: 1rem;">
+                                <article role="region" class="centered">
+                                    <p>Column 1</p>
+                                </article>
+                                <hr aria-orientation="vertical">
+                                <article role="region" class="centered">
+                                    <p>Column 2</p>
+                                </article>
+                            </section>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;p&gt;Content above the divider.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Content below the divider.&lt;/p&gt;
+
+&lt;!-- Vertical divider inside a flex container (like section) --&gt;
+&lt;section&gt;
+    &lt;article role="region"&gt;
+        &lt;p&gt;Column 1&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;hr aria-orientation="vertical"&gt;
+    &lt;article role="region"&gt;
+        &lt;p&gt;Column 2&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/section&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="dropdown">Dropdown</h4>
+                        <p>A <code>&lt;details&gt;</code> element styled as a dropdown menu by adding the
+                            <code>.dropdown</code> class. It closes automatically when clicking outside.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <details class="dropdown">
+                                <summary>Select an option</summary>
+                                <ul>
+                                    <li><a href="#">Option 1</a></li>
+                                    <li><a href="#">Option 2</a></li>
+                                    <li><a href="#">Option 3</a></li>
+                                </ul>
+                            </details>
+
+                            <details class="dropdown" style="margin-left: 1rem;">
+                                <summary role="button">Dropdown as button</summary>
+                                <ul>
+                                    <li><label><input type="radio" name="french-dessert-doc">Option 1</label></li>
+                                    <li><label><input type="radio" name="french-dessert-doc">Option 2</label></li>
+                                </ul>
+                            </details>
+
+                            <details class="dropdown" style="margin-left: 1rem;">
+                                <summary role="button" class="secondary outline">Styled dropdown</summary>
+                                <ul>
+                                    <li><a href="#">Option 1</a></li>
+                                    <li><a href="#">Option 2</a></li>
+                                </ul>
+                            </details>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;details class="dropdown"&gt;
+    &lt;summary&gt;Select an option&lt;/summary&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Option 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Option 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Option 3&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/details&gt;
+
+&lt;details class="dropdown"&gt;
+    &lt;summary role="button"&gt;Dropdown as button&lt;/summary&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;label&gt;&lt;input type="radio" name="dessert"&gt;Option 1&lt;/label&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;label&gt;&lt;input type="radio" name="dessert"&gt;Option 2&lt;/label&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/details&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="fieldset">Fieldset</h4>
+                        <p>Used to group several controls within a web form. Can be stacked (default) or grouped
+                            horizontally with <code>role="group"</code>. Use <code>.grid</code> for a responsive
+                            2-column layout.</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <fieldset>
+                                <label>Given name:<input type="text" name="name-doc" placeholder="First name"></label>
+                                <label>E-mail:<input type="email" name="email-doc" placeholder="E-mail address"></label>
+                            </fieldset>
+
+                            <fieldset class="grid" style="margin-top: 1rem;">
+                                <label>Given name:<input type="text" name="name-doc-grid"
+                                        placeholder="First name"></label>
+                                <label>E-mail:<input type="email" name="email-doc-grid"
+                                        placeholder="E-mail address"></label>
+                            </fieldset>
+
+                            <fieldset role="group" style="margin-top: 1rem;">
+                                <select style="width:fit-content">
+                                    <option value="">+1</option>
+                                    <option value="">+48</option>
+                                </select>
+                                <input type="tel" name="tel-doc" placeholder="Phone number">
+                                <button type="submit">Send</button>
+                            </fieldset>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;!-- Standard fieldset --&gt;
+&lt;fieldset&gt;
+    &lt;label&gt;Given name:&lt;input type="text" name="name"&gt;&lt;/label&gt;
+    &lt;label&gt;E-mail:&lt;input type="email" name="email"&gt;&lt;/label&gt;
+&lt;/fieldset&gt;
+
+&lt;!-- Grid fieldset --&gt;
+&lt;fieldset class="grid"&gt;
+    &lt;label&gt;Given name:&lt;input type="text" name="name"&gt;&lt;/label&gt;
+    &lt;label&gt;E-mail:&lt;input type="email" name="email"&gt;&lt;/label&gt;
+&lt;/fieldset&gt;
+
+&lt;!-- Grouped fieldset --&gt;
+&lt;fieldset role="group"&gt;
+    &lt;select style="width:fit-content"&gt;
+        &lt;option&gt;+1&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;input type="tel" name="tel" placeholder="Phone number"&gt;
+    &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/fieldset&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="footer">Footer</h4>
+                        <p>The main <code>&lt;footer&gt;</code> element for the page, typically containing copyright
+                            info and site links. It has a light background color.</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <footer style="margin-top: 0; width: 100%;">
+                                <div class="container" style="width: 100%;">
+                                    <section>
+                                        <article>
+                                            <p>&copy; 2025 y4ch0</p>
+                                            <p>Lumo.CSS is shared via Github Pages service.</p>
+                                        </article>
+                                    </section>
+                                </div>
+                            </footer>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;footer&gt;
+    &lt;div class="container"&gt;
+        &lt;section&gt;
+            &lt;article&gt;
+                &lt;p&gt;&amp;copy; 2025 Your Name&lt;/p&gt;
+                &lt;p&gt;Footer content...&lt;/p&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="form">Form</h4>
+                        <p>A component for collecting user input. Lumo styles <code>&lt;form&gt;</code>,
+                            <code>&lt;fieldset&gt;</code>, <code>&lt;label&gt;</code>, and inputs automatically.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <form>
+                                <fieldset>
+                                    <label aria-required="true">Given name:
+                                        <input type="text" name="name-doc-form" placeholder="First name"
+                                            aria-label="Given name input">
+                                    </label>
+                                    <label>E-mail:
+                                        <input type="email" name="email-doc-form" placeholder="E-mail address"
+                                            aria-label="Email input">
+                                    </label>
+                                    <label>
+                                        <input type="checkbox"> I agree with Terms of Service.
+                                    </label>
+                                </fieldset>
+                                <input type="submit" class="secondary" aria-label="Submit button" value="Submit">
+                            </form>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;form&gt;
+    &lt;fieldset&gt;
+        &lt;label aria-required="true"&gt;Given name:
+            &lt;input type="text" name="name" placeholder="First name"&gt;
+        &lt;/label&gt;
+        &lt;label&gt;E-mail:
+            &lt;input type="email" name="email" placeholder="E-mail address"&gt;
+        &lt;/label&gt;
+        &lt;label&gt;
+            &lt;input type="checkbox"&gt; I agree with Terms of Service.
+        &lt;/label&gt;
+    &lt;/fieldset&gt;
+    &lt;input type="submit" class="secondary" value="Submit"&gt;
+&lt;/form&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="form_input">Form input</h4>
+                        <p>All standard HTML form inputs and controls are styled, including text, select, checkbox,
+                            radio, switch, and range. Use <code>aria-invalid</code> for validation states.</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <label>Text input
+                                <input type="text" placeholder="Placeholder text">
+                            </label>
+                            <label>Select
+                                <select>
+                                    <option value="">Option 1</option>
+                                    <option value="">Option 2</option>
+                                </select>
+                            </label>
+                            <label>
+                                <input type="checkbox"> Checkbox
+                            </label>
+                            <label>
+                                <input type="radio" name="radio-doc-2"> Radio button
+                            </label>
+                            <label>Switch
+                                <input type="checkbox" role="switch">
+                            </label>
+                            <label>Range
+                                <input type="range">
+                            </label>
+                            <label>Invalid input
+                                <input type="text" aria-invalid="true" value="Wrong email">
+                                <small>This field contains an error.</small>
+                            </label>
+                            <label>
+                                Valid input
+                                <input type="text" aria-invalid="false" value="Correct value">
+                            </label>
+                            <label>Disabled input
+                                <input type="text" value="Lorem ipsum dolor" disabled>
+                            </label>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;label&gt;Text input
+    &lt;input type="text" placeholder="Placeholder text"&gt;
+&lt;/label&gt;
+
+&lt;label&gt;Select
+    &lt;select&gt;
+        &lt;option&gt;Option 1&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="checkbox"&gt; Checkbox
+&lt;/label&gt;
+
+&lt;label&gt;
+    &lt;input type="radio" name="radio"&gt; Radio button
+&lt;/label&gt;
+
+&lt;label&gt;Switch
+    &lt;input type="checkbox" role="switch"&gt;
+&lt;/label&gt;
+
+&lt;label&gt;Invalid input
+    &lt;input type="text" aria-invalid="true" value="Wrong email"&gt;
+    &lt;small&gt;This field contains an error.&lt;/small&gt;
+&lt;/label&gt;
+
+&lt;label&gt;Valid input
+    &lt;input type="text" aria-invalid="false" value="Correct value"&gt;
+&lt;/label&gt;
+
+&lt;label&gt;Disabled input
+    &lt;input type="text" value="Lorem ipsum dolor" disabled&gt;
+&lt;/label&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="grid">Grid</h4>
+                        <p>Lumo uses CSS Flexbox for grids. By default, <code>&lt;section&gt;</code> elements act as
+                            responsive grids, stacking vertically on mobile and arranging horizontally on desktop. You
+                            can also use the <code>.grid</code> class on a <code>&lt;fieldset&gt;</code>.</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <section>
+                                <article role="region" class="centered">
+                                    <p>Column 1</p>
+                                </article>
+                                <article role="region" class="centered">
+                                    <p>Column 2</p>
+                                </article>
+                                <article role="region" class="centered">
+                                    <p>Column 3</p>
+                                </article>
+                            </section>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;section&gt;
+    &lt;article role="region"&gt;
+        &lt;p&gt;Column 1&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;article role="region"&gt;
+        &lt;p&gt;Column 2&lt;/p&gt;
+    &lt;/article&gt;
+    &lt;article role="region"&gt;
+        &lt;p&gt;Column 3&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/section&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="heading">Heading</h4>
+                        <p>Standard HTML heading elements <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are
+                            styled for proper typography.</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <h1>Heading 1</h1>
+                            <h2>Heading 2</h2>
+                            <h3>Heading 3</h3>
+                            <h4>Heading 4</h4>
+                            <h5>Heading 5</h5>
+                            <h6>Heading 6</h6>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="header">Header</h4>
+                        <p>The main <code>&lt;header&gt;</code> element for the page. Can be made sticky by adding the
+                            <code>.is-fixed</code> class.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <header class="is-fixed"
+                                style="position: relative; top: 0; box-shadow: var(--lumo-shadow-s);">
+                                <div class="container" style="width: 100%;">
+                                    <a href="#"><img src="LumoCSS.svg" alt="Lumo.CSS logo" height="65"
+                                            id="page-logo-demo" style="filter: brightness(0.5);">
+                                    </a>
+                                    <nav>
+                                        <button id="theme-change-demo" style="opacity: 0.5;"></button>
+                                    </nav>
+                                </div>
+                            </header>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;header class="is-fixed"&gt;
+    &lt;div class="container"&gt;
+        &lt;a href="#"&gt;&lt;img src="logo.svg" alt="Logo" height="65"&gt;&lt;/a&gt;
+        &lt;nav&gt;
+            &lt;!-- Navigation links --&gt;
+            &lt;button id="theme-change"&gt;&lt;/button&gt;
+        &lt;/nav&gt;
+    &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="kbd">Keyboard Input</h4>
+                        <p>Used to denote keyboard input using the <code>&lt;kbd&gt;</code> element.</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <p>To copy text, press <kbd>CTRL</kbd> + <kbd>C</kbd>.</p>
+                            <p>To paste, press <kbd>CTRL</kbd> + <kbd>V</kbd>.</p>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;p&gt;To copy text, press &lt;kbd&gt;CTRL&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;.&lt;/p&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="loading_state">Loading state</h4>
+                        <p>Use <code>aria-busy="true"</code> on buttons, articles, or text elements to show a loading
+                            spinner.</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <button aria-busy="true">Loading offers...</button>
+                            <button aria-busy="true" class="secondary" style="margin-left: 1rem;">Loading
+                                offers...</button>
+                            <h4 aria-busy="true" style="margin-top: 1rem;">Loading your assets.</h4>
+                            <p aria-busy="true">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi saepe
+                                officia
+                                velit neque minus reprehenderit?</p>
+                            <article aria-busy="true" style="min-height: 100px; margin-top: 1rem;"></article>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;button aria-busy="true"&gt;Loading...&lt;/button&gt;
+&lt;button aria-busy="true" class="secondary"&gt;Loading...&lt;/button&gt;
+
+&lt;h4 aria-busy="true"&gt;Loading your assets.&lt;/h4&gt;
+&lt;p aria-busy="true"&gt;Loading text...&lt;/p&gt;
+
+&lt;article aria-busy="true" style="min-height: 100px;"&gt;&lt;/article&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="nav">Navigation</h4>
+                        <p>Navigation components. Used in the main <code>&lt;header&gt;</code> (see Header) and as a
+                            sidebar with <code>&lt;aside id="navigation"&gt;</code>. Use
+                            <code>aria-current="true"</code> on the active <code>&lt;li&gt;</code>.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <aside id="navigation"
+                                style="position: relative; top: 0; border: var(--lumo-border-default); border-radius: var(--lumo-border-radius); padding: 1rem;">
+                                <nav>
+                                    <ul>
+                                        <li aria-current="true"><a href="#">Current Page</a></li>
+                                        <li><a href="#">Another Page</a></li>
+                                        <li>
+                                            <details open>
+                                                <summary>Submenu</summary>
+                                                <ul>
+                                                    <li><a href="#">Link 1</a></li>
+                                                    <li><a href="#">Link 2</a></li>
+                                                </ul>
+                                            </details>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </aside>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;aside id="navigation"&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li aria-current="true"&gt;&lt;a href="#"&gt;Current Page&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Another Page&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;
+                &lt;details open&gt;
+                    &lt;summary&gt;Submenu&lt;/summary&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/details&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/aside&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="region_card">Region (Card)</h4>
+                        <p>A card component, created using <code>role="region"</code> on an
+                            <code>&lt;article&gt;</code>. Can have <code>&lt;header&gt;</code> and
+                            <code>&lt;footer&gt;</code> elements, shadows (<code>.shadow</code>), and be centered
+                            (<code>.centered</code>).
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <article role="region">
+                                <h2>This is card</h2>
+                                <hr>
+                                <a href="#" role="button">Read more</a>
+                            </article>
+
+                            <article role="region" class="shadow" style="margin-top: 1rem;">
+                                <h2>This is card with shadow</h2>
+                            </article>
+
+                            <article role="region" style="margin-top: 1rem;">
+                                <header>
+                                    <h5>Header of card</h5>
+                                </header>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti
+                                    soluta
+                                    delectus similique dolorum perspiciatis ea adipisci hic.</p>
+                                <footer>Footer of card</footer>
+                            </article>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;!-- Standard card --&gt;
+&lt;article role="region"&gt;
+    &lt;h2&gt;This is card&lt;/h2&gt;
+    &lt;hr&gt;
+    &lt;a href="#" role="button"&gt;Read more&lt;/a&gt;
+&lt;/article&gt;
+
+&lt;!-- Card with shadow --&gt;
+&lt;article role="region" class="shadow"&gt;
+    &lt;h2&gt;This is card with shadow&lt;/h2&gt;
+&lt;/article&gt;
+
+&lt;!-- Card with header and footer --&gt;
+&lt;article role="region"&gt;
+    &lt;header&gt;
+        &lt;h5&gt;Header of card&lt;/h5&gt;
+    &lt;/header&gt;
+    &lt;p&gt;Lorem ipsum dolor sit, amet consectetur...&lt;/p&gt;
+    &lt;footer&gt;Footer of card&lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="slider">Slider (Carousel)</h4>
+                        <p>A simple, CSS-only carousel. Use <code>role="slider"</code> on a container. Direct children
+                            (images or divs) will become slides.</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <div role="slider">
+                                <img src="https://placehold.co/800x300" alt="Placeholder 1">
+                                <img src="https://placehold.co/800x300" alt="Placeholder 2">
+                                <div>
+                                    <h3 style="padding-top: 1rem;">Slide with content</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo mollitia sed
+                                        vero
+                                        recusandae, at illum quo alias nobis quibusdam optio.</p>
+                                </div>
+                            </div>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;div role="slider"&gt;
+    &lt;img src="image1.jpg" alt="Slide 1"&gt;
+    &lt;img src="image2.jpg" alt="Slide 2"&gt;
+    &lt;div&gt;
+        &lt;h3&gt;Slide with content&lt;/h3&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="table">Table</h4>
+                        <p>Standard HTML table styling. Add the <code>.striped</code> class for striped rows. Wrap in
+                            <code>.overflow-auto</code> for responsive horizontal scrolling.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
                             <table>
                                 <thead>
                                     <tr>
                                         <th>Lorem ipsum</th>
                                         <th>Lorem ipsum</th>
                                         <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
-                                        <th>Lorem ipsum</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -382,572 +1292,156 @@
                                         <td>Lorem ipsum</td>
                                         <td>Lorem ipsum</td>
                                         <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
-                                        <td>Lorem ipsum</td>
+                                    </tr>
+                                    <tr>
                                         <td>Lorem ipsum</td>
                                         <td>Lorem ipsum</td>
                                         <td>Lorem ipsum</td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Lorem ipsum</th>
-                                    <th>Lorem ipsum</th>
-                                    <th>Lorem ipsum</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Lorem ipsum</th>
-                                    <th>Lorem ipsum</th>
-                                    <th>Lorem ipsum</th>
-                                </tr>
-                            </tfoot>
-                        </table>
 
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <table class="striped">
-                            <thead>
-                                <tr>
-                                    <th>Lorem ipsum</th>
-                                    <th>Lorem ipsum</th>
-                                    <th>Lorem ipsum</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                                <tr>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Lorem ipsum</th>
-                                    <td>Lorem ipsum</td>
-                                    <td>Lorem ipsum</td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <div class="overflow-auto">
-                            <table class="striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Planet</th>
-                                        <th scope="col">Diam. (km)</th>
-                                        <th scope="col">Dist. to Sun (AU)</th>
-                                        <th scope="col">Grav. (m/s²)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Mercury</th>
-                                        <td>4,880</td>
-                                        <td>0.39</td>
-                                        <td>3.7</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Venus</th>
-                                        <td>12,104</td>
-                                        <td>0.72</td>
-                                        <td>8.9</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Earth</th>
-                                        <td>12,742</td>
-                                        <td>1.00</td>
-                                        <td>9.8</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Mars</th>
-                                        <td>6,779</td>
-                                        <td>1.52</td>
-                                        <td>3.7</td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th scope="row">Average</th>
-                                        <td>9,126</td>
-                                        <td>0.91</td>
-                                        <td>6.5</td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <h4>Breadcrumb</h4>
-                        <ul aria-label="breadcrumb">
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Lorem ipsum</a></li>
-                            <li><a href="#">Lorem ipsum</a></li>
-                        </ul>
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <h4>Forms</h4>
-                        <form>
-                            <fieldset>
-                                <label aria-required="true">Given name:<input type="text" name="name"
-                                        placeholder="First name" aria-label="Given name input"></label>
-                                <label>E-mail:<input type="email" name="email" placeholder="E-mail address"
-                                        aria-label="Email input"></label>
-                                <label><input type="checkbox"> I agree with Terms of Service.</label>
-                            </fieldset>
-                            <fieldset class="grid"><label>Given name:<input type="text" name="name"
-                                        placeholder="First name" aria-label="Given name input"></label>
-                                <label>E-mail:<input type="email" name="email" placeholder="E-mail address"
-                                        aria-label="Email input"></label>
-                            </fieldset>
-                            <label>E-mail:<fieldset role="group"><input type="email" name="email"
-                                        placeholder="E-mail address" aria-label="Email input"><button type="submit"
-                                        aria-label="Submit button">Send</button></fieldset></label>
-
-                            <fieldset role="group">
-                                <select style="width:fit-content">
-                                    <option value="">+1</option>
-                                    <option value="">+2</option>
-                                    <option value="">+3</option>
-                                    <option value="">+4</option>
-                                    <option value="">+5</option>
-                                </select>
-                                <input type="tel" name="tel" placeholder="Phone number" aria-label="Phone number input">
-                                <button type="submit" aria-label="Submit button">Send</button>
-                            </fieldset>
-                            <fieldset>
-                                <label>E-mail: <input type="text" aria-invalid="true"><small>To pole zawiera
-                                        niepoprawnie wprowadzony adres e-mail.</small></label>
-                            </fieldset>
-                            <input type="submit" class="secondary" aria-label="Submit button">
-                        </form>
-                        <hr>
-                        <form action="">
-                            <input type="text">
-                            <footer><button type="submit">Wyślij</button></footer>
-                        </form>
-                    </article>
-                </section>
-                <section>
-
-                    <article>
-                        <h4>Accordion</h4>
-                        <hr>
-                        <details>
-                            <summary>Lorem ipsum dolor sit amet.</summary>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
-                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
-                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
-                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
-                                est?</p>
-                        </details>
-                        <details>
-                            <summary role="button">Lorem ipsum dolor sit amet.</summary>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
-                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
-                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
-                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
-                                est?</p>
-                        </details>
-                        <details>
-                            <summary role="button" class="secondary">Lorem ipsum dolor sit amet.</summary>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
-                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
-                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
-                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
-                                est?</p>
-                        </details>
-                        <details>
-                            <summary role="button" class="outline">Lorem ipsum dolor sit amet.</summary>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
-                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
-                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
-                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
-                                est?</p>
-                        </details>
-                        <details>
-                            <summary role="button" class="secondary outline">Lorem ipsum dolor sit amet.</summary>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente ipsam hic ratione
-                                similique mollitia asperiores cum quidem quasi impedit vero deleniti itaque, corporis
-                                voluptatum fugit labore exercitationem, atque dolores ut blanditiis eum amet deserunt
-                                saepe cumque! Iure quasi vero eum. Iste illum quasi ex minima ducimus nam natus, quod
-                                est?</p>
-                        </details>
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <h4>Tooltip</h4>
-                        <hr>
-                        <p data-tooltip="Lorem ipsum dolor sit amet.">
-                            This text has a tooltip
-                            data attribute.</p>
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <h4>Code and pre</h4>
-                        <hr><code>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, minima.</code>
-                        <pre>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque at voluptatem consectetur incidunt commodi saepe quidem amet. Asperiores placeat odit assumenda, 
-                            cum porro quos dicta minima hic tenetur esse est sequi iusto corrupti natus illo perspiciatis, nisi similique at explicabo quasi totam, fugit deleniti n
-                            ecessitatibus. Similique iste libero cupiditate magnam?</pre>
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <h4>kbd</h4>
-                        <hr><kbd>CTRL</kbd><kbd>Shift</kbd>
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <h4>Blockqoute</h4>
-                        <hr>
-                        <blockquote>
-                            “Design is a funny word. Some people think
-                            design means how it looks. But of course, if
-                            you dig deeper, it's really how it works.”
-                            <footer>
-                                <cite>— Steve Jobs</cite>
-                            </footer>
-                        </blockquote>
-                        <hr>
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <h4>Modal demo</h4>
-                        <hr>
-                        <button data-target="testing-dialog-wide-1">Launch modal demo 1</button>
-                        <button data-target="testing-dialog">Launch modal demo 2</button>
-                        <button data-target="testing-dialog-wide-2">Launch modal demo 3</button>
-                        <button data-target="testing-dialog-wide-3">Launch modal demo 4</button>
-                        <dialog id="testing-dialog">
-                            <section>
-                                <header>
-                                    <h4>Dialog title</h4>
-                                    <button class="close" data-close></button>
-                                </header>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
-                                    et temporibus magnam hic id, optio earum cumque!</p>
-                                <hr>
-                                <form>
-                                    <label>Email:<input type="text" aria-label="Email address"></label>
-                                    <label>Password:<input type="password" aria-label="Email password"></label>
-                                    <footer>
-                                        <button class="primary" type="submit">Confirm</button>
-                                    </footer>
-                                </form>
-                                <form>
-                                    <label>Email:<input type="text" aria-label="Email address"></label>
-                                    <label>Password:<input type="password" aria-label="Email password"></label>
-                                    <footer>
-                                        <button class="secondary" data-close>Cancel</button>
-                                        <button class="primary" type="submit">Confirm</button>
-                                    </footer>
-                                </form>
-                            </section>
-                        </dialog>
-                        <dialog id="testing-dialog-wide-1">
-                            <section data-width="s">
-                                <header>
-                                    <h4>Dialog title</h4>
-                                    <button class="close" data-close></button>
-                                </header>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
-                                    et temporibus magnam hic id, optio earum cumque!</p>
-                                <footer>
-                                    <button class="secondary" data-close>Cancel</button>
-                                    <button class="primary">Confirm</button>
-                                </footer>
-                            </section>
-                        </dialog>
-                        <dialog id="testing-dialog-wide-2">
-                            <section data-width="l">
-                                <header>
-                                    <h4>Dialog title</h4>
-                                    <button class="close" data-close></button>
-                                </header>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
-                                    et temporibus magnam hic id, optio earum cumque!</p>
-                                <footer>
-                                    <button class="secondary" data-close>Cancel</button>
-                                    <button class="primary">Confirm</button>
-                                </footer>
-                            </section>
-                        </dialog>
-                        <dialog id="testing-dialog-wide-3">
-                            <section data-width="xl">
-                                <header>
-                                    <h4>Dialog title</h4>
-                                    <button class="close" data-close></button>
-                                </header>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
-                                    et temporibus magnam hic id, optio earum cumque!</p>
-                                <footer>
-                                    <button class="secondary" data-close>Cancel</button>
-                                    <button class="primary">Confirm</button>
-                                </footer>
-                            </section>
-                        </dialog>
-                    </article>
-                </section>
-                <section>
-                    <article class="tabs">
-                        <h4>Tabs</h4>
-                        <hr>
-                        <nav role="tablist">
-                            <button role="tab" aria-selected="true">Tab 1</button>
-                            <button role="tab" aria-selected="false">Tab 2</button>
-                            <button role="tab" aria-selected="false">Tab 3</button>
-                        </nav>
-                        <div class="tabs-content">
-                            <div role="tabpanel">
-                                <p>Content for Tab 1.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
-                                    eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
-                                    eligendi
-                                    labore quibusdam asperiores.</p>
+                            <div class="overflow-auto" style="margin-top: 1rem;">
+                                <table class="striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Planet</th>
+                                            <th scope="col">Diam. (km)</th>
+                                            <th scope="col">Dist. to Sun (AU)</th>
+                                            <th scope="col">Grav. (m/s²)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Mercury</th>
+                                            <td>4,880</td>
+                                            <td>0.39</td>
+                                            <td>3.7</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Venus</th>
+                                            <td>12,104</td>
+                                            <td>0.72</td>
+                                            <td>8.9</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Earth</th>
+                                            <td>12,742</td>
+                                            <td>1.00</td>
+                                            <td>9.8</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div role="tabpanel" hidden>
-                                <p>Content for Tab 2.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
-                                    eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
-                                    eligendi
-                                    labore quibusdam asperiores.</p>
-                            </div>
-                            <div role="tabpanel" hidden>
-                                <p>Content for Tab 3.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
-                                    eveniet aliquam praesentium facilis ipsa id. Voluptatum dolorem laborum cupiditate
-                                    eligendi
-                                    labore quibusdam asperiores.</p>
-                            </div>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;!-- Standard Table --&gt;
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;...&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;...&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;!-- Striped, responsive table --&gt;
+&lt;div class="overflow-auto"&gt;
+    &lt;table class="striped"&gt;
+        &lt;thead&gt;...&lt;/thead&gt;
+        &lt;tbody&gt;...&lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </article>
                 </section>
-                <section>
-                    <article role="region">
-                        <h2>Test</h2>
-                    </article>
-                    <hr aria-orientation="vertical">
-                    <article role="region">
-                        <h2>Test</h2>
-                    </article>
-                </section>
+
                 <section>
                     <article>
-                        <div role="alert">
-                            <h5>Default alert type</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa, amet..</p>
+                        <h4 id="tabs">Tabs</h4>
+                        <p>A JavaScript-powered tabs component. Requires an <code>article.tabs</code> wrapper, a
+                            <code>nav[role="tablist"]</code>, and a <code>.tabs-content</code> container with
+                            <code>role="tabpanel"</code> elements.
+                        </p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <article class="tabs">
+                                <nav role="tablist">
+                                    <button role="tab" aria-selected="true">Tab 1</button>
+                                    <button role="tab" aria-selected="false">Tab 2</button>
+                                    <button role="tab" aria-selected="false">Tab 3</button>
+                                </nav>
+                                <div class="tabs-content">
+                                    <div role="tabpanel">
+                                        <p>Content for Tab 1.</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at, voluptatem
+                                            eveniet aliquam praesentium facilis ipsa id.</p>
+                                    </div>
+                                    <div role="tabpanel" hidden>
+                                        <p>Content for Tab 2.</p>
+                                        <p>Voluptatum dolorem laborum cupiditate eligendi labore quibusdam asperiores.
+                                        </p>
+                                    </div>
+                                    <div role="tabpanel" hidden>
+                                        <p>Content for Tab 3.</p>
+                                        <p>Sequi at, voluptatem eveniet aliquam praesentium facilis ipsa id.</p>
+                                    </div>
+                                </div>
+                            </article>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;article class="tabs"&gt;
+    &lt;nav role="tablist"&gt;
+        &lt;button role="tab" aria-selected="true"&gt;Tab 1&lt;/button&gt;
+        &lt;button role="tab" aria-selected="false"&gt;Tab 2&lt;/button&gt;
+    &lt;/nav&gt;
+    &lt;div class="tabs-content"&gt;
+        &lt;div role="tabpanel"&gt;
+            &lt;p&gt;Content for Tab 1.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div role="tabpanel" hidden&gt;
+            &lt;p&gt;Content for Tab 2.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/article&gt;</code></pre>
                         </div>
-                        <div role="alert" aria-label="error">
-                            <h5>Unknown error occured</h5>
-                            <p>An unknown error has occured and your browser need to restart.</p>
-                        </div>
-                        <div role="alert" aria-label="warning">
-                            <h5>Last changes are unsaved</h5>
-                            <p>Before closing the app remember to save changes. Otherwise you will lose all progress!
+                    </article>
+                </section>
+
+                <section>
+                    <article>
+                        <h4 id="tooltip">Tooltip</h4>
+                        <p>A CSS-only tooltip that appears on hover. Add the <code>data-tooltip="Your text"</code>
+                            attribute to any element.</p>
+                        <div role="region">
+                            <header>
+                                <h5>Example</h5>
+                            </header>
+                            <p data-tooltip="This is the tooltip text.">
+                                This text has a tooltip.
                             </p>
-                        </div>
-                        <div role="alert" aria-label="confirmation">
-                            <h5>Transaction successfull</h5>
-                        </div>
-                        <div role="alert" aria-label="information">
-                            <h5>Dashboard system maintenance</h5>
-                            <p>The dashboard system will be under maintenance at April 7th 2025 from 4:00PM to 8:00PM.
-                            </p>
-                        </div>
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <div role="slider">
-                            <img src="https://placehold.co/800x300" alt="">
-                            <img src="https://placehold.co/800x300" alt="">
-                            <img src="https://placehold.co/800x300" alt="">
-                            <div>
-                                <h3>lorem ipsum</h3>
-                            </div>
-                            <img src="https://placehold.co/800x300" alt="">
-                            <img src="https://placehold.co/800x300" alt="">
-                            <div>
-                                <h3>lorem ipsum</h3>
-                                <p>Dolor sit amet</p>
-                            </div>
-                            <div>
-                                <h3>lorem ipsum</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo mollitia sed vero
-                                    recusandae, at illum quo alias nobis quibusdam optio.</p>
-                            </div>
+                            <button data-tooltip="Click this to submit the form!"
+                                style="margin-top: 1rem;">Submit</button>
+                            <header style="margin-top: 1rem;">
+                                <h5>Code</h5>
+                            </header>
+                            <pre><code>&lt;p data-tooltip="This is the tooltip text."&gt;
+    This text has a tooltip.
+&lt;/p&gt;
+
+&lt;button data-tooltip="Click this to submit!"&gt;Submit&lt;/button&gt;</code></pre>
                         </div>
                     </article>
                 </section>
-                <section>
-                    <article>
-                        <p>This is a <del>deleted</del> text.</p>
-                        <p>This is a <del>deleted</del> <ins>inserted</ins> text.</p>
-                        <p>This is <mark>highlighted text</mark>.</p>
-                        <p>To copy text select it and press <kbd>CTRL + C</kbd></p>
-                    </article>
-                </section>
-                <section>
-                    <article role="region">
-                        <header>
-                            <h5>Header of card</h5>
-                        </header>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
-                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
-                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
-                        <footer>Footer of card</footer>
-                    </article>
-                    <article role="region">
-                        <header>
-                            <h5>Header of card</h5>
-                        </header>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
-                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
-                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
-                    </article>
-                    <article role="region">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
-                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo ipsum enim corrupti soluta
-                            delectus similique dolorum perspiciatis ea adipisci hic.</p>
-                        <footer>Footer of card</footer>
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <button data-target="cookie-modal">Launch modal demo (cookie modal)</button>
-                        <dialog id="cookie-modal" data-locked="true">
-                            <section>
-                                <h2>Cookie Settings</h2>
-                                <p>We use cookies to improve your experience. By clicking "Accept", you agree to our use
-                                    of cookies.</p>
-                                <footer>
-                                    <button data-close>Accept</button>
-                                </footer>
-                            </section>
-                        </dialog>
-                        <button data-target="testing-dialog-1">Launch modal demo 5</button>
-                        <dialog id="testing-dialog-1">
-                            <section aria-busy="false">
-                                <header>
-                                    <h4>Dialog title</h4>
-                                    <button class="close" data-close></button>
-                                </header>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam qui mollitia itaque
-                                    et temporibus magnam hic id, optio earum cumque!</p>
-                                <footer>
-                                    <button class="primary" data-target="cookie-modal">Launch another dialog</button>
-                                </footer>
-                            </section>
-                        </dialog>
-                    </article>
-                </section>
-                <section>
-                    <article>
-                        <button aria-busy="true">Loading offers...</button>
-                        <button aria-busy="true" class="secondary">Loading offers...</button>
-                        <button aria-busy="true" class="secondary" disabled>Loading offers...</button>
-                    </article>
-                    <article>
-                        <h4 aria-busy="true">Loading your assets.</h4>
-                        <p aria-busy="true">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi saepe officia
-                            velit neque minus reprehenderit?</p>
-                    </article>
-                    <article aria-busy="true"></article>
-                </section>
-                <section>
-                    <article>
-                        <p>Messages<span role="note" data-style="primary">123</span></p>
-                        <p>Result row count<span role="note" data-style="secondary">5</span></p>
-                        <h1>Lorem ipsum<span role="note" data-style="secondary">3</span></h1>
-                    </article>
-                </section>
+
             </div>
         </div>
     </main>
