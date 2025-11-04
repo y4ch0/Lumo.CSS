@@ -842,24 +842,21 @@
                 </section>
                 <section>
                     <article>
-                        <div role="slider">
-                            <img src="https://placehold.co/800x300" alt="">
-                            <img src="https://placehold.co/800x300" alt="">
-                            <img src="https://placehold.co/800x300" alt="">
-                            <div>
-                                <h3>lorem ipsum</h3>
-                            </div>
-                            <img src="https://placehold.co/800x300" alt="">
-                            <img src="https://placehold.co/800x300" alt="">
-                            <div>
-                                <h3>lorem ipsum</h3>
-                                <p>Dolor sit amet</p>
-                            </div>
-                            <div>
-                                <h3>lorem ipsum</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo mollitia sed vero
-                                    recusandae, at illum quo alias nobis quibusdam optio.</p>
-                            </div>
+                        <div role="slider" aria-roledescription="carousel">
+                            <button type="button" data-prev aria-label="Previous slide"></button>
+                            <button type="button" data-next aria-label="Next slide"></button>
+                            <figure role="group" aria-label="Slide container">
+                                <img src="https://placehold.co/800x300" alt="Slide 1" role="group"
+                                    aria-roledescription="slide">
+                                <div aria-roledescription="slide">
+                                    <h3>lorem ipsum</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo mollitia
+                                        sed vero
+                                        recusandae, at illum quo alias nobis quibusdam optio.</p>
+                                </div>
+                                <img src="https://placehold.co/800x300" alt="Slide 2" role="group"
+                                    aria-roledescription="slide">
+                            </figure>
                         </div>
                     </article>
                 </section>

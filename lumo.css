@@ -1508,7 +1508,7 @@ details:not(.dropdown) summary:not([role="button"]) {
     padding: 0.5rem 0.75rem;
     outline: 3px solid transparent;
     outline-offset: -2px;
-    transition: outline var(--lumo-transition), box-shadow var(--lumo-transition);
+    transition: box-shadow var(--lumo-transition);
 }
 
 details:not(.dropdown) summary::before {
@@ -1572,6 +1572,8 @@ details:not(.dropdown)[open] summary {
     border: 1px solid rgb(from var(--lumo-text-color) r g b / 0.25);
     box-shadow: var(--lumo-shadow-s);
     transform: translate(-50%, 0);
+    font-weight: normal;
+    filter: brightness(1) !important;
     left: 50%;
     bottom: 100%;
     position: absolute;
@@ -1580,7 +1582,7 @@ details:not(.dropdown)[open] summary {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.15s ease, bottom 0.15s ease;
-    z-index: 999;
+    z-index: 99999;
 }
 
 @keyframes tooltip_fadein {
@@ -1905,29 +1907,16 @@ form footer {
  */
 [role="slider"] {
     width: 100%;
-    overflow-x: auto;
     margin: 1rem 0;
-    margin-bottom: 1.5rem;
-    display: flex;
-    gap: 1rem;
-    scroll-behavior: smooth;
-    anchor-name: --carousel;
-    scroll-snap-type: x mandatory;
-    scroll-marker-group: after;
+    padding-bottom: 1.5rem;
+    overflow-x: hidden;
 }
 
-[role="slider"]::scroll-marker-group {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: -1rem;
-}
-
-[role="slider"]::scroll-button(right),
-[role="slider"]::scroll-button(left) {
-    content: "";
-    width: 2.5rem;
-    height: 2.5rem;
+[role="slider"] [data-prev],
+[role="slider"] [data-next] {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    padding: 0;
     border: none;
     border-radius: 0.35rem;
     background-color: var(--lumo-primary-color);
@@ -1935,60 +1924,88 @@ form footer {
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
-    position: fixed;
-    position-anchor: --carousel;
-    position-area: right center;
-    translate: calc(-100% - 0.5rem);
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: inherit;
-    transition: filter 100ms ease;
 }
 
-[role="slider"]::scroll-button(left) {
+[role="slider"]>[role="group"] {
+    z-index: inherit;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+[role="slider"]>ol[role="tablist"] {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: -1rem;
+}
+
+[role="slider"] [data-prev] {
     background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Arrow / Arrow_Left_SM'%3E%3Cpath id='Vector' d='M17 12H7M7 12L11 16M7 12L11 8' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
-    position-area: left center;
-    translate: calc(100% + 0.5rem);
+    left: 0.5rem;
 }
 
-[role="slider"]::scroll-button(right):hover,
-[role="slider"]::scroll-button(left):hover {
-    filter: brightness(0.8);
+[role="slider"] [data-prev]:hover,
+[role="slider"] [data-next]:hover {
+    outline: 2px solid var(--lumo-accent-color) !important;
+    outline-offset: -2px;
 }
 
-[role="slider"]::scroll-button(right):disabled,
-[role="slider"]::scroll-button(left):disabled {
+[role="slider"] [data-prev]:disabled,
+[role="slider"] [data-next]:disabled {
     opacity: 0.6;
-    cursor: not-allowed
+    cursor: not-allowed;
 }
 
+[role="slider"]>[role="group"]::-webkit-scrollbar,
 [role="slider"]::-webkit-scrollbar {
     display: none;
 }
 
-[role="slider"]>* {
+[role="slider"]>[role="group"]>* {
+    width: 100%;
     flex: 0 0 100%;
-    scroll-snap-align: start;
 }
 
-[role="slider"]>*::scroll-marker {
+[role="slider"]>ol[role="tablist"] {
+    list-style: none;
+    position: absolute;
+    bottom: 0rem;
+    padding: 0;
+    margin: 0;
+}
+
+[role="slider"]>ol[role="tablist"]>li>button {
     content: "";
     width: 0.75rem;
     height: 0.75rem;
+    padding: 0;
     background-color: rgb(from var(--lumo-text-color) r g b / 0.25);
+    border: none;
     border-radius: 1rem;
     outline-offset: 2px;
     outline: 1px solid transparent;
     transition: outline 100ms linear;
 }
 
-[role="slider"]>*::scroll-marker:focus {
+[role="slider"]>ol[role="tablist"]>li>button:focus {
     outline: 2px solid var(--lumo-accent-color);
+    border: none !important;
+    box-shadow: none !important;
 }
 
-[role="slider"]>*::scroll-marker:target-current {
+[role="slider"]>ol[role="tablist"]>li>button[aria-selected="true"] {
     background-color: var(--lumo-primary-color);
 }
 
-[role="slider"]>*:not(img) {
+[role="slider"]>figure[role="group"]>*:not(img) {
     padding: 0 3.5rem;
 }
 

@@ -78,7 +78,7 @@
                             </details>
                         </li>
                         <li>
-                            <details open>
+                            <details>
                                 <summary>Components</summary>
                                 <ul>
                                     <li><a href="#accordion">Accordion (Details)</a></li>
@@ -183,6 +183,8 @@
 
                         <h3 style="margin-top: 2rem;" id="what_next">What next?</h3>
                         <p>Check out the components documentation on the left to start building your website!</p>
+                        <i>If you want to see full presentation of every component see <a
+                                href="templates.html">templates.html</a></i>
                     </article>
                 </section>
                 <section>
@@ -590,10 +592,12 @@
                             </dialog>
 
                             <button data-target="cookie-modal">Launch 'locked' modal</button>
+                            <a href="#" data-target="cookie-modal">You can launch modal with anchor link!</a>
                             <dialog id="cookie-modal" data-locked="true">
                                 <section>
                                     <h2>Cookie Settings</h2>
-                                    <p>This modal has <code>data-locked="true"</code> and cannot be closed by clicking
+                                    <p>This modal has <code>data-locked="true"</code> and cannot be closed by
+                                        clicking
                                         the background.</p>
                                     <footer>
                                         <button data-close>Accept</button>
@@ -1238,32 +1242,46 @@
                 <section>
                     <article>
                         <h4 id="slider">Slider (Carousel)</h4>
-                        <p>A simple, CSS-only carousel. Use <code>role="slider"</code> on a container. Direct children
-                            (images or divs) will become slides.</p>
+                        <p>A simple, JavaScript carousel. Use <code>role="slider"</code> on a container. Direct children
+                            (images or divs) in <code>role="group"</code> container will become slides.</p>
                         <div role="region">
                             <header>
                                 <h5>Example</h5>
                             </header>
-                            <div role="slider">
-                                <img src="https://placehold.co/800x300" alt="Placeholder 1">
-                                <img src="https://placehold.co/800x300" alt="Placeholder 2">
-                                <div>
-                                    <h3 style="padding-top: 1rem;">Slide with content</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo mollitia sed
-                                        vero
-                                        recusandae, at illum quo alias nobis quibusdam optio.</p>
-                                </div>
+                            <div role="slider" aria-roledescription="carousel">
+                                <button type="button" data-prev aria-label="Previous slide"></button>
+                                <button type="button" data-next aria-label="Next slide"></button>
+                                <figure role="group" aria-label="Slide container">
+                                    <img src="https://placehold.co/800x300" alt="Slide 1" role="group"
+                                        aria-roledescription="slide">
+                                    <div aria-roledescription="slide">
+                                        <h3>lorem ipsum</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo mollitia
+                                            sed vero
+                                            recusandae, at illum quo alias nobis quibusdam optio.</p>
+                                    </div>
+                                    <img src="https://placehold.co/800x300" alt="Slide 2" role="group"
+                                        aria-roledescription="slide">
+                                </figure>
                             </div>
                             <header style="margin-top: 1rem;">
                                 <h5>Code</h5>
                             </header>
-                            <pre><code>&lt;div role="slider"&gt;
-    &lt;img src="image1.jpg" alt="Slide 1"&gt;
-    &lt;img src="image2.jpg" alt="Slide 2"&gt;
-    &lt;div&gt;
-        &lt;h3&gt;Slide with content&lt;/h3&gt;
-        &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
-    &lt;/div&gt;
+                            <pre><code>&lt;div role="slider" aria-roledescription="carousel"&gt;
+    &lt;button type="button" data-prev aria-label="Previous slide"&gt;&lt;/button&gt;
+    &lt;button type="button" data-next aria-label="Next slide"&gt;&lt;/button&gt;
+    &lt;figure role="group" aria-label="Slide container"&gt;
+        &lt;img src="https://placehold.co/800x300" alt="Slide 1" role="group"
+            aria-roledescription="slide"&gt;
+        &lt;div aria-roledescription="slide"&gt;
+            &lt;h3&gt;lorem ipsum&lt;/h3&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo mollitia
+                sed vero
+                recusandae, at illum quo alias nobis quibusdam optio.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;img src="https://placehold.co/800x300" alt="Slide 2" role="group"
+            aria-roledescription="slide"&gt;
+    &lt;/figure&gt;
 &lt;/div&gt;</code></pre>
                         </div>
                     </article>
