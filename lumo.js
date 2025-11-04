@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // --- Handle Modal Opening ---
         if (openTrigger) {
+            event.preventDefault();
             const modalId = openTrigger.getAttribute("data-target");
             const modalToOpen = document.getElementById(modalId);
 
