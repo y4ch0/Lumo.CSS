@@ -256,7 +256,6 @@ body>nav ul button[aria-label="close"] {
 header.is-fixed {
     position: sticky;
     top: 0;
-    z-index: 999;
 }
 
 body>header .container {
@@ -399,7 +398,7 @@ details.dropdown ul {
     text-align: left !important;
     top: 100%;
     left: 0;
-    z-index: 9999;
+    z-index: 999;
 }
 
 details.dropdown ul[dir=rtl] {
