@@ -1421,6 +1421,7 @@ ul[aria-label="breadcrumb"] {
     max-width: 100%;
     width: fit-content;
     display: flex;
+    flex-wrap: wrap;
     gap: calc(var(--lumo-spacing) * 0.35);
     padding: 0;
     list-style: none;
