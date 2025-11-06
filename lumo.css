@@ -890,6 +890,7 @@ section>*:not(hr),
     border-radius: var(--lumo-border-radius);
     padding: 1rem;
     overflow: hidden;
+    display: block;
 }
 
 [role="region"]:has(header, footer) {
@@ -915,7 +916,7 @@ section>*:not(hr),
 }
 
 [role="region"].no-border {
-    border: 0;
+    border: 1px solid transparent;
 }
 
 [role="region"]>hr {
@@ -939,6 +940,7 @@ section>*:not(hr),
 
 [role="region"]:is(a):hover {
     background-color: rgb(from var(--lumo-text-color) r g b / 0.035);
+    border: 1px solid var(--lumo-accent-color);
 }
 
 [role="region"]>header {
