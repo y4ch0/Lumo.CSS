@@ -80,12 +80,7 @@ body[data-theme="dark"] {
     --lumo-close-icon: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M600 600L400 400M400 400L200 200M400 400L600 200M400 400L200 600' stroke='white' stroke-width='66.6667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
 }
 
-body[data-theme="dark"] details.dropdown summary:not([role="button"])::after,
-body[data-theme="dark"] details.dropdown summary[role="button"].secondary.outline::after {
-    filter: brightness(0) invert(1);
-}
-
-body[data-theme="dark"] details:not(.dropdown) summary[role="button"]::before {
+body[data-theme="dark"] details.dropdown summary:not([role="button"])::after {
     filter: brightness(0) invert(1);
 }
 
@@ -120,6 +115,11 @@ body[data-theme="dark"] details.dropdown ul li:hover {
 
 body[data-theme="dark"] dialog>section button.close:hover {
     background-color: rgb(from var(--lumo-primary-color) r g b / 0.25);
+}
+
+body[data-theme="dark"] article.tabs nav[role="tablist"]>button[role="tab"][aria-selected="true"] {
+    background-color: rgb(from var(--lumo-text-light) r g b / 0.75);
+    color: var(--lumo-text-dark);
 }
 
 /* end dark theme definition */
@@ -369,10 +369,6 @@ details.dropdown summary::after {
     height: 1.125rem;
     background-repeat: no-repeat;
     background-position: center;
-}
-
-details.dropdown summary[role="button"].secondary:not(.outline)::after {
-    filter: brightness(0) invert(1);
 }
 
 
@@ -1436,7 +1432,7 @@ ul[aria-label="breadcrumb"] li:not(:last-child)::after {
 ul[aria-label="breadcrumb"] li:last-child a {
     cursor: default;
     pointer-events: none;
-    color: var(--lumo-text-color) !important;
+    color: rgb(from var(--lumo-text-color) r g b / 0.75) !important;
     text-decoration: none !important;
 }
 
@@ -1535,10 +1531,6 @@ details:not(.dropdown)[open] summary {
 
 details:not(.dropdown)[open] summary::before {
     transform: rotate(90deg);
-}
-
-details:not(.dropdown) summary[role="button"].secondary:not(.outline)::before {
-    filter: brightness(0) invert(1);
 }
 
 details:not(.dropdown) summary:not([role="button"]):focus {
@@ -1804,8 +1796,16 @@ article.tabs nav[role="tablist"] {
     padding: 0;
     margin: 0 0 1rem;
     list-style: none;
-    border-bottom: var(--lumo-border-default);
     overflow-x: auto;
+    padding: 0.25rem;
+    border-radius: 0.7rem;
+    gap: 0.25rem;
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
+}
+
+article.tabs nav[role="tablist"][data-fit="content"] {
+    width: max-content;
+    max-width: max-content;
 }
 
 article.tabs nav[role="tablist"]>button[role="tab"] {
@@ -1813,12 +1813,16 @@ article.tabs nav[role="tablist"]>button[role="tab"] {
     color: var(--lumo-text-color);
     border: none;
     width: max-content;
-    border-radius: 0;
+    font-weight: normal;
+    border-radius: 0.45rem;
     border-bottom: 2px solid transparent;
     padding: 0.45rem 1rem;
     font-size: 0.95rem;
     cursor: pointer;
     white-space: nowrap;
+    transition: 100ms all linear;
+    transition-property: background-color, color;
+    flex: 1;
 }
 
 article.tabs nav[role="tablist"]>button[role="tab"]:not([aria-selected="true"]) {
@@ -1826,12 +1830,13 @@ article.tabs nav[role="tablist"]>button[role="tab"]:not([aria-selected="true"]) 
 }
 
 article.tabs nav[role="tablist"]>button[role="tab"]:hover {
-    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.15);
 }
 
 article.tabs nav[role="tablist"]>button[role="tab"][aria-selected="true"] {
+    background-color: var(--lumo-text-dark);
+    color: var(--lumo-text-light);
     font-weight: bold;
-    border-bottom-color: var(--lumo-accent-color);
 }
 
 article.tabs .tabs-content>div[hidden] {
