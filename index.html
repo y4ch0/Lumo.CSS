@@ -181,10 +181,20 @@
   &lt;!-- All animations will be disabled --&gt;
 &lt;/body&gt;</code></pre>
 
+                        <h3 style="margin-top: 2rem;">Dark Mode</h3>
+                        <p>Lumo.CSS includes a built-in dark theme. You can also manually toggle the theme by setting
+                            the
+                            <code>data-theme</code> attribute on the <code>&lt;body&gt;</code> tag.
+                        </p>
+                        <pre><code>&lt;!-- Force dark mode --&gt;
+&lt;body data-theme="dark"&gt;
+  ...
+&lt;/body&gt;</code></pre>
                         <h3 style="margin-top: 2rem;" id="what_next">What next?</h3>
                         <p>Check out the components documentation on the left to start building your website!</p>
                         <i>If you want to see full presentation of every component see <a
                                 href="templates.html">templates.html</a></i>
+
                     </article>
                 </section>
                 <section>
@@ -867,7 +877,10 @@
                     <article>
                         <h4 id="form_input">Form input</h4>
                         <p>All standard HTML form inputs and controls are styled, including text, select, checkbox,
-                            radio, switch, and range. Use <code>aria-invalid</code> for validation states.</p>
+                            radio, switch, and range. Use <code>aria-invalid</code> for validation states. By adding
+                            <code>aria-required="true"</code> you make red star appear at the beginning of label to
+                            mark required inputs.
+                        </p>
                         <div role="region">
                             <header>
                                 <h5>Example</h5>
@@ -903,6 +916,12 @@
                             </label>
                             <label>Disabled input
                                 <input type="text" value="Lorem ipsum dolor" disabled>
+                            </label>
+                            <label>Textarea
+                                <textarea placeholder="Write something..."></textarea>
+                            </label>
+                            <label>Color picker
+                                <input type="color" value="#FAC131">
                             </label>
                             <header style="margin-top: 1rem;">
                                 <h5>Code</h5>
@@ -1188,6 +1207,20 @@
                                     soluta
                                     delectus similique dolorum perspiciatis ea adipisci hic.</p>
                             </a>
+                            <a href="#" role="region" data-variant="pastel" style="margin-top: 1rem;">
+                                <h5>Pastel card</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, mollitia.</p>
+                            </a>
+
+                            <a href="#" role="region" data-variant="elevated" style="margin-top: 1rem;">
+                                <h5>Elevated card</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, iure?</p>
+                            </a>
+
+                            <a href="#" role="region" data-variant="subtle" style="margin-top: 1rem;">
+                                <h5>Light card</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, ducimus?</p>
+                            </a>
                             <header style="margin-top: 1rem;">
                                 <h5>Code</h5>
                             </header>
@@ -1210,6 +1243,16 @@
     &lt;/header&gt;
     &lt;p&gt;Lorem ipsum dolor sit, amet consectetur...&lt;/p&gt;
     &lt;footer&gt;Footer of card&lt;/footer&gt;
+&lt;/article&gt;
+
+&lt;a href="#" role="region" data-variant="pastel"&gt;
+    &lt;h5&gt;Pastel-theme card&lt;/h5&gt;
+    &lt;p&gt;...&lt;/p&gt;
+&lt;/a&gt;
+
+&lt;article role="region" class="no-border"&gt;
+    &lt;h5&gt;Card with no border&lt;/h5&gt;
+    &lt;p&gt;...&lt;/p&gt;
 &lt;/article&gt;</code></pre>
                         </div>
                     </article>
@@ -1360,7 +1403,9 @@
                         <h4 id="tabs">Tabs</h4>
                         <p>A JavaScript-powered tabs component. Requires an <code>article.tabs</code> wrapper, a
                             <code>nav[role="tablist"]</code>, and a <code>.tabs-content</code> container with
-                            <code>role="tabpanel"</code> elements.
+                            <code>role="tabpanel"</code> elements. By adding <code>data-fit="content"</code> to
+                            <code>nav[role="tablist"]</code> you make its width to fit all buttons in
+                            tablist.
                         </p>
                         <div role="region">
                             <header>
