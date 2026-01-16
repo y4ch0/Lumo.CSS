@@ -70,6 +70,9 @@ body[data-theme="dark"] {
     --lumo-background-color: #131313;
     --lumo-text-color: var(--lumo-text-light);
     --lumo-modal-background-color: rgba(0, 0, 0, 0.65);
+    --lumo-shadow-s: 0 0.125rem 0.25rem rgb(from var(--lumo-text-color) r g b / 0.1);
+    --lumo-shadow-m: 0 0.35rem 0.65rem rgb(from var(--lumo-text-color) r g b / 0.1);
+    --lumo-shadow-l: 0 0.75rem 1.5rem rgb(from var(--lumo-text-color) r g b / 0.1);
     --lumo-border-light: 1px solid rgb(from var(--lumo-text-color) r g b / 0.15);
     --lumo-border-default: 1px solid rgb(from var(--lumo-text-color) r g b / 0.4);
     --lumo-border-hard: 1px solid rgb(from var(--lumo-text-color) r g b / 0.55);
@@ -106,6 +109,10 @@ body[data-theme="dark"] [role="alert"][aria-label="information"] {
 }
 
 body[data-theme="dark"] [aria-busy="true"]:is(article, section, div, h1, h2, h3, h4, h5, h6, p)::before {
+    filter: brightness(0) invert(1);
+}
+
+body[data-theme="dark"] [role="region"]:is(a)[data-variant="pastel"]::before {
     filter: brightness(0) invert(1);
 }
 
@@ -934,9 +941,79 @@ section>*:not(hr),
     background-color: var(--lumo-background-color);
 }
 
-[role="region"]:is(a):hover {
+[role="region"]:is(a):hover,
+[role="region"]:is(a):focus-visible {
     background-color: rgb(from var(--lumo-text-color) r g b / 0.035);
     border: 1px solid var(--lumo-accent-color);
+}
+
+[role="region"]:is(a)[data-variant="pastel"] {
+    background-color: rgb(from var(--lumo-accent-color) r g b / 0.08);
+    border: 1px solid transparent;
+    transition: background-color var(--lumo-transition), transform var(--lumo-transition), box-shadow var(--lumo-transition);
+    padding-right: 2.25rem;
+    box-shadow: none;
+}
+
+[role="region"]:is(a)[data-variant="pastel"]:hover {
+    background-color: rgb(from var(--lumo-accent-color) r g b / 0.15);
+    border: 1px solid transparent;
+    box-shadow: var(--lumo-shadow-s);
+}
+
+[role="region"]:is(a)[data-variant="elevated"] {
+    background-color: var(--lumo-background-color);
+    border: none;
+    box-shadow: var(--lumo-shadow-s);
+    transition: box-shadow var(--lumo-transition), transform var(--lumo-transition);
+}
+
+[role="region"]:is(a)[data-variant="elevated"]:hover {
+    box-shadow: var(--lumo-shadow-m);
+    transform: translateY(-4px);
+    border: none;
+}
+
+[role="region"]:is(a)[data-variant="subtle"] {
+    background-color: transparent;
+    border: 1px solid rgb(from var(--lumo-text-color) r g b / 0.1);
+    transition: background-color var(--lumo-transition), border-color var(--lumo-transition);
+}
+
+[role="region"]:is(a)[data-variant="subtle"]:hover {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.035);
+    border: 1px solid rgb(from var(--lumo-text-color) r g b / 0.2);
+}
+
+[role="region"]:is(a)[data-variant="filled"] {
+    background-color: rgb(from var(--lumo-accent-color) r g b / 0.1);
+    border: 2px solid rgb(from var(--lumo-accent-color) r g b / 0.2);
+    transition: all var(--lumo-transition);
+}
+
+[role="region"]:is(a)[data-variant="filled"]:hover {
+    background-color: rgb(from var(--lumo-accent-color) r g b / 0.2);
+    border-color: var(--lumo-accent-color);
+}
+
+[role="region"]:is(a)[data-variant="pastel"]::before {
+    content: "";
+    background-image: url("data:image/svg+xml,%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3C!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools --%3E%3Csvg width='800px' height='800px' viewBox='-2.4 -2.4 28.80 28.80' fill='none' xmlns='http://www.w3.org/2000/svg' transform='rotate(0)matrix(1, 0, 0, 1, 0, 0)'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'/%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round' stroke='%23CCCCCC' stroke-width='0.144'/%3E%3Cg id='SVGRepo_iconCarrier'%3E%3Cpath d='M5 12H19M19 12L13 6M19 12L13 18' stroke='%23000000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1.25rem;
+    height: 1.25rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    opacity: 0;
+    transition: opacity var(--lumo-transition), transform var(--lumo-transition);
+}
+
+[role="region"]:is(a)[data-variant="pastel"]:hover::before,
+[role="region"]:is(a)[data-variant="pastel"]:focus-visible::before {
+    opacity: 1;
+    transform: translateX(4px);
 }
 
 [role="region"]>header {
@@ -1527,6 +1604,7 @@ details:not(.dropdown)[open] {
 
 details:not(.dropdown)[open] summary {
     margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 details:not(.dropdown)[open] summary::before {

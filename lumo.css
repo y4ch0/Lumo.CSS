@@ -1604,6 +1604,7 @@ details:not(.dropdown)[open] {
 
 details:not(.dropdown)[open] summary {
     margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 details:not(.dropdown)[open] summary::before {
