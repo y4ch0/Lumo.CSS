@@ -486,7 +486,7 @@ input[type="file"]::-webkit-file-upload-button {
     justify-content: center;
     cursor: pointer;
     filter: brightness(1);
-    border: 1px solid var(--lumo-background-color);
+    border: 2px solid var(--lumo-background-color);
     line-height: var(--lumo-line-height);
     font-family: var(--lumo-font-family);
     font-weight: 600;
@@ -517,7 +517,7 @@ input[type=button].outline,
 input[type=submit].outline,
 input[type=reset].outline {
     background-color: transparent;
-    border: 1px solid var(--lumo-background-color);
+    border-color: var(--lumo-background-color);
     color: var(--lumo-background-color);
 }
 
@@ -529,6 +529,7 @@ input[type=reset].tertiary.outline {
     --lumo-background-color: var(--lumo-text-color);
     background-color: transparent;
     border: var(--lumo-border-default);
+    border-width: 2px;
     color: var(--lumo-text-color);
 }
 
@@ -1147,7 +1148,7 @@ hr[aria-orientation="vertical"] {
     box-shadow: 0 0 0 2px transparent;
     outline-offset: 0;
     cursor: text;
-    height: 2.35rem;
+    height: 2.45rem;
     font-family: var(--lumo-font-family);
     box-shadow: 0 0 0 0 #FFFFFF;
     transition: outline var(--lumo-transition), border-color var(--lumo-transition), box-shadow var(--lumo-transition);
