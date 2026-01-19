@@ -488,7 +488,7 @@ input[type="file"]::-webkit-file-upload-button {
     border: 1px solid var(--lumo-background-color);
     line-height: var(--lumo-line-height);
     font-family: var(--lumo-font-family);
-    font-weight: 500;
+    font-weight: 600;
     transition: box-shadow var(--lumo-transition);
 }
 
@@ -951,7 +951,7 @@ section>*:not(hr),
 }
 
 [role="region"].no-border {
-    border: 1px solid transparent;
+    border: none;
 }
 
 [role="region"]>hr {
@@ -1055,6 +1055,12 @@ section>*:not(hr),
     border: none;
     margin-bottom: 1rem;
     z-index: inherit;
+}
+
+[role="region"].shadow>header {
+    margin-left: -1.25rem;
+    margin-top: -1.25rem;
+    width: calc(100% + 2.5rem);
 }
 
 [role="region"]>header>*:where(h1, h2, h3, h4, h5, h6) {
