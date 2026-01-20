@@ -590,7 +590,7 @@ input[type="file"]::-webkit-file-upload-button:active {
 }
 
 [role="group"].buttons>*:where(button, [role=button], input[type=button], input[type=submit], input[type=reset]):not(:last-child) {
-    border-right: 1px solid color-mix(in srgb, var(--lumo-background-color) 80%, black) !important;
+    border-right-color: color-mix(in srgb, var(--lumo-background-color) 80%, black) !important;
 }
 
 [role="group"].buttons>*:where(button, [role=button], input[type=button], input[type=submit], input[type=reset]):not(:last-child, :first-child) {
@@ -1219,6 +1219,11 @@ input[type=radio] {
     border: var(--lumo-border-hard);
     cursor: pointer;
     transition: box-shadow var(--lumo-transition);
+}
+
+input[type=checkbox]:not([role="switch"]):focus,
+input[type=radio]:focus {
+    border-color: var(--lumo-accent-color);
 }
 
 input[type=checkbox]:not([role="switch"]) {
@@ -2066,7 +2071,6 @@ form footer {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 1rem;
 }
 
 [role="slider"]>ol[role="tablist"] {

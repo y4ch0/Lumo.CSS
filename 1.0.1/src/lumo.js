@@ -1,292 +1,169 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const modalAnimationDuration = 300;
+    const ANIMATION_DURATION = 300;
 
-    // --- Modal Handling ---
-
-    function animateModal(dialog, direction, onFinishCallback) {
-        const modalBody = dialog.querySelector("section");
+    // --- Helper: Modal Animations ---
+    const animateModal = (dialog, direction, onFinish) => {
+        const body = dialog.querySelector("section");
         const isOpening = direction === "open";
-        const opacityKeyframes = [{ opacity: isOpening ? "0" : "1" }, { opacity: isOpening ? "1" : "0" }];
-        const transformKeyframes = [{ transform: `translateY(${isOpening ? "-3rem" : "0"})` }, { transform: `translateY(${isOpening ? "0" : "-3rem"})` }];
 
-        const animation = new Animation(
-            new KeyframeEffect(dialog, opacityKeyframes, {
-                duration: modalAnimationDuration,
-                easing: "ease",
-            }),
-            document.timeline
-        );
+        const options = { duration: ANIMATION_DURATION, easing: "ease" };
+        const opacity = new Animation(new KeyframeEffect(dialog, [{ opacity: isOpening ? 0 : 1 }, { opacity: isOpening ? 1 : 0 }], options), document.timeline);
+        const transform = new Animation(new KeyframeEffect(body, [{ transform: `translateY(${isOpening ? "-3rem" : "0"})` }, { transform: `translateY(${isOpening ? 0 : "-3rem"})` }], options), document.timeline);
 
-        const animation1 = new Animation(
-            new KeyframeEffect(modalBody, transformKeyframes, {
-                duration: modalAnimationDuration,
-                easing: "ease",
-            }),
-            document.timeline
-        );
-
-        animation.play();
-        animation1.play();
+        opacity.play();
+        transform.play();
 
         if (!isOpening) {
-            animation.onfinish = () => {
+            opacity.onfinish = () => {
                 dialog.close();
-                if (onFinishCallback) {
-                    onFinishCallback();
-                }
+                onFinish?.();
             };
         }
-    }
+    };
 
-    function openModal(modal) {
+    const closeModal = (modal, cb) => animateModal(modal, "close", cb);
+    const openModal = (modal) => {
         modal.setAttribute("open", "open");
         animateModal(modal, "open");
-    }
+    };
 
-    function closeModal(modal, callback) {
-        animateModal(modal, "close", callback);
-    }
+    // --- 1. Global Click Handler (Modals, Dropdowns, Navbars) ---
+    document.addEventListener("click", (e) => {
+        const target = e.target;
 
-    document.addEventListener("click", (event) => {
-        const { target } = event;
+        // Modal Triggers
         const openTrigger = target.closest("[data-target]");
         const closeTrigger = target.closest("[data-close]");
-        const currentlyOpenModal = document.querySelector("dialog[open]");
+        const currentModal = document.querySelector("dialog[open]");
 
-        // --- Handle Modal Opening ---
         if (openTrigger) {
-            event.preventDefault();
-            const modalId = openTrigger.getAttribute("data-target");
-            const modalToOpen = document.getElementById(modalId);
+            e.preventDefault();
+            const modalToOpen = document.getElementById(openTrigger.dataset.target);
+            if (!modalToOpen) return;
 
-            if (modalToOpen) {
-                if (currentlyOpenModal && currentlyOpenModal !== modalToOpen) {
-                    // A different modal is open; close it, then open the new one.
-                    closeModal(currentlyOpenModal, () => openModal(modalToOpen));
-                } else if (!currentlyOpenModal) {
-                    // No modal is open; just open it.
-                    openModal(modalToOpen);
-                }
-                // If the targeted modal is already the one that's open, do nothing.
+            if (currentModal && currentModal !== modalToOpen) {
+                closeModal(currentModal, () => openModal(modalToOpen));
+            } else if (!currentModal) {
+                openModal(modalToOpen);
             }
-            return; // An open action was attempted, so we are done.
+            return;
         }
 
-        // --- Handle Modal Closing ---
-        // This logic runs only if the click was not on an openTrigger.
-        if (currentlyOpenModal) {
-            const isBackgroundClick = target.matches("dialog[open]");
-            const isLocked = currentlyOpenModal.hasAttribute("data-locked");
-
-            if (closeTrigger || (isBackgroundClick && !isLocked)) {
-                closeModal(currentlyOpenModal);
-            }
+        if (currentModal) {
+            const isBackdrop = target === currentModal;
+            const isLocked = currentModal.hasAttribute("data-locked");
+            if (closeTrigger || (isBackdrop && !isLocked)) closeModal(currentModal);
         }
-    });
 
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            const openModalElement = document.querySelector("dialog[open]");
-            if (openModalElement && !openModalElement.hasAttribute("data-locked")) {
-                closeModal(openModalElement);
+        // Dropdowns: Close if clicking outside
+        if (!target.closest("details.dropdown[open]")) {
+            document.querySelectorAll("details.dropdown[open]").forEach((d) => d.removeAttribute("open"));
+        }
+
+        // Navbar Toggles
+        const navToggle = target.closest("nav button[role='menu'], nav button[aria-label='close']");
+        if (navToggle) {
+            const nav = navToggle.closest("nav");
+            const list = nav?.querySelector("ul");
+            if (list) {
+                const isHidden = !list.style.display || list.style.display === "none";
+                list.style.display = isHidden ? "flex" : "none";
             }
         }
     });
 
-    // --- Dropdown Handling ---
-
-    document.addEventListener("click", (event) => {
-        const isClickInsideDropdown = event.target.closest("details.dropdown[open]");
-        if (!isClickInsideDropdown) {
-            document.querySelectorAll("details.dropdown[open]").forEach((dropdown) => {
-                dropdown.removeAttribute("open");
-            });
+    // --- 2. Keyboard Navigation (Modals) ---
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            const modal = document.querySelector("dialog[open]");
+            if (modal && !modal.hasAttribute("data-locked")) closeModal(modal);
         }
     });
 
-    // --- Navbar Handling ---
+    // --- 3. Tabs Implementation ---
+    document.querySelectorAll("article.tabs").forEach((el) => {
+        const tabs = el.querySelectorAll('[role="tab"]');
+        const panels = el.querySelectorAll('[role="tabpanel"]');
 
-    const navButton = document.querySelector("header nav > button[role='menu']");
-    const navList = document.querySelector("header nav > ul");
-    const navList1 = document.querySelector("body>nav>.container>ul");
-    const navCloseButton = document.querySelector("header nav ul button[aria-label='close']");
-    const navCloseButton1 = document.querySelector("body>nav>.container>ul button[aria-label='close']");
-
-    function toggleNavbar() {
-        if (navList) {
-            const isVisible = navList.style.display === "flex";
-            navList.style.display = isVisible ? "none" : "flex";
-        } else if (navList1) {
-            const isVisible = navList1.style.display === "flex";
-            navList1.style.display = isVisible ? "none" : "flex";
-        }
-    }
-
-    if (navButton) {
-        navButton.addEventListener("click", toggleNavbar);
-    }
-
-    if (navCloseButton) {
-        navCloseButton.addEventListener("click", toggleNavbar);
-    } else if (navCloseButton1) {
-        navCloseButton1.addEventListener("click", toggleNavbar);
-    }
-
-    const tabsComponents = document.querySelectorAll("article.tabs");
-
-    tabsComponents.forEach((component) => {
-        const tabsList = component.querySelector('[role="tablist"]');
-        const tabs = tabsList.querySelectorAll('[role="tab"]');
-        const tabPanelsContainer = component.querySelector(".tabs-content");
-        const tabPanels = tabPanelsContainer.querySelectorAll('[role="tabpanel"]');
-
-        function hideAllTabsAndPanels() {
-            tabs.forEach((tab) => tab.setAttribute("aria-selected", "false"));
-            tabPanels.forEach((panel) => panel.setAttribute("hidden", ""));
-        }
-
-        tabs.forEach((tab, index) => {
+        tabs.forEach((tab, i) => {
             tab.addEventListener("click", () => {
-                hideAllTabsAndPanels();
+                tabs.forEach((t) => t.setAttribute("aria-selected", "false"));
+                panels.forEach((p) => p.setAttribute("hidden", ""));
                 tab.setAttribute("aria-selected", "true");
-                tabPanels[index].removeAttribute("hidden");
+                panels[i].removeAttribute("hidden");
             });
 
-            tab.addEventListener("keydown", (event) => {
-                const currentIndex = Array.from(tabs).indexOf(event.currentTarget);
-                let nextIndex = currentIndex;
+            tab.addEventListener("keydown", (e) => {
+                let index;
+                if (e.key === "ArrowRight") index = (i + 1) % tabs.length;
+                else if (e.key === "ArrowLeft") index = (i - 1 + tabs.length) % tabs.length;
+                else if (e.key === "Home") index = 0;
+                else if (e.key === "End") index = tabs.length - 1;
+                else return;
 
-                switch (event.key) {
-                    case "ArrowRight":
-                        nextIndex = (currentIndex + 1) % tabs.length;
-                        break;
-                    case "ArrowLeft":
-                        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
-                        break;
-                    case "Home":
-                        nextIndex = 0;
-                        break;
-                    case "End":
-                        nextIndex = tabs.length - 1;
-                        break;
-                    default:
-                        return;
-                }
-
-                event.preventDefault();
-                tabs[nextIndex].click();
-                tabs[nextIndex].focus();
+                e.preventDefault();
+                tabs[index].focus();
+                tabs[index].click();
             });
         });
     });
 
-    // carousel
-
+    // --- 4. Carousel Implementation ---
     document.querySelectorAll('[aria-roledescription="carousel"]').forEach((carousel) => {
         const figure = carousel.querySelector('figure[role="group"]');
         const slides = figure.querySelectorAll('[aria-roledescription="slide"]');
-        const prevBtn = carousel.querySelector("[data-prev]");
         const nextBtn = carousel.querySelector("[data-next]");
-        let indicatorsList = carousel.querySelector('[role="tablist"]');
-        let index = 0;
+        const prevBtn = carousel.querySelector("[data-prev]");
+        let currentIndex = 0;
 
-        if (!indicatorsList) {
-            indicatorsList = document.createElement("ol");
-            indicatorsList.setAttribute("role", "tablist");
-            indicatorsList.setAttribute("aria-label", "Slide indicators");
-
-            slides.forEach((_, n) => {
-                const li = document.createElement("li");
+        // Auto-generate indicators if missing
+        let list = carousel.querySelector('[role="tablist"]');
+        if (!list) {
+            list = document.createElement("ol");
+            list.setAttribute("role", "tablist");
+            slides.forEach((_, i) => {
                 const btn = document.createElement("button");
                 btn.setAttribute("role", "tab");
-                btn.setAttribute("aria-label", `Slide ${n + 1}`);
-                btn.setAttribute("aria-selected", n === 0 ? "true" : "false");
-                btn.tabIndex = n === 0 ? 0 : -1;
-                li.appendChild(btn);
-                indicatorsList.appendChild(li);
+                btn.setAttribute("aria-label", `Slide ${i + 1}`);
+                const li = document.createElement("li");
+                li.append(btn);
+                list.append(li);
             });
-
-            carousel.appendChild(indicatorsList);
+            carousel.append(list);
         }
+        const indicators = list.querySelectorAll('[role="tab"]');
 
-        const indicators = indicatorsList.querySelectorAll('[role="tab"]');
+        const updateCarousel = (index) => {
+            currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+            figure.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-        function getGap() {
-            const style = getComputedStyle(figure);
-            const gapVal = style.gap || style.columnGap || "0px";
-            return parseFloat(gapVal) || 0;
-        }
-
-        function showSlide(i) {
-            index = Math.max(0, Math.min(i, slides.length - 1));
-
-            const slideWidth = slides[0].offsetWidth;
-            const gap = getGap();
-            const offset = index * (slideWidth + gap);
-
-            figure.style.transform = `translateX(-${offset}px)`;
-
-            indicators.forEach((btn, n) => {
-                const active = n === index;
+            indicators.forEach((btn, i) => {
+                const active = i === currentIndex;
                 btn.setAttribute("aria-selected", active);
                 btn.tabIndex = active ? 0 : -1;
             });
 
-            if (prevBtn) prevBtn.disabled = index === 0;
-            if (nextBtn) nextBtn.disabled = index === slides.length - 1;
-        }
+            if (prevBtn) prevBtn.disabled = currentIndex === 0;
+            if (nextBtn) nextBtn.disabled = currentIndex === slides.length - 1;
+        };
 
-        function nextSlide() {
-            if (index < slides.length - 1) showSlide(index + 1);
-        }
-
-        function prevSlide() {
-            if (index > 0) showSlide(index - 1);
-        }
-
-        indicators.forEach((btn, n) => {
-            btn.addEventListener("click", () => showSlide(n));
-            btn.addEventListener("focus", () => {
-                index = n;
-            });
-            btn.addEventListener("keydown", (e) => {
-                if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(e.key)) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (e.key === "ArrowLeft") prevSlide();
-                    else if (e.key === "ArrowRight") nextSlide();
-                    else if (e.key === "Home") showSlide(0);
-                    else if (e.key === "End") showSlide(slides.length - 1);
-                    indicators[index].focus();
-                }
-            });
+        // Indicator Events
+        indicators.forEach((btn, i) => {
+            btn.addEventListener("click", () => updateCarousel(i));
         });
 
+        // Arrow Key Support
         carousel.addEventListener("keydown", (e) => {
-            if (document.activeElement.closest('[role="tablist"]') === indicatorsList) return;
-            if (e.key === "ArrowLeft") {
-                e.preventDefault();
-                prevSlide();
-            } else if (e.key === "ArrowRight") {
-                e.preventDefault();
-                nextSlide();
-            }
+            if (e.key === "ArrowRight") updateCarousel(currentIndex + 1);
+            else if (e.key === "ArrowLeft") updateCarousel(currentIndex - 1);
         });
 
-        nextBtn?.addEventListener("click", nextSlide);
-        prevBtn?.addEventListener("click", prevSlide);
-        carousel.tabIndex = 0;
-        showSlide(index);
+        nextBtn?.addEventListener("click", () => updateCarousel(currentIndex + 1));
+        prevBtn?.addEventListener("click", () => updateCarousel(currentIndex - 1));
 
-        window.addEventListener("resize", () => {
-            showSlide(index);
-        });
-    });
-
-    document.querySelectorAll('[aria-roledescription="carousel"]').forEach((carousel) => {
+        // Initial Z-Index Fix & State
         const zBase = parseInt(getComputedStyle(carousel).zIndex) || 0;
-        carousel.querySelectorAll("[data-prev],[data-next]").forEach((btn) => {
-            btn.style.zIndex = zBase + 1;
-        });
+        carousel.querySelectorAll("[data-prev],[data-next]").forEach((b) => (b.style.zIndex = zBase + 1));
+        updateCarousel(0);
     });
 });
