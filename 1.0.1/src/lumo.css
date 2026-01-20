@@ -148,8 +148,8 @@ body[data-theme="dark"] article.tabs nav[role="tablist"]>button[role="tab"][aria
 }
 
 *,
-:after,
-:before {
+::after,
+::before {
     box-sizing: border-box;
 }
 
@@ -1217,6 +1217,7 @@ input[type=radio] {
     margin: 0;
     accent-color: var(--lumo-accent-color);
     border: var(--lumo-border-hard);
+    border-width: 2px;
     cursor: pointer;
     transition: box-shadow var(--lumo-transition);
 }
@@ -1228,8 +1229,6 @@ input[type=radio]:focus {
 
 input[type=checkbox]:not([role="switch"]) {
     appearance: none;
-    display: inline-flex;
-    border: var(--lumo-border-hard);
     flex-shrink: 0;
     vertical-align: top;
     border-radius: 0.25rem;
@@ -1242,7 +1241,7 @@ input[type=checkbox]:not([role="switch"])::before {
     width: 1.125rem;
     height: 1.125rem;
     background-image: none;
-    background-position: center;
+    background-position: center -1px;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1254,7 +1253,7 @@ input[type=checkbox]:not([role="switch"]):checked {
 
 input[type=checkbox]:not([role="switch"]):not(:checked):hover,
 input[type=radio]:not(:checked):hover {
-    border: 2px solid var(--lumo-accent-color);
+    border-color: var(--lumo-accent-color);
 }
 
 input[type=checkbox]:not([role="switch"]):checked::before {
@@ -1663,10 +1662,6 @@ details:not(.dropdown)[open] summary::before {
 
 details:not(.dropdown) summary:not([role="button"]):focus {
     outline: 2px solid var(--lumo-accent-color);
-}
-
-details:not(.dropdown)[open] summary {
-    background-image: var(--lumo-accordion-open-icon);
 }
 
 /*
