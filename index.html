@@ -540,7 +540,7 @@
                                 <h5>Example</h5>
                             </header>
                             <button data-target="testing-dialog">Launch default modal</button>
-                            <dialog id="testing-dialog">
+                            <dialog id="testing-dialog" aria-modal="true">
                                 <section>
                                     <header>
                                         <h4>Dialog title</h4>
@@ -557,7 +557,7 @@
                             </dialog>
 
                             <button data-target="testing-dialog-wide-1">Launch 'small' modal</button>
-                            <dialog id="testing-dialog-wide-1">
+                            <dialog id="testing-dialog-wide-1" aria-modal="true">
                                 <section data-width="s">
                                     <header>
                                         <h4>Dialog title (small)</h4>
@@ -573,7 +573,7 @@
 
                             <button data-target="cookie-modal">Launch 'locked' modal</button>
                             <a href="#" data-target="cookie-modal">You can launch modal with anchor link!</a>
-                            <dialog id="cookie-modal" data-locked="true">
+                            <dialog id="cookie-modal" data-locked="true" aria-modal="true">
                                 <section>
                                     <h2>Cookie Settings</h2>
                                     <p>This modal has <code>data-locked="true"</code> and cannot be closed by
@@ -591,7 +591,7 @@
 &lt;button data-target="testing-dialog"&gt;Launch modal demo&lt;/button&gt;
 
 &lt;!-- The modal dialog --&gt;
-&lt;dialog id="testing-dialog"&gt;
+&lt;dialog id="testing-dialog" aria-modal="true"&gt;
     &lt;section&gt;
         &lt;header&gt;
             &lt;h4&gt;Dialog title&lt;/h4&gt;
@@ -687,7 +687,7 @@
                                 <h5>Example</h5>
                             </header>
                             <details class="dropdown">
-                                <summary>Select an option</summary>
+                                <summary aria-haspopup="true">Select an option</summary>
                                 <ul>
                                     <li><a href="#">Option 1</a></li>
                                     <li><a href="#">Option 2</a></li>
@@ -696,7 +696,7 @@
                             </details>
 
                             <details class="dropdown" style="margin-left: 1rem;">
-                                <summary role="button">Dropdown as button</summary>
+                                <summary role="button" aria-haspopup="true">Dropdown as button</summary>
                                 <ul>
                                     <li><label><input type="radio" name="french-dessert-doc">Option 1</label></li>
                                     <li><label><input type="radio" name="french-dessert-doc">Option 2</label></li>
@@ -704,7 +704,8 @@
                             </details>
 
                             <details class="dropdown" style="margin-left: 1rem;">
-                                <summary role="button" class="secondary outline">Styled dropdown</summary>
+                                <summary role="button" class="secondary outline" aria-haspopup="true">Styled dropdown
+                                </summary>
                                 <ul>
                                     <li><a href="#">Option 1</a></li>
                                     <li><a href="#">Option 2</a></li>
@@ -714,7 +715,7 @@
                                 <h5>Code</h5>
                             </header>
                             <pre><code>&lt;details class="dropdown"&gt;
-    &lt;summary&gt;Select an option&lt;/summary&gt;
+    &lt;summary aria-haspopup="true"&gt;Select an option&lt;/summary&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;a href="#"&gt;Option 1&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="#"&gt;Option 2&lt;/a&gt;&lt;/li&gt;
@@ -723,7 +724,7 @@
 &lt;/details&gt;
 
 &lt;details class="dropdown"&gt;
-    &lt;summary role="button"&gt;Dropdown as button&lt;/summary&gt;
+    &lt;summary role="button" aria-haspopup="true"&gt;Dropdown as button&lt;/summary&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;label&gt;&lt;input type="radio" name="dessert"&gt;Option 1&lt;/label&gt;&lt;/li&gt;
         &lt;li&gt;&lt;label&gt;&lt;input type="radio" name="dessert"&gt;Option 2&lt;/label&gt;&lt;/li&gt;

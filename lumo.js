@@ -1,5 +1,12 @@
+/**
+ * Lumo UI (Pure JavaScript)
+ * Components: Modal, Dropdown, Tab, Carousel, Navbar
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
     const ANIMATION_DURATION = 300;
+    let currentModal = null;
+    let previousFocus = null;
 
     // --- Helper: Modal Animations ---
     const animateModal = (dialog, direction, onFinish) => {
@@ -21,10 +28,112 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const closeModal = (modal, cb) => animateModal(modal, "close", cb);
+    // --- Focus Trap for Modal ---
+    const getFocusableElements = (container) => {
+        const selectors = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+        return Array.from(container.querySelectorAll(selectors));
+    };
+
+    const trapFocus = (e, modal) => {
+        if (e.key !== "Tab") return;
+
+        const focusableElements = getFocusableElements(modal);
+        if (focusableElements.length === 0) {
+            e.preventDefault();
+            return;
+        }
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey && document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+        }
+    };
+
+    // --- Set aria-hidden on siblings ---
+    const setSiblingsAriaHidden = (modal, hidden) => {
+        const siblings = Array.from(document.body.children).filter((child) => child !== modal && child.tagName !== "SCRIPT");
+
+        siblings.forEach((sibling) => {
+            if (hidden) {
+                if (!sibling.hasAttribute("aria-hidden")) {
+                    sibling.setAttribute("aria-hidden", "true");
+                    sibling.setAttribute("data-aria-hidden-by-modal", "true");
+                }
+            } else {
+                if (sibling.hasAttribute("data-aria-hidden-by-modal")) {
+                    sibling.removeAttribute("aria-hidden");
+                    sibling.removeAttribute("data-aria-hidden-by-modal");
+                }
+            }
+        });
+    };
+
+    const closeModal = (modal, cb) => {
+        if (!modal) return;
+
+        // Remove focus trap
+        modal.removeEventListener("keydown", modal._focusTrapHandler);
+
+        animateModal(modal, "close", () => {
+            modal.removeAttribute("role");
+            modal.removeAttribute("aria-modal");
+
+            // Restore aria-hidden on siblings
+            setSiblingsAriaHidden(modal, false);
+
+            // Restore focus
+            if (previousFocus && typeof previousFocus.focus === "function") {
+                previousFocus.focus();
+            }
+            previousFocus = null;
+            currentModal = null;
+
+            cb?.();
+        });
+    };
+
     const openModal = (modal) => {
+        if (!modal) return;
+
+        // Store current focus
+        previousFocus = document.activeElement;
+
         modal.setAttribute("open", "open");
+        modal.setAttribute("role", "dialog");
+        modal.setAttribute("aria-modal", "true");
+
+        // Set aria-hidden on siblings
+        setSiblingsAriaHidden(modal, true);
+
         animateModal(modal, "open");
+
+        // Focus first focusable element or modal itself
+        const focusableElements = getFocusableElements(modal);
+        if (focusableElements.length > 0) {
+            focusableElements[0].focus();
+        } else {
+            modal.setAttribute("tabindex", "-1");
+            modal.focus();
+        }
+
+        // Add focus trap
+        modal._focusTrapHandler = (e) => {
+            if (e.key === "Tab") {
+                trapFocus(e, modal);
+            } else if (e.key === "Escape" && !modal.hasAttribute("data-locked")) {
+                e.preventDefault();
+                closeModal(modal);
+            }
+        };
+        modal.addEventListener("keydown", modal._focusTrapHandler);
+
+        currentModal = modal;
     };
 
     // --- 1. Global Click Handler (Modals, Dropdowns, Navbars) ---
@@ -34,25 +143,32 @@ document.addEventListener("DOMContentLoaded", () => {
         // Modal Triggers
         const openTrigger = target.closest("[data-target]");
         const closeTrigger = target.closest("[data-close]");
-        const currentModal = document.querySelector("dialog[open]");
+        const openedModal = document.querySelector("dialog[open]");
 
         if (openTrigger) {
             e.preventDefault();
-            const modalToOpen = document.getElementById(openTrigger.dataset.target);
+            const modalId = openTrigger.dataset.target;
+            const modalToOpen = document.getElementById(modalId);
             if (!modalToOpen) return;
 
-            if (currentModal && currentModal !== modalToOpen) {
-                closeModal(currentModal, () => openModal(modalToOpen));
-            } else if (!currentModal) {
+            // Set ARIA attributes on trigger
+            openTrigger.setAttribute("aria-controls", modalId);
+            openTrigger.setAttribute("aria-haspopup", "dialog");
+
+            if (openedModal && openedModal !== modalToOpen) {
+                closeModal(openedModal, () => openModal(modalToOpen));
+            } else if (!openedModal) {
                 openModal(modalToOpen);
             }
             return;
         }
 
-        if (currentModal) {
-            const isBackdrop = target === currentModal;
-            const isLocked = currentModal.hasAttribute("data-locked");
-            if (closeTrigger || (isBackdrop && !isLocked)) closeModal(currentModal);
+        if (openedModal) {
+            const isBackdrop = target === openedModal;
+            const isLocked = openedModal.hasAttribute("data-locked");
+            if (closeTrigger || (isBackdrop && !isLocked)) {
+                closeModal(openedModal);
+            }
         }
 
         // Dropdowns: Close if clicking outside
@@ -68,6 +184,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (list) {
                 const isHidden = !list.style.display || list.style.display === "none";
                 list.style.display = isHidden ? "flex" : "none";
+
+                // Update ARIA
+                navToggle.setAttribute("aria-expanded", isHidden);
             }
         }
     });
@@ -76,7 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
             const modal = document.querySelector("dialog[open]");
-            if (modal && !modal.hasAttribute("data-locked")) closeModal(modal);
+            if (modal && !modal.hasAttribute("data-locked")) {
+                closeModal(modal);
+            }
         }
     });
 
@@ -86,10 +207,37 @@ document.addEventListener("DOMContentLoaded", () => {
         const panels = el.querySelectorAll('[role="tabpanel"]');
 
         tabs.forEach((tab, i) => {
+            const panel = panels[i];
+
+            // Set proper ARIA relationships (only if not already set)
+
+            // Generate IDs only if missing
+            if (!tab.id) {
+                tab.id = `tab-${Math.random().toString(36).substr(2, 9)}`;
+            }
+            if (!panel.id) {
+                panel.id = `panel-${Math.random().toString(36).substr(2, 9)}`;
+            }
+
+            // Set aria-controls only if not already set
+            if (!tab.hasAttribute("aria-controls")) {
+                tab.setAttribute("aria-controls", panel.id);
+            }
+
+            // Set aria-labelledby only if not already set
+            if (!panel.hasAttribute("aria-labelledby")) {
+                panel.setAttribute("aria-labelledby", tab.id);
+            }
+
             tab.addEventListener("click", () => {
-                tabs.forEach((t) => t.setAttribute("aria-selected", "false"));
+                tabs.forEach((t) => {
+                    t.setAttribute("aria-selected", "false");
+                    t.tabIndex = -1;
+                });
                 panels.forEach((p) => p.setAttribute("hidden", ""));
+
                 tab.setAttribute("aria-selected", "true");
+                tab.tabIndex = 0;
                 panels[i].removeAttribute("hidden");
             });
 
@@ -116,11 +264,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const prevBtn = carousel.querySelector("[data-prev]");
         let currentIndex = 0;
 
+        // Set proper ARIA attributes
+        carousel.setAttribute("aria-label", carousel.getAttribute("aria-label") || "Carousel");
+
         // Auto-generate indicators if missing
         let list = carousel.querySelector('[role="tablist"]');
         if (!list) {
             list = document.createElement("ol");
             list.setAttribute("role", "tablist");
+            list.setAttribute("aria-label", "Carousel slides");
+
             slides.forEach((_, i) => {
                 const btn = document.createElement("button");
                 btn.setAttribute("role", "tab");
@@ -133,18 +286,46 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const indicators = list.querySelectorAll('[role="tab"]');
 
+        // Create live region for announcements
+        const liveRegion = document.createElement("div");
+        liveRegion.setAttribute("aria-live", "polite");
+        liveRegion.setAttribute("aria-atomic", "true");
+        liveRegion.className = "sr-only";
+        liveRegion.style.cssText = "position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;";
+        carousel.appendChild(liveRegion);
+
+        // Set ARIA labels on navigation buttons
+        if (nextBtn) nextBtn.setAttribute("aria-label", nextBtn.getAttribute("aria-label") || "Next slide");
+        if (prevBtn) prevBtn.setAttribute("aria-label", prevBtn.getAttribute("aria-label") || "Previous slide");
+
         const updateCarousel = (index) => {
             currentIndex = Math.max(0, Math.min(index, slides.length - 1));
             figure.style.transform = `translateX(-${currentIndex * 100}%)`;
 
+            // Update indicators
             indicators.forEach((btn, i) => {
                 const active = i === currentIndex;
                 btn.setAttribute("aria-selected", active);
                 btn.tabIndex = active ? 0 : -1;
             });
 
+            // Update slides visibility
+            slides.forEach((slide, i) => {
+                if (i === currentIndex) {
+                    slide.removeAttribute("aria-hidden");
+                    slide.removeAttribute("inert");
+                } else {
+                    slide.setAttribute("aria-hidden", "true");
+                    slide.setAttribute("inert", "");
+                }
+            });
+
+            // Update navigation buttons
             if (prevBtn) prevBtn.disabled = currentIndex === 0;
             if (nextBtn) nextBtn.disabled = currentIndex === slides.length - 1;
+
+            // Announce to screen readers
+            liveRegion.textContent = `Slide ${currentIndex + 1} of ${slides.length}`;
         };
 
         // Indicator Events
@@ -154,8 +335,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Arrow Key Support
         carousel.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowRight") updateCarousel(currentIndex + 1);
-            else if (e.key === "ArrowLeft") updateCarousel(currentIndex - 1);
+            if (e.key === "ArrowRight") {
+                e.preventDefault();
+                updateCarousel(currentIndex + 1);
+            } else if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                updateCarousel(currentIndex - 1);
+            } else if (e.key === "Home") {
+                e.preventDefault();
+                updateCarousel(0);
+            } else if (e.key === "End") {
+                e.preventDefault();
+                updateCarousel(slides.length - 1);
+            }
         });
 
         nextBtn?.addEventListener("click", () => updateCarousel(currentIndex + 1));
@@ -165,5 +357,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const zBase = parseInt(getComputedStyle(carousel).zIndex) || 0;
         carousel.querySelectorAll("[data-prev],[data-next]").forEach((b) => (b.style.zIndex = zBase + 1));
         updateCarousel(0);
+    });
+
+    // --- 5. Dropdown ARIA Support ---
+    document.querySelectorAll("details.dropdown").forEach((dropdown) => {
+        const summary = dropdown.querySelector("summary");
+        if (summary) {
+            summary.setAttribute("aria-haspopup", "true");
+            summary.setAttribute("aria-expanded", dropdown.hasAttribute("open"));
+
+            dropdown.addEventListener("toggle", () => {
+                summary.setAttribute("aria-expanded", dropdown.hasAttribute("open"));
+            });
+        }
     });
 });

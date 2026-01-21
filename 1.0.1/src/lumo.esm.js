@@ -1,5 +1,5 @@
 /**
- * Lumo UI (ESM) - Bootstrap Style
+ * Lumo UI (ESM Module)
  * Components: Modal, Dropdown, Tab, Carousel, Navbar
  */
 
@@ -11,18 +11,51 @@ export class Modal {
         this.el = typeof element === "string" ? document.querySelector(element) : element;
         this.body = this.el.querySelector("section");
         this.isLocked = this.el.hasAttribute("data-locked") || options.locked;
+        this.previousFocus = null;
+        this.focusableElements = null;
     }
 
     async open() {
         if (this.el.hasAttribute("open")) return;
+
+        // Store current focus
+        this.previousFocus = document.activeElement;
+
         this.el.setAttribute("open", "open");
+        this.el.setAttribute("role", "dialog");
+        this.el.setAttribute("aria-modal", "true");
+
+        // Set aria-hidden on siblings
+        this._setSiblingsAriaHidden(true);
+
         await this._animate("open");
+
+        // Focus management
+        this._updateFocusableElements();
+        this._focusFirstElement();
+
+        // Trap focus
+        this._addFocusTrap();
     }
 
     async close() {
         if (!this.el.hasAttribute("open")) return;
+
+        this._removeFocusTrap();
+
         await this._animate("close");
+
         this.el.removeAttribute("open");
+        this.el.removeAttribute("role");
+        this.el.removeAttribute("aria-modal");
+
+        // Restore aria-hidden
+        this._setSiblingsAriaHidden(false);
+
+        // Restore focus
+        if (this.previousFocus && typeof this.previousFocus.focus === "function") {
+            this.previousFocus.focus();
+        }
     }
 
     _animate(direction) {
@@ -39,6 +72,70 @@ export class Modal {
             move.play();
         });
     }
+
+    _updateFocusableElements() {
+        const focusableSelectors = 'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+        this.focusableElements = Array.from(this.el.querySelectorAll(focusableSelectors));
+    }
+
+    _focusFirstElement() {
+        if (this.focusableElements && this.focusableElements.length > 0) {
+            this.focusableElements[0].focus();
+        } else {
+            this.el.setAttribute("tabindex", "-1");
+            this.el.focus();
+        }
+    }
+
+    _addFocusTrap() {
+        this._focusTrapHandler = (e) => {
+            if (e.key === "Tab") {
+                if (!this.focusableElements || this.focusableElements.length === 0) {
+                    e.preventDefault();
+                    return;
+                }
+
+                const firstElement = this.focusableElements[0];
+                const lastElement = this.focusableElements[this.focusableElements.length - 1];
+
+                if (e.shiftKey && document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                } else if (!e.shiftKey && document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            } else if (e.key === "Escape" && !this.isLocked) {
+                e.preventDefault();
+                this.close();
+            }
+        };
+
+        this.el.addEventListener("keydown", this._focusTrapHandler);
+    }
+
+    _removeFocusTrap() {
+        if (this._focusTrapHandler) {
+            this.el.removeEventListener("keydown", this._focusTrapHandler);
+        }
+    }
+
+    _setSiblingsAriaHidden(hidden) {
+        const siblings = Array.from(document.body.children).filter((child) => child !== this.el && child.tagName !== "SCRIPT");
+        siblings.forEach((sibling) => {
+            if (hidden) {
+                if (!sibling.hasAttribute("aria-hidden")) {
+                    sibling.setAttribute("aria-hidden", "true");
+                    sibling.setAttribute("data-aria-hidden-by-modal", "true");
+                }
+            } else {
+                if (sibling.hasAttribute("data-aria-hidden-by-modal")) {
+                    sibling.removeAttribute("aria-hidden");
+                    sibling.removeAttribute("data-aria-hidden-by-modal");
+                }
+            }
+        });
+    }
 }
 
 // --- 2. CAROUSEL COMPONENT ---
@@ -48,7 +145,14 @@ export class Carousel {
         this.figure = this.carousel.querySelector('figure[role="group"]');
         this.slides = this.figure.querySelectorAll('[aria-roledescription="slide"]');
         this.index = 0;
+
+        // WCAG: Set proper ARIA attributes
+        this.carousel.setAttribute("aria-roledescription", "carousel");
+        this.carousel.setAttribute("aria-label", this.carousel.getAttribute("aria-label") || "Carousel");
+
         this._initIndicators();
+        this._initKeyboardNavigation();
+        this._initLiveRegion();
         this.show(0);
     }
 
@@ -57,9 +161,12 @@ export class Carousel {
         if (!this.indicatorsList) {
             this.indicatorsList = document.createElement("ol");
             this.indicatorsList.setAttribute("role", "tablist");
+            this.indicatorsList.setAttribute("aria-label", "Carousel slides");
+
             this.slides.forEach((_, i) => {
                 const btn = document.createElement("button");
                 btn.setAttribute("role", "tab");
+                btn.setAttribute("aria-label", `Slide ${i + 1}`);
                 btn.addEventListener("click", () => this.show(i));
                 const li = document.createElement("li");
                 li.appendChild(btn);
@@ -70,19 +177,81 @@ export class Carousel {
         this.indicatorButtons = this.indicatorsList.querySelectorAll('[role="tab"]');
     }
 
+    _initKeyboardNavigation() {
+        this.carousel.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight") {
+                e.preventDefault();
+                this.next();
+            } else if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                this.prev();
+            } else if (e.key === "Home") {
+                e.preventDefault();
+                this.show(0);
+            } else if (e.key === "End") {
+                e.preventDefault();
+                this.show(this.slides.length - 1);
+            }
+        });
+
+        // Navigation buttons
+        const nextBtn = this.carousel.querySelector("[data-next]");
+        const prevBtn = this.carousel.querySelector("[data-prev]");
+
+        if (nextBtn) {
+            nextBtn.setAttribute("aria-label", nextBtn.getAttribute("aria-label") || "Next slide");
+        }
+        if (prevBtn) {
+            prevBtn.setAttribute("aria-label", prevBtn.getAttribute("aria-label") || "Previous slide");
+        }
+    }
+
+    _initLiveRegion() {
+        this.liveRegion = document.createElement("div");
+        this.liveRegion.setAttribute("aria-live", "polite");
+        this.liveRegion.setAttribute("aria-atomic", "true");
+        this.liveRegion.className = "sr-only";
+        this.liveRegion.style.cssText = "position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;";
+        this.carousel.appendChild(this.liveRegion);
+    }
+
     show(i) {
         this.index = Math.max(0, Math.min(i, this.slides.length - 1));
         this.figure.style.transform = `translateX(-${this.index * 100}%)`;
+
+        // Update indicators
         this.indicatorButtons.forEach((btn, n) => {
             const active = n === this.index;
             btn.setAttribute("aria-selected", active);
             btn.tabIndex = active ? 0 : -1;
         });
+
+        // Update slides aria-hidden
+        this.slides.forEach((slide, n) => {
+            if (n === this.index) {
+                slide.removeAttribute("aria-hidden");
+                slide.removeAttribute("inert");
+            } else {
+                slide.setAttribute("aria-hidden", "true");
+                slide.setAttribute("inert", "");
+            }
+        });
+
+        // Update navigation buttons state
+        const nextBtn = this.carousel.querySelector("[data-next]");
+        const prevBtn = this.carousel.querySelector("[data-prev]");
+
+        if (prevBtn) prevBtn.disabled = this.index === 0;
+        if (nextBtn) nextBtn.disabled = this.index === this.slides.length - 1;
+
+        // Announce to screen readers
+        this.liveRegion.textContent = `Slide ${this.index + 1} of ${this.slides.length}`;
     }
 
     next() {
         this.show(this.index + 1);
     }
+
     prev() {
         this.show(this.index - 1);
     }
@@ -97,8 +266,18 @@ export function initLumo() {
         // Modals
         const openTrigger = target.closest("[data-target]");
         if (openTrigger) {
-            const m = new Modal(`#${openTrigger.dataset.target}`);
-            m.open();
+            e.preventDefault();
+            const modalId = openTrigger.dataset.target;
+            const modalEl = document.getElementById(modalId);
+
+            if (modalEl) {
+                // Set aria-controls on trigger
+                openTrigger.setAttribute("aria-controls", modalId);
+                openTrigger.setAttribute("aria-haspopup", "dialog");
+
+                const m = new Modal(modalEl);
+                m.open();
+            }
         }
 
         const closeTrigger = target.closest("[data-close]");
@@ -113,16 +292,73 @@ export function initLumo() {
         }
     });
 
-    // Initialize Tabs
+    // Keyboard support for escape key on modals
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            const openModalEl = document.querySelector("dialog[open]");
+            if (openModalEl && !openModalEl.hasAttribute("data-locked")) {
+                new Modal(openModalEl).close();
+            }
+        }
+    });
+
+    // Initialize Tabs with WCAG compliance
     document.querySelectorAll("article.tabs").forEach((el) => {
         const tabs = el.querySelectorAll('[role="tab"]');
         const panels = el.querySelectorAll('[role="tabpanel"]');
+
+        // Set proper ARIA relationships (only if not already set)
         tabs.forEach((tab, i) => {
+            const panel = panels[i];
+
+            // Generate IDs only if missing
+            if (!tab.id) {
+                tab.id = `tab-${Math.random().toString(36).substr(2, 9)}`;
+            }
+            if (!panel.id) {
+                panel.id = `panel-${Math.random().toString(36).substr(2, 9)}`;
+            }
+
+            // Set aria-controls only if not already set
+            if (!tab.hasAttribute("aria-controls")) {
+                tab.setAttribute("aria-controls", panel.id);
+            }
+
+            // Set aria-labelledby only if not already set
+            if (!panel.hasAttribute("aria-labelledby")) {
+                panel.setAttribute("aria-labelledby", tab.id);
+            }
+
             tab.addEventListener("click", () => {
-                tabs.forEach((t) => t.setAttribute("aria-selected", "false"));
+                tabs.forEach((t) => {
+                    t.setAttribute("aria-selected", "false");
+                    t.tabIndex = -1;
+                });
                 panels.forEach((p) => p.setAttribute("hidden", ""));
+
                 tab.setAttribute("aria-selected", "true");
+                tab.tabIndex = 0;
                 panels[i].removeAttribute("hidden");
+            });
+
+            // Keyboard navigation
+            tab.addEventListener("keydown", (e) => {
+                let newIndex;
+                if (e.key === "ArrowRight") {
+                    newIndex = (i + 1) % tabs.length;
+                } else if (e.key === "ArrowLeft") {
+                    newIndex = (i - 1 + tabs.length) % tabs.length;
+                } else if (e.key === "Home") {
+                    newIndex = 0;
+                } else if (e.key === "End") {
+                    newIndex = tabs.length - 1;
+                } else {
+                    return;
+                }
+
+                e.preventDefault();
+                tabs[newIndex].focus();
+                tabs[newIndex].click();
             });
         });
     });
@@ -132,5 +368,18 @@ export function initLumo() {
         const instance = new Carousel(c);
         c.querySelector("[data-next]")?.addEventListener("click", () => instance.next());
         c.querySelector("[data-prev]")?.addEventListener("click", () => instance.prev());
+    });
+
+    // Initialize Dropdowns with ARIA
+    document.querySelectorAll("details.dropdown").forEach((dropdown) => {
+        const summary = dropdown.querySelector("summary");
+        if (summary) {
+            summary.setAttribute("aria-haspopup", "true");
+            summary.setAttribute("aria-expanded", dropdown.hasAttribute("open"));
+
+            dropdown.addEventListener("toggle", () => {
+                summary.setAttribute("aria-expanded", dropdown.hasAttribute("open"));
+            });
+        }
     });
 }

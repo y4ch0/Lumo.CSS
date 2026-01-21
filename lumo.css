@@ -125,9 +125,10 @@ body[data-theme="dark"] dialog>section button.close:hover {
     background-color: rgb(from var(--lumo-primary-color) r g b / 0.25);
 }
 
-body[data-theme="dark"] article.tabs nav[role="tablist"]>button[role="tab"][aria-selected="true"] {
-    background-color: rgb(from var(--lumo-text-light) r g b / 0.75);
+body[data-theme="dark"] article.tabs [role="tablist"]>button[role="tab"][aria-selected="true"] {
+    background-color: var(--lumo-text-light);
     color: var(--lumo-text-dark);
+    font-weight: bold;
 }
 
 /* end dark theme definition */
