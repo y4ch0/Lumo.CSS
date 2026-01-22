@@ -131,6 +131,14 @@ body[data-theme="dark"] article.tabs [role="tablist"]>button[role="tab"][aria-se
     font-weight: bold;
 }
 
+body[data-theme="dark"] button.tertiary.outline:hover,
+body[data-theme="dark"] [role=button].tertiary.outline:hover,
+body[data-theme="dark"] input[type=button].tertiary.outline:hover,
+body[data-theme="dark"] input[type=submit].tertiary.outline:hover,
+body[data-theme="dark"] input[type=reset].tertiary.outline:hover {
+    color: var(--lumo-text-dark);
+}
+
 /* end dark theme definition */
 
 :focus-visible {
@@ -540,7 +548,8 @@ input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover,
 input[type="file"]::-webkit-file-upload-button:hover {
-    filter: brightness(0.9);
+    background-color: oklch(from var(--lumo-background-color) calc(l - 0.08) c h);
+    border-color: oklch(from var(--lumo-background-color) calc(l - 0.08) c h);
 }
 
 button.outline:hover,
@@ -548,7 +557,32 @@ button.outline:hover,
 input[type=button].outline:hover,
 input[type=submit].outline:hover,
 input[type=reset].outline:hover {
-    background-color: rgb(from var(--lumo-background-color) r g b / 0.1);
+    background-color: var(--lumo-background-color);
+    border-color: var(--lumo-background-color);
+}
+
+button.outline.secondary:hover,
+[role=button].outline.secondary:hover,
+input[type=button].outline.secondary:hover,
+input[type=submit].outline.secondary:hover,
+input[type=reset].outline.secondary:hover {
+    color: var(--lumo-secondary-button-text);
+}
+
+button.tertiary.outline:hover,
+[role=button].tertiary.outline:hover,
+input[type=button].tertiary.outline:hover,
+input[type=submit].tertiary.outline:hover,
+input[type=reset].tertiary.outline:hover {
+    color: var(--lumo-text-light);
+}
+
+button.outline:not(.secondary, .tertiary):hover,
+[role=button].outline:not(.secondary, .tertiary):hover,
+input[type=button].outline:not(.secondary, .tertiary):hover,
+input[type=submit].outline:not(.secondary, .tertiary):hover,
+input[type=reset].outline:not(.secondary, .tertiary):hover {
+    color: var(--lumo-primary-button-text);
 }
 
 :where(button,
