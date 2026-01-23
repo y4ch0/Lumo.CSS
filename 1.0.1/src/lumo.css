@@ -1138,7 +1138,7 @@ hr[aria-orientation="vertical"] {
     --lumo-contrast-color: var(--lumo-accent-color);
     display: inline-flex;
     width: 100%;
-    border: var(--lumo-border-default);
+    border: var(--lumo-border-hard);
     border-radius: var(--lumo-border-radius);
     font-size: 0.95rem;
     padding: 0.4rem 0.8rem;
