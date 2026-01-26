@@ -585,7 +585,7 @@ input[type=reset].outline:not(.secondary, .tertiary):hover {
     color: var(--lumo-primary-button-text);
 }
 
-:where(button,
+/*:where(button,
     [role=button],
     input[type=button],
     input[type=submit],
@@ -594,6 +594,11 @@ input[type=reset].outline:not(.secondary, .tertiary):hover {
     input[type=color], input[type=radio],
     input[type=checkbox],
     input[type="file"]::-webkit-file-upload-button):focus {
+    box-shadow: 0 0 0 3px rgb(from var(--lumo-bg-color) r g b / 0.5);
+}*/
+
+:where(input[role="switch"], input[type=radio],
+    input[type=checkbox], ):focus {
     box-shadow: 0 0 0 3px rgb(from var(--lumo-bg-color) r g b / 0.5);
 }
 
