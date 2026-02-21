@@ -770,6 +770,12 @@ main #navigation details summary {
     background-color: transparent;
     font-size: inherit !important;
     border: none;
+    margin: 0;
+}
+
+main #navigation details {
+    border: none;
+    padding: 0;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1652,6 +1658,11 @@ label:has([type=checkbox], [type=radio]) {
  * Details (accordion)
  */
 
+details:not(.dropdown) {
+    border-top: var(--lumo-border-default);
+    border-bottom: var(--lumo-border-default);
+}
+
 details:not(.dropdown) summary {
     font-size: 1.05rem;
     display: flex;
@@ -1672,8 +1683,6 @@ details:not(.dropdown) summary:not([role="button"]):hover {
 details:not(.dropdown) summary:not([role="button"]) {
     --lumo-transition: 75ms linear;
     background-color: transparent;
-    border-top: var(--lumo-border-default);
-    border-bottom: var(--lumo-border-default);
     padding: 0.5rem 0.75rem;
     outline: 3px solid transparent;
     outline-offset: -2px;
@@ -1707,6 +1716,38 @@ details:not(.dropdown)[open] summary::before {
 
 details:not(.dropdown) summary:not([role="button"]):focus {
     outline: 2px solid var(--lumo-accent-color);
+}
+
+details:not(.dropdown).contained {
+    border: var(--lumo-border-default);
+    border-radius: calc(var(--lumo-border-radius) * 1.5);
+    margin-block: 0.5rem;
+}
+
+details:not(.dropdown).contained summary {
+    border-radius: calc(var(--lumo-border-radius) * 1.5);
+    gap: 0.5rem;
+    font-size: 1.15rem;
+}
+
+details:not(.dropdown).contained summary::before {
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.125);
+    border-radius: 2rem;
+    width: 2rem;
+    height: 2rem;
+    background-size: 1.25rem;
+}
+
+details:not(.dropdown).contained[open] {
+    padding: 1.5rem;
+    padding-bottom: 1rem;
+    padding-top: 0;
+}
+
+details:not(.dropdown).contained[open] summary {
+    width: calc(100% + 3rem);
+    max-width: calc(100% + 3rem);
+    margin-left: -1.5rem;
 }
 
 /*
