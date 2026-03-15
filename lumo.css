@@ -505,7 +505,7 @@ input[type="file"]::-webkit-file-upload-button {
     justify-content: center;
     cursor: pointer;
     filter: brightness(1);
-    border: 2px solid var(--lumo-bg-color);
+    border: 1px solid var(--lumo-bg-color);
     line-height: var(--lumo-line-height);
     font-family: var(--lumo-font-family);
     font-weight: 600;
@@ -548,7 +548,6 @@ input[type=reset].tertiary.outline {
     --lumo-bg-color: var(--lumo-text-color);
     background-color: transparent;
     border: var(--lumo-border-default);
-    border-width: 2px;
     color: var(--lumo-text-color);
 }
 
@@ -1273,7 +1272,7 @@ input[type=radio] {
     margin: 0;
     accent-color: var(--lumo-accent-color);
     border: var(--lumo-border-hard);
-    border-width: 2px;
+    border-width: 1px;
     cursor: pointer;
     transition: box-shadow var(--lumo-transition);
 }
@@ -1935,7 +1934,7 @@ dialog>section>header {
     padding-right: 0.5rem;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     gap: 1rem;
     justify-content: space-between;
     margin-bottom: 0.75rem !important;
