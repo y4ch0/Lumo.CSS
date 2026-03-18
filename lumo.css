@@ -1174,7 +1174,7 @@ hr[aria-orientation="vertical"] {
     height: 2.35rem;
     font-family: var(--lumo-font-family);
     box-shadow: 0 0 0 0 #FFFFFF;
-    transition: outline var(--lumo-transition), border-color var(--lumo-transition), box-shadow var(--lumo-transition);
+    /*transition: outline var(--lumo-transition), border-color var(--lumo-transition), box-shadow var(--lumo-transition);*/
 }
 
 /*:where(input[type=date],
@@ -1274,7 +1274,7 @@ input[type=radio] {
     border: var(--lumo-border-hard);
     border-width: 1px;
     cursor: pointer;
-    transition: box-shadow var(--lumo-transition);
+    /*transition: box-shadow var(--lumo-transition);*/
 }
 
 input[type=checkbox]:not([role="switch"]):focus,
