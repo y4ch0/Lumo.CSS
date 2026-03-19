@@ -1222,10 +1222,12 @@ hr[aria-orientation="vertical"] {
     input[type=url],
     input[type=week],
     textarea, select):focus {
-    border-color: rgb(from var(--lumo-contrast-color) r g b / 0.65);
-    outline-offset: 0;
-    outline: 3px solid rgb(from var(--lumo-contrast-color) r g b / 0.35);
-    box-shadow: 0 0 0 3px #FFFFFF;
+    /*border-color: rgb(from var(--lumo-contrast-color) r g b / 0.65);*/
+    border-color: var(--lumo-contrast-color);
+    outline-offset: -1px;
+    /*outline: 3px solid rgb(from var(--lumo-contrast-color) r g b / 0.35);*/
+    outline: 4px solid var(--lumo-contrast-color);
+    box-shadow: 0 0 0 4px #FFFFFF;
 }
 
 :where(input[type=date],
@@ -1492,7 +1494,9 @@ input[role="switch"] {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center left;
-    transition: background-color var(--lumo-transition), background-position var(--lumo-transition), box-shadow var(--lumo-transition);
+    transition: background-color var(--lumo-transition), background-position var(--lumo-transition)
+        /*, box-shadow var(--lumo-transition)*/
+    ;
 }
 
 @media screen and (max-width: 1024px) {
