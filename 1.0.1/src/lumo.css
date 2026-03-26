@@ -17,7 +17,7 @@
     --lumo-spacing: 1rem;
     --lumo-grip-row-gap: var(--lumo-spacing);
     --lumo-grip-column-gap: var(--lumo-spacing);
-    --lumo-border-radius: 0.35rem;
+    --lumo-border-radius: 0.5rem;
     --lumo-font-weight: 400;
     --lumo-line-height: 1.5;
     --lumo-header-height: 5rem;
@@ -837,7 +837,7 @@ main aside#navigation nav {
 main aside#navigation nav ul {
     display: flex;
     flex-direction: column;
-    row-gap: calc(var(--lumo-grip-row-gap) * 0.5);
+    row-gap: calc(var(--lumo-grip-row-gap) * 0.25);
     list-style: none;
     padding: 0;
     margin: 0;
@@ -845,7 +845,7 @@ main aside#navigation nav ul {
 
 main aside#navigation nav ul li>*,
 main aside#navigation nav ul li:has(details) summary {
-    padding: 0.4rem 0.8rem;
+    padding: 0.5rem 1rem;
     display: flex;
     color: var(--lumo-text-color);
     border-radius: 0.5rem;
@@ -1531,7 +1531,7 @@ table {
     padding: 0;
     margin: 0;
     margin-bottom: 1rem;
-    border-radius: 0.35rem;
+    border-radius: 0.5rem;
     overflow: hidden;
 }
 
@@ -1587,7 +1587,7 @@ table tbody tr th {
     border: var(--lumo-border-default);
     padding: 0;
     margin: 0;
-    border-radius: 0.35rem;
+    border-radius: 0.5rem;
 }
 
 main>.container #page,
@@ -2017,7 +2017,7 @@ article.tabs [role="tablist"] {
     list-style: none;
     overflow-x: auto;
     padding: 0.25rem;
-    border-radius: 0.7rem;
+    border-radius: 0.75rem;
     gap: 0.25rem;
     background-color: rgb(from var(--lumo-text-color) r g b / 0.1);
 }
@@ -2033,7 +2033,7 @@ article.tabs [role="tablist"]>button[role="tab"] {
     border: none;
     width: max-content;
     font-weight: normal;
-    border-radius: 0.45rem;
+    border-radius: 0.5rem;
     border-bottom: 2px solid transparent;
     padding: 0.45rem 1rem;
     font-size: 0.95rem;
