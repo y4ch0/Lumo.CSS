@@ -74,9 +74,9 @@ body[data-theme="dark"] {
     --lumo-text-light: #e8e2d9;
     --lumo-text-color: var(--lumo-text-light);
     --lumo-modal-bg-color: rgba(12, 10, 9, 0.72);
-    --lumo-shadow-s: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.35);
-    --lumo-shadow-m: 0 0.35rem 0.65rem rgba(0, 0, 0, 0.4);
-    --lumo-shadow-l: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.45);
+    --lumo-shadow-s: 0 0.125rem 0.25rem rgba(12, 10, 9, 0.6), inset 0 1px 0 rgba(232, 226, 217, 0.05);
+    --lumo-shadow-m: 0 0.35rem 0.65rem rgba(12, 10, 9, 0.7), inset 0 1px 0 rgba(232, 226, 217, 0.06);
+    --lumo-shadow-l: 0 0.75rem 1.5rem rgba(12, 10, 9, 0.75), inset 0 1px 0 rgba(232, 226, 217, 0.07);
     /* Warm-toned borders */
     --lumo-border-light: 1px solid rgba(232, 226, 217, 0.1);
     --lumo-border-default: 1px solid rgba(232, 226, 217, 0.22);
