@@ -68,17 +68,23 @@ body[data-reduce-motion="true"] details:not(.dropdown) summary::before {
 /* begin dark theme definition */
 
 body[data-theme="dark"] {
-    --lumo-bg-color: #131313;
+    /* Warm dark background — deep charcoal with a hint of brown, like claude.ai */
+    --lumo-bg-color: #1c1917;
+    /* Warm off-white text — never cold pure white */
+    --lumo-text-light: #e8e2d9;
     --lumo-text-color: var(--lumo-text-light);
-    --lumo-modal-bg-color: rgba(0, 0, 0, 0.65);
-    --lumo-shadow-s: 0 0.125rem 0.25rem rgb(from var(--lumo-text-color) r g b / 0.1);
-    --lumo-shadow-m: 0 0.35rem 0.65rem rgb(from var(--lumo-text-color) r g b / 0.1);
-    --lumo-shadow-l: 0 0.75rem 1.5rem rgb(from var(--lumo-text-color) r g b / 0.1);
-    --lumo-border-light: 1px solid rgb(from var(--lumo-text-color) r g b / 0.15);
-    --lumo-border-default: 1px solid rgb(from var(--lumo-text-color) r g b / 0.4);
-    --lumo-border-hard: 1px solid rgb(from var(--lumo-text-color) r g b / 0.55);
-    --lumo-secondary-color: #1288FF;
-    --lumo-accent-color: #1288FF;
+    --lumo-modal-bg-color: rgba(12, 10, 9, 0.72);
+    --lumo-shadow-s: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.35);
+    --lumo-shadow-m: 0 0.35rem 0.65rem rgba(0, 0, 0, 0.4);
+    --lumo-shadow-l: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.45);
+    /* Warm-toned borders */
+    --lumo-border-light: 1px solid rgba(232, 226, 217, 0.1);
+    --lumo-border-default: 1px solid rgba(232, 226, 217, 0.22);
+    --lumo-border-hard: 1px solid rgba(232, 226, 217, 0.42);
+    /* Warm blue-teal accent — less cold than pure #1288FF */
+    --lumo-secondary-color: #3b97d3;
+    --lumo-accent-color: #3b97d3;
+    --lumo-link-color: #7db8e8;
     --lumo-accordion-icon: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M300 166.667L533.333 400L300 633.333' stroke='white' stroke-width='66.6667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
     --lumo-menu-icon: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M166.667 566.667H633.333M166.667 400H633.333M166.667 233.333H633.333' stroke='white' stroke-width='66.6667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
     --lumo-close-icon: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M600 600L400 400M400 400L200 200M400 400L600 200M400 400L200 600' stroke='white' stroke-width='66.6667' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
@@ -90,23 +96,24 @@ body[data-theme="dark"] details.dropdown summary:not([role="button"])::after {
 
 body[data-theme="dark"] pre,
 body[data-theme="dark"] code {
-    background-color: #1c1c1d;
+    /* Slightly lighter warm surface for code blocks */
+    background-color: #252119;
 }
 
 body[data-theme="dark"] [role="alert"][aria-label="error"] {
-    --lumo-bg-color: rgb(255, 0, 0, 0.15);
+    --lumo-bg-color: rgba(220, 60, 50, 0.18);
 }
 
 body[data-theme="dark"] [role="alert"][aria-label="warning"] {
-    --lumo-bg-color: rgba(250, 193, 49, 0.2);
+    --lumo-bg-color: rgba(250, 193, 49, 0.16);
 }
 
 body[data-theme="dark"] [role="alert"][aria-label="confirmation"] {
-    --lumo-bg-color: rgba(10, 165, 33, 0.2);
+    --lumo-bg-color: rgba(10, 165, 33, 0.16);
 }
 
 body[data-theme="dark"] [role="alert"][aria-label="information"] {
-    --lumo-bg-color: rgba(0, 179, 255, 0.2);
+    --lumo-bg-color: rgba(59, 151, 211, 0.18);
 }
 
 body[data-theme="dark"] [aria-busy="true"]:is(article, section, div, h1, h2, h3, h4, h5, h6, p)::before {
@@ -2302,7 +2309,7 @@ mark {
 span[role="note"] {
     font-size: 0.8em;
     background-color: rgb(from var(--lumo-text-color) r g b / 0.2);
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     padding: 0.15rem 0.35rem;
     font-weight: bold;
     margin-inline: 0.35em;
