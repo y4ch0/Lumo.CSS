@@ -1780,11 +1780,11 @@ details:not(.dropdown).contained[open] summary {
 
 [data-tooltip]::after {
     content: attr(data-tooltip);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     background-color: var(--lumo-text-dark);
     color: var(--lumo-text-light);
     padding: 0.15rem 0.35rem;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     border: 1px solid rgb(from var(--lumo-text-color) r g b / 0.25);
     box-shadow: var(--lumo-shadow-s);
     transform: translate(-50%, 0);
@@ -1819,7 +1819,7 @@ code {
     color: var(--lumo-text-light);
     box-shadow: var(--lumo-shadow-s);
     padding: 0.3rem 0.5rem;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
 }
 
 pre {
@@ -1827,7 +1827,7 @@ pre {
     color: var(--lumo-text-light);
     box-shadow: var(--lumo-shadow-s);
     padding: 0.45rem 0.65rem;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     overflow-x: auto;
 }
 
