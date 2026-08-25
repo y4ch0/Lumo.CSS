@@ -1,0 +1,97 @@
+1:"$Sreact.fragment"
+<<<<<<< HEAD
+2:I[52836,["/docs/_next/static/chunks/1mpnoxox0-4cg.js","/docs/_next/static/chunks/0-rirdvxwlx61.js","/docs/_next/static/chunks/2d8sujozhcr3r.js"],"CodeBox"]
+=======
+2:I[52836,["/_next/static/chunks/1mpnoxox0-4cg.js","/_next/static/chunks/0jih06pyov7a3.js","/_next/static/chunks/2d8sujozhcr3r.js"],"CodeBox"]
+>>>>>>> 655272b (Add static docs site)
+3:T104c,:root {
+    --lumo-primary-color: #FAC131;
+    --lumo-secondary-color: #007AFF;
+    --lumo-text-light: #FFFFFF;
+    --lumo-text-dark: #1d1d1d;
+    --lumo-primary-button-text: var(--lumo-text-dark);
+    --lumo-secondary-button-text: var(--lumo-text-light);
+    --lumo-text-color: var(--lumo-text-dark);
+    --lumo-shadow-s: 0 0.125rem 0.25rem rgb(from var(--lumo-text-color) r g b / 0.1);
+    --lumo-shadow-m: 0 0.35rem 0.65rem rgb(from var(--lumo-text-color) r g b / 0.1);
+    --lumo-shadow-l: 0 0.75rem 1.5rem rgb(from var(--lumo-text-color) r g b / 0.1);
+    --lumo-font-family: system-ui, sans-serif;
+    --lumo-font-size: 16px;
+    --lumo-transition: 200ms ease-in-out;
+    --lumo-spacing: 1rem;
+    --lumo-grip-row-gap: var(--lumo-spacing);
+    --lumo-grip-column-gap: var(--lumo-spacing);
+    --lumo-border-radius: 0.5rem;
+    --lumo-font-weight: 400;
+    --lumo-line-height: 1.5;
+    --lumo-header-height: 5rem;
+    --lumo-breadcrumb-divider: "/";
+    --lumo-cw: calc(75vw + var(--lumo-spacing));
+    --lumo-cw-bp-l: calc(85vw + var(--lumo-spacing));
+    --lumo-cw-bp-m: 90vw;
+    --lumo-cw-bp-s: 100vw;
+    --lumo-bg-color: #FFFFFF;
+    --lumo-dropdown-bg-color: #fafafa;
+    --lumo-modal-bg-color: rgba(0, 0, 0, 0.25);
+    --lumo-border-light: 1px solid rgb(from var(--lumo-text-color) r g b / 0.1);
+    --lumo-border-default: 1px solid rgb(from var(--lumo-text-color) r g b / 0.2);
+    --lumo-border-hard: 1px solid rgb(from var(--lumo-text-color) r g b / 0.45);
+    --lumo-accent-color: #007AFF;
+    --lumo-link-color: #007AFF;
+    --lumo-tab-accent: var(--lumo-accent-color);
+    --lumo-tab-text: var(--lumo-text-light);
+    --lumo-accent-contrast-color: var(--lumo-text-light);
+    --lumo-scrollbar-color: var(--lumo-text-color);
+    --lumo-menu-icon: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 17H19M5 12H19M5 7H19' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    --lumo-close-icon: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    --lumo-dropdown-icon: url("data:image/svg+xml,%3Csvg width='87' height='53' viewBox='0 0 87 53' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M72.2277 4.05023C74.9607 1.31754 79.3914 1.31735 82.1242 4.05023C84.8566 6.7831 84.8566 11.2138 82.1242 13.9467L48.0344 48.0366C45.3867 50.6839 41.1456 50.7668 38.3986 48.2846L38.1379 48.0366L4.04902 13.9467C1.31626 11.2138 1.31642 6.7832 4.04902 4.05023C6.78195 1.31745 11.2136 1.31638 13.9465 4.04925L43.0871 33.1909L72.2277 4.05023Z' fill='black'/%3E%3C/svg%3E");
+    --lumo-select-icon: url("data:image/svg+xml,%3Csvg width='87' height='139' viewBox='0 0 87 139' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M72.2277 90.049C74.9607 87.3163 79.3914 87.3161 82.1242 90.049C84.8566 92.7819 84.8566 97.2126 82.1242 99.9455L48.0344 134.035C45.3867 136.683 41.1456 136.766 38.3986 134.283L38.1379 134.035L4.04902 99.9455C1.31626 97.2126 1.31642 92.782 4.04902 90.049C6.78195 87.3162 11.2136 87.3152 13.9465 90.048L43.0871 119.19L72.2277 90.049ZM14.284 47.9549C11.556 50.6825 7.13314 50.6825 4.40511 47.9549C1.67736 45.2268 1.67739 40.804 4.40511 38.076L38.4344 4.04568C38.5194 3.96071 38.606 3.8783 38.6942 3.79861C38.9594 3.55903 39.2388 3.34285 39.5291 3.15115C41.466 1.87218 43.9003 1.6589 46.0028 2.51151C46.2128 2.59669 46.4193 2.69313 46.6219 2.79959C46.8248 2.90621 47.0238 3.02319 47.2176 3.15115C47.508 3.34289 47.7873 3.55898 48.0526 3.79862L48.3133 4.04569L82.3426 38.076C85.0701 40.804 85.0703 45.2269 82.3426 47.9549C79.6146 50.6827 75.1908 50.6827 72.4627 47.9549L43.3739 18.866L14.284 47.9549Z' fill='black'/%3E%3C/svg%3E");
+    --lumo-accordion-icon: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 5L16 12L9 19' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    overflow-wrap: break-word;
+}8:X
+d:X
+d:C
+<<<<<<< HEAD
+0:{"buildId":"VoU5zjRyNND54SLSkQFHR","data":[{"rsc":["$","$1","c",{"children":[[["$","hgroup",null,{"children":[["$","h6",null,{"children":"Introduction"}],["$","h2",null,{"children":"Customize"}]]}],["$","p",null,{"children":["You can customize Lumo.CSS by editing ",["$","code",null,{"children":":root"}]," variables with ",["$","code",null,{"children":"--lumo"}]," prefix. Full list of these variables set to its default value is below."]}],["$","$L2",null,{"language":"css","code":"$3"}]],["$L4","$L5"],"$L6"]}],"isPartial":"$@7","staleTime":"$8","varyParams":null},{"rsc":"$L9","isPartial":"$@a","staleTime":"$8","varyParams":null},{"rsc":"$Lb","isPartial":"$@c","staleTime":"$8","varyParams":"$d"},{"rsc":"$Le","isPartial":"$@f","staleTime":"$8","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
+12:I[97367,["/docs/_next/static/chunks/1mpnoxox0-4cg.js"],"OutletBoundary"]
+13:"$Sreact.suspense"
+15:I[97367,["/docs/_next/static/chunks/1mpnoxox0-4cg.js"],"ViewportBoundary"]
+16:I[97367,["/docs/_next/static/chunks/1mpnoxox0-4cg.js"],"MetadataBoundary"]
+17:I[27201,["/docs/_next/static/chunks/1mpnoxox0-4cg.js"],"IconMark"]
+18:I[39756,["/docs/_next/static/chunks/1mpnoxox0-4cg.js"],"default"]
+19:I[37457,["/docs/_next/static/chunks/1mpnoxox0-4cg.js"],"default"]
+1a:I[45476,["/docs/_next/static/chunks/1mpnoxox0-4cg.js","/docs/_next/static/chunks/0-rirdvxwlx61.js"],"default"]
+:HL["/docs/_next/static/chunks/2pwgj7-hofn2m.css","style"]
+4:["$","link","0",{"rel":"stylesheet","href":"/docs/_next/static/chunks/2pwgj7-hofn2m.css","precedence":"next"}]
+5:["$","script","script-0",{"src":"/docs/_next/static/chunks/2d8sujozhcr3r.js","async":true}]
+6:["$","$L12",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@14"}]}]
+9:["$","$1","h",{"children":[null,["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L16",null,{"children":["$","$13",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"LumoCSS | Lightweight CSS framework for semantic HTML"}],["$","meta","1",{"name":"description","content":"LumoCSS is a lightweight CSS framework for semantic HTML."}],["$","link","2",{"rel":"icon","href":"/docs/favicon.ico?favicon.1al3k6hn6ft-j.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L17","3",{}]]}]}]}],null]}]
+b:["$","$1","c",{"children":[null,["$","$L18",null,{"parallelRouterKey":"children","template":["$","$L19",null,{}]}]]}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/docs/_next/static/chunks/0-rirdvxwlx61.js","async":true}]],["$","main",null,{"children":["$","div",null,{"className":"container","children":[["$","$L1a",null,{}],["$","div",null,{"id":"page","children":["$","section",null,{"children":["$","article",null,{"children":["$","$L18",null,{"parallelRouterKey":"children","template":["$","$L19",null,{}]}]}]}]}]]}]}]]}]
+=======
+0:{"buildId":"sSNAhnVp60kuHvohm9EwC","data":[{"rsc":["$","$1","c",{"children":[[["$","hgroup",null,{"children":[["$","h6",null,{"children":"Introduction"}],["$","h2",null,{"children":"Customize"}]]}],["$","p",null,{"children":["You can customize Lumo.CSS by editing ",["$","code",null,{"children":":root"}]," variables with ",["$","code",null,{"children":"--lumo"}]," prefix. Full list of these variables set to its default value is below."]}],["$","$L2",null,{"language":"css","code":"$3"}]],["$L4","$L5"],"$L6"]}],"isPartial":"$@7","staleTime":"$8","varyParams":null},{"rsc":"$L9","isPartial":"$@a","staleTime":"$8","varyParams":null},{"rsc":"$Lb","isPartial":"$@c","staleTime":"$8","varyParams":"$d"},{"rsc":"$Le","isPartial":"$@f","staleTime":"$8","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
+12:I[97367,["/_next/static/chunks/1mpnoxox0-4cg.js"],"OutletBoundary"]
+13:"$Sreact.suspense"
+15:I[97367,["/_next/static/chunks/1mpnoxox0-4cg.js"],"ViewportBoundary"]
+16:I[97367,["/_next/static/chunks/1mpnoxox0-4cg.js"],"MetadataBoundary"]
+17:I[27201,["/_next/static/chunks/1mpnoxox0-4cg.js"],"IconMark"]
+18:I[39756,["/_next/static/chunks/1mpnoxox0-4cg.js"],"default"]
+19:I[37457,["/_next/static/chunks/1mpnoxox0-4cg.js"],"default"]
+1a:I[45476,["/_next/static/chunks/1mpnoxox0-4cg.js","/_next/static/chunks/0jih06pyov7a3.js"],"default"]
+:HL["/_next/static/chunks/2pwgj7-hofn2m.css","style"]
+4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/2pwgj7-hofn2m.css","precedence":"next"}]
+5:["$","script","script-0",{"src":"/_next/static/chunks/2d8sujozhcr3r.js","async":true}]
+6:["$","$L12",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@14"}]}]
+9:["$","$1","h",{"children":[null,["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L16",null,{"children":["$","$13",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"LumoCSS | Lightweight CSS framework for semantic HTML"}],["$","meta","1",{"name":"description","content":"LumoCSS is a lightweight CSS framework for semantic HTML."}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.1al3k6hn6ft-j.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L17","3",{}]]}]}]}],null]}]
+b:["$","$1","c",{"children":[null,["$","$L18",null,{"parallelRouterKey":"children","template":["$","$L19",null,{}]}]]}]
+e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/0jih06pyov7a3.js","async":true}]],["$","main",null,{"children":["$","div",null,{"className":"container","children":[["$","$L1a",null,{}],["$","div",null,{"id":"page","children":["$","section",null,{"children":["$","article",null,{"children":["$","$L18",null,{"parallelRouterKey":"children","template":["$","$L19",null,{}]}]}]}]}]]}]}]]}]
+>>>>>>> 655272b (Add static docs site)
+11:true
+14:null
+8:300
+8:C
+10:0
+a:"$undefined"
+c:"$undefined"
+f:"$undefined"
+7:"$undefined"

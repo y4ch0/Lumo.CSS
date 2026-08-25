@@ -1,0 +1,51 @@
+:root {
+    --lumo-font-size: 16px;
+    --lumo-font-family: "Inter", sans-serif;
+}
+
+pre>code {
+    padding: 0 !important;
+    background-color: #16191D !important;
+    color: #ABB2BF;
+}
+
+pre {
+    padding: 1rem !important;
+    background-color: #16191D !important;
+}
+
+.component-presentation {
+    padding: 0 !important;
+}
+
+.component-presentation>pre {
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+
+.component-presentation .component-preview {
+    padding: 1rem;
+}
+
+.component-presentation .component-preview>*:only-child {
+    margin: 0 !important;
+}
+
+.component-presentation .component-preview>header {
+    height: var(--lumo-header-height);
+    z-index: 1 !important;
+}
+
+.component-presentation .component-preview>header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.component-presentation .component-preview header nav button[aria-label="close"] {
+    display: none;
+    position: absolute;
+    top: 1.25rem;
+    right: 0.65rem;
+    background-image: var(--lumo-close-icon);
+}
