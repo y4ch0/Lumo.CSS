@@ -1,8 +1,8 @@
-:HL["/_next/static/chunks/10jg08bfjibdv.css","style"]
-:HL["/_next/static/chunks/2pwgj7-hofn2m.css","style"]
-:HL["/lumo.min.css","style"]
+:HL["/Lumo.CSS/_next/static/chunks/10jg08bfjibdv.css","style"]
+:HL["/Lumo.CSS/_next/static/chunks/2pwgj7-hofn2m.css","style"]
+:HL["/Lumo.CSS/lumo.min.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Barcode+128&family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Strichpunkt+Sans:wght@400..900&display=swap","style"]
-:HL["/style.css","style"]
-:HL["/LumoCSS.svg","image"]
-:HL["/LumoCSS_dark.svg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"docs","param":null,"prefetchHints":4160,"slots":{"children":{"name":"components","param":null,"prefetchHints":4192,"slots":{"children":{"name":"tabs","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}}}},"staleTime":300,"buildId":"VyFN2mn4BCX9MkcpzpwMW"}
+:HL["/Lumo.CSS/style.css","style"]
+:HL["/Lumo.CSS/LumoCSS.svg","image"]
+:HL["/Lumo.CSS/LumoCSS_dark.svg","image"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"docs","param":null,"prefetchHints":4160,"slots":{"children":{"name":"components","param":null,"prefetchHints":4192,"slots":{"children":{"name":"tabs","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}}}},"staleTime":300,"buildId":"aza_nO8TYq3uu-0uMQQlg"}
