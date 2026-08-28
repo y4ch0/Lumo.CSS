@@ -1,6 +1,18 @@
 1:"$Sreact.fragment"
-2:I[52836,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js","/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js","/Lumo.CSS/_next/static/chunks/2d8sujozhcr3r.js"],"CodeBox"]
-3:T104c,:root {
+2:I[52836,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js","/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js","/Lumo.CSS/_next/static/chunks/3ll90m3xikvi-.js","/Lumo.CSS/_next/static/chunks/2d8sujozhcr3r.js"],"CodeBox"]
+3:T11d9,:root {
+    --lumo-color-blue: #0F56DA;
+    --lumo-color-indigo: #471ED9;
+    --lumo-color-purple: #7827E9;
+    --lumo-color-pink: #CA2BE3;
+    --lumo-color-red: #D82F37;
+    --lumo-color-brown: #8B5B0F;
+    --lumo-color-orange: #DA9018;
+    --lumo-color-yellow: #FAC131;
+    --lumo-color-green: #26BA5F;
+    --lumo-color-cyan: #26CCD2;
+    --lumo-color-teal: #19D8C2;
+    --lumo-color-graphite: #8E8E8E;
     --lumo-primary-color: #FAC131;
     --lumo-secondary-color: #007AFF;
     --lumo-text-light: #FFFFFF;
@@ -44,31 +56,36 @@
     --lumo-select-icon: url("data:image/svg+xml,%3Csvg width='87' height='139' viewBox='0 0 87 139' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M72.2277 90.049C74.9607 87.3163 79.3914 87.3161 82.1242 90.049C84.8566 92.7819 84.8566 97.2126 82.1242 99.9455L48.0344 134.035C45.3867 136.683 41.1456 136.766 38.3986 134.283L38.1379 134.035L4.04902 99.9455C1.31626 97.2126 1.31642 92.782 4.04902 90.049C6.78195 87.3162 11.2136 87.3152 13.9465 90.048L43.0871 119.19L72.2277 90.049ZM14.284 47.9549C11.556 50.6825 7.13314 50.6825 4.40511 47.9549C1.67736 45.2268 1.67739 40.804 4.40511 38.076L38.4344 4.04568C38.5194 3.96071 38.606 3.8783 38.6942 3.79861C38.9594 3.55903 39.2388 3.34285 39.5291 3.15115C41.466 1.87218 43.9003 1.6589 46.0028 2.51151C46.2128 2.59669 46.4193 2.69313 46.6219 2.79959C46.8248 2.90621 47.0238 3.02319 47.2176 3.15115C47.508 3.34289 47.7873 3.55898 48.0526 3.79862L48.3133 4.04569L82.3426 38.076C85.0701 40.804 85.0703 45.2269 82.3426 47.9549C79.6146 50.6827 75.1908 50.6827 72.4627 47.9549L43.3739 18.866L14.284 47.9549Z' fill='black'/%3E%3C/svg%3E");
     --lumo-accordion-icon: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 5L16 12L9 19' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     overflow-wrap: break-word;
-}8:X
-d:X
-d:C
-0:{"buildId":"aza_nO8TYq3uu-0uMQQlg","data":[{"rsc":["$","$1","c",{"children":[[["$","hgroup",null,{"children":[["$","h6",null,{"children":"Introduction"}],["$","h2",null,{"children":"Customize"}]]}],["$","p",null,{"children":["You can customize Lumo.CSS by editing ",["$","code",null,{"children":":root"}]," variables with ",["$","code",null,{"children":"--lumo"}]," prefix. Full list of these variables set to its default value is below."]}],["$","$L2",null,{"language":"css","code":"$3"}]],["$L4","$L5"],"$L6"]}],"isPartial":"$@7","staleTime":"$8","varyParams":null},{"rsc":"$L9","isPartial":"$@a","staleTime":"$8","varyParams":null},{"rsc":"$Lb","isPartial":"$@c","staleTime":"$8","varyParams":"$d"},{"rsc":"$Le","isPartial":"$@f","staleTime":"$8","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
-12:I[97367,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"OutletBoundary"]
-13:"$Sreact.suspense"
-15:I[97367,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"ViewportBoundary"]
-16:I[97367,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"MetadataBoundary"]
-17:I[27201,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"IconMark"]
-18:I[39756,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"default"]
-19:I[37457,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"default"]
-1a:I[45476,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js","/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js"],"default"]
+}c:X
+11:X
+11:C
+0:{"buildId":"6yU_mtazxh9mQUVDb7bTt","data":[{"rsc":["$","$1","c",{"children":[[["$","hgroup",null,{"children":[["$","h6",null,{"children":"Introduction"}],["$","h2",null,{"children":"Customize"}]]}],["$","p",null,{"children":["You can customize Lumo.CSS by editing ",["$","code",null,{"children":":root"}]," variables with ",["$","code",null,{"children":"--lumo"}]," prefix. Full list of these variables set to its default value is below."]}],["$","$L2",null,{"language":"css","code":"$3"}],"$L4","$L5","$L6"],["$L7","$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[71042,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js","/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js","/Lumo.CSS/_next/static/chunks/3ll90m3xikvi-.js","/Lumo.CSS/_next/static/chunks/2d8sujozhcr3r.js"],"default"]
+17:I[97367,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"OutletBoundary"]
+18:"$Sreact.suspense"
+1a:I[97367,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"ViewportBoundary"]
+1b:I[97367,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"MetadataBoundary"]
+1c:I[27201,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"IconMark"]
+1d:I[39756,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"default"]
+1e:I[37457,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"default"]
+1f:I[45476,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js","/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js"],"default"]
 :HL["/Lumo.CSS/_next/static/chunks/2pwgj7-hofn2m.css","style"]
-4:["$","link","0",{"rel":"stylesheet","href":"/Lumo.CSS/_next/static/chunks/2pwgj7-hofn2m.css","precedence":"next"}]
-5:["$","script","script-0",{"src":"/Lumo.CSS/_next/static/chunks/2d8sujozhcr3r.js","async":true}]
-6:["$","$L12",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@14"}]}]
-9:["$","$1","h",{"children":[null,["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L16",null,{"children":["$","$13",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"LumoCSS | Lightweight CSS framework for semantic HTML"}],["$","meta","1",{"name":"description","content":"LumoCSS is a lightweight CSS framework for semantic HTML."}],["$","link","2",{"rel":"icon","href":"/Lumo.CSS/favicon.ico?favicon.1al3k6hn6ft-j.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L17","3",{}]]}]}]}],null]}]
-b:["$","$1","c",{"children":[null,["$","$L18",null,{"parallelRouterKey":"children","template":["$","$L19",null,{}]}]]}]
-e:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js","async":true}]],["$","main",null,{"children":["$","div",null,{"className":"container","children":[["$","$L1a",null,{}],["$","div",null,{"id":"page","children":["$","section",null,{"children":["$","article",null,{"children":["$","$L18",null,{"parallelRouterKey":"children","template":["$","$L19",null,{}]}]}]}]}]]}]}]]}]
-11:true
-14:null
-8:300
-8:C
-10:0
-a:"$undefined"
-c:"$undefined"
-f:"$undefined"
-7:"$undefined"
+4:["$","h3",null,{"children":"Color palette"}]
+5:["$","p",null,{"children":"Lumo has designed its own color palette with range of colors to choose."}]
+6:["$","$L16",null,{}]
+7:["$","link","0",{"rel":"stylesheet","href":"/Lumo.CSS/_next/static/chunks/2pwgj7-hofn2m.css","precedence":"next"}]
+8:["$","script","script-0",{"src":"/Lumo.CSS/_next/static/chunks/3ll90m3xikvi-.js","async":true}]
+9:["$","script","script-1",{"src":"/Lumo.CSS/_next/static/chunks/2d8sujozhcr3r.js","async":true}]
+a:["$","$L17",null,{"children":["$","$18",null,{"name":"Next.MetadataOutlet","children":"$@19"}]}]
+d:["$","$1","h",{"children":[null,["$","$L1a",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1b",null,{"children":["$","$18",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"LumoCSS | Lightweight CSS framework for semantic HTML"}],["$","meta","1",{"name":"description","content":"LumoCSS is a lightweight CSS framework for semantic HTML."}],["$","link","2",{"rel":"icon","href":"/Lumo.CSS/favicon.ico?favicon.1al3k6hn6ft-j.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1c","3",{}]]}]}]}],null]}]
+f:["$","$1","c",{"children":[null,["$","$L1d",null,{"parallelRouterKey":"children","template":["$","$L1e",null,{}]}]]}]
+12:["$","$1","c",{"children":[[["$","script","script-0",{"src":"/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js","async":true}]],["$","main",null,{"children":["$","div",null,{"className":"container","children":[["$","$L1f",null,{}],["$","div",null,{"id":"page","children":["$","section",null,{"children":["$","article",null,{"children":["$","$L1d",null,{"parallelRouterKey":"children","template":["$","$L1e",null,{}]}]}]}]}]]}]}]]}]
+15:true
+19:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"

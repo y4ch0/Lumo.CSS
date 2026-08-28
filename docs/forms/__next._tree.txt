@@ -5,4 +5,4 @@
 :HL["/Lumo.CSS/style.css","style"]
 :HL["/Lumo.CSS/LumoCSS.svg","image"]
 :HL["/Lumo.CSS/LumoCSS_dark.svg","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"docs","param":null,"prefetchHints":4160,"slots":{"children":{"name":"forms","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"aza_nO8TYq3uu-0uMQQlg"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"docs","param":null,"prefetchHints":4160,"slots":{"children":{"name":"forms","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"6yU_mtazxh9mQUVDb7bTt"}
