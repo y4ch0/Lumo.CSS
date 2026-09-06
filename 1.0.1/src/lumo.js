@@ -175,8 +175,8 @@ function initLumo() {
         }
 
         // Dropdowns: Close if clicking outside
-        if (!target.closest("details.dropdown[open]")) {
-            document.querySelectorAll("details.dropdown[open]").forEach((d) => d.removeAttribute("open"));
+        if (!target.closest("details:has(menu)[open]")) {
+            document.querySelectorAll("details:has(menu)[open]").forEach((d) => d.removeAttribute("open"));
         }
 
         // Navbar Toggles
@@ -370,7 +370,7 @@ function initLumoScan() {
     });
 
     // --- 5. Dropdown ARIA Support ---
-    document.querySelectorAll("details.dropdown:not([data-lumo-init])").forEach((dropdown) => {
+    document.querySelectorAll("details:has(menu):not([data-lumo-init])").forEach((dropdown) => {
         dropdown.setAttribute("data-lumo-init", "true");
         const summary = dropdown.querySelector("summary");
         if (summary) {

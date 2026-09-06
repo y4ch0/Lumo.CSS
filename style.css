@@ -90,6 +90,14 @@ body[data-color-theme="green"] {
     --lumo-secondary-color: rgb(from var(--lumo-color-green) r g b / 0.75);
 }
 
+body[data-color-theme="darkgreen"] {
+    --lumo-primary-color: var(--lumo-color-darkgreen);
+    --lumo-accent-color: var(--lumo-color-darkgreen);
+    --lumo-tab-accent: var(--lumo-color-darkgreen);
+    --lumo-primary-button-text: var(--lumo-text-light);
+    --lumo-secondary-color: rgb(from var(--lumo-color-darkgreen) r g b / 0.75);
+}
+
 body[data-color-theme="cyan"] {
     --lumo-primary-color: var(--lumo-color-cyan);
     --lumo-accent-color: var(--lumo-color-cyan);

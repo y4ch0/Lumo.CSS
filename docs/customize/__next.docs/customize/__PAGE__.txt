@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[52836,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js","/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js","/Lumo.CSS/_next/static/chunks/3ll90m3xikvi-.js","/Lumo.CSS/_next/static/chunks/2d8sujozhcr3r.js"],"CodeBox"]
-3:T11d9,:root {
+2:I[52836,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js","/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js","/Lumo.CSS/_next/static/chunks/2stescm6ydni1.js","/Lumo.CSS/_next/static/chunks/2d8sujozhcr3r.js"],"CodeBox"]
+3:T11fe,:root {
     --lumo-color-blue: #0F56DA;
     --lumo-color-indigo: #471ED9;
     --lumo-color-purple: #7827E9;
@@ -10,6 +10,7 @@
     --lumo-color-orange: #DA9018;
     --lumo-color-yellow: #FAC131;
     --lumo-color-green: #26BA5F;
+    --lumo-color-darkgreen: #16813F;
     --lumo-color-cyan: #26CCD2;
     --lumo-color-teal: #19D8C2;
     --lumo-color-graphite: #8E8E8E;
@@ -59,8 +60,8 @@
 }c:X
 11:X
 11:C
-0:{"buildId":"IOWVakjC4wr6BE_GG6skg","data":[{"rsc":["$","$1","c",{"children":[[["$","hgroup",null,{"children":[["$","h6",null,{"children":"Introduction"}],["$","h2",null,{"children":"Customize"}]]}],["$","p",null,{"children":["You can customize Lumo.CSS by editing ",["$","code",null,{"children":":root"}]," variables with ",["$","code",null,{"children":"--lumo"}]," prefix. Full list of these variables set to its default value is below."]}],["$","$L2",null,{"language":"css","code":"$3"}],"$L4","$L5","$L6"],["$L7","$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
-16:I[71042,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js","/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js","/Lumo.CSS/_next/static/chunks/3ll90m3xikvi-.js","/Lumo.CSS/_next/static/chunks/2d8sujozhcr3r.js"],"default"]
+0:{"buildId":"EH9MDvHyisCFrBDqPigxW","data":[{"rsc":["$","$1","c",{"children":[[["$","hgroup",null,{"children":[["$","h6",null,{"children":"Introduction"}],["$","h2",null,{"children":"Customize"}]]}],["$","p",null,{"children":["You can customize Lumo.CSS by editing ",["$","code",null,{"children":":root"}]," variables with ",["$","code",null,{"children":"--lumo"}]," prefix. Full list of these variables set to its default value is below."]}],["$","$L2",null,{"language":"css","code":"$3"}],"$L4","$L5","$L6"],["$L7","$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[71042,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js","/Lumo.CSS/_next/static/chunks/2uwx-7y5vrmgy.js","/Lumo.CSS/_next/static/chunks/2stescm6ydni1.js","/Lumo.CSS/_next/static/chunks/2d8sujozhcr3r.js"],"default"]
 17:I[97367,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"OutletBoundary"]
 18:"$Sreact.suspense"
 1a:I[97367,["/Lumo.CSS/_next/static/chunks/15tkr82hfqygw.js"],"ViewportBoundary"]
@@ -74,7 +75,7 @@
 5:["$","p",null,{"children":"Lumo has designed its own color palette with range of colors to choose."}]
 6:["$","$L16",null,{}]
 7:["$","link","0",{"rel":"stylesheet","href":"/Lumo.CSS/_next/static/chunks/2pwgj7-hofn2m.css","precedence":"next"}]
-8:["$","script","script-0",{"src":"/Lumo.CSS/_next/static/chunks/3ll90m3xikvi-.js","async":true}]
+8:["$","script","script-0",{"src":"/Lumo.CSS/_next/static/chunks/2stescm6ydni1.js","async":true}]
 9:["$","script","script-1",{"src":"/Lumo.CSS/_next/static/chunks/2d8sujozhcr3r.js","async":true}]
 a:["$","$L17",null,{"children":["$","$18",null,{"name":"Next.MetadataOutlet","children":"$@19"}]}]
 d:["$","$1","h",{"children":[null,["$","$L1a",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1b",null,{"children":["$","$18",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"LumoCSS | Lightweight CSS framework for semantic HTML"}],["$","meta","1",{"name":"description","content":"LumoCSS is a lightweight CSS framework for semantic HTML."}],["$","link","2",{"rel":"icon","href":"/Lumo.CSS/favicon.ico?favicon.1al3k6hn6ft-j.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1c","3",{}]]}]}]}],null]}]
