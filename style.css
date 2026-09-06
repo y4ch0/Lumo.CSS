@@ -238,6 +238,10 @@ pre {
     background-color: var(--lumo-color-green) !important;
 }
 
+.color-box.darkgreen {
+    background-color: var(--lumo-color-darkgreen) !important;
+}
+
 .color-box.cyan {
     background-color: var(--lumo-color-cyan) !important;
 }
