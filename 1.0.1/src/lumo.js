@@ -369,7 +369,27 @@ function initLumoScan() {
         updateCarousel(0);
     });
 
-    // --- 5. Dropdown ARIA Support ---
+    // --- 5. Breadcrumb ARIA Support ---
+    document.querySelectorAll("nav.breadcrumb:not([data-lumo-init])").forEach((breadcrumb) => {
+        breadcrumb.setAttribute("data-lumo-init", "true");
+
+        if (!breadcrumb.hasAttribute("aria-label") && !breadcrumb.hasAttribute("aria-labelledby")) {
+            breadcrumb.setAttribute("aria-label", "Breadcrumb");
+        }
+
+        const list = breadcrumb.querySelector(":scope > ol");
+        if (!list) return;
+
+        const items = Array.from(list.querySelectorAll(":scope > li"));
+        const currentItem = items[items.length - 1];
+        const currentCrumb = currentItem?.querySelector("a, [aria-current]") || currentItem;
+
+        if (currentCrumb && !currentCrumb.hasAttribute("aria-current")) {
+            currentCrumb.setAttribute("aria-current", "page");
+        }
+    });
+
+    // --- 6. Dropdown ARIA Support ---
     document.querySelectorAll("details:has(menu):not([data-lumo-init])").forEach((dropdown) => {
         dropdown.setAttribute("data-lumo-init", "true");
         const summary = dropdown.querySelector("summary");
