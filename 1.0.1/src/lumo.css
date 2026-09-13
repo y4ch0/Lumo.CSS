@@ -368,7 +368,7 @@ body>nav ul button[aria-label="close"] {
     background-image: var(--lumo-close-icon);
 }
 
-header.fixed {
+header.sticky {
     position: sticky;
     top: 0;
 }
@@ -792,7 +792,8 @@ input[type="file"]::-webkit-file-upload-button:active {
 [role="group"].buttons {
     width: 100%;
     max-width: unset;
-    overflow-y: auto;
+    overflow-y: visible;
+    overflow-x: auto;
     display: flex;
     flex-wrap: nowrap;
     gap: 0;
@@ -1024,19 +1025,19 @@ main aside#navigation nav ul li>a {
     -moz-user-select: none;
 }
 
-main aside#navigation nav ul li[aria-current="true"]>*:not(details),
-main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary {
+main aside#navigation nav ul li[aria-current="page"]>*:not(details),
+main aside#navigation nav ul li[aria-current="page"]>*:is(details)>summary {
     background-color: rgb(from var(--lumo-accent-color) r g b / 0.25);
     /*color: var(--lumo-accent-contrast-color);*/
     font-weight: bold;
 }
 
-main aside#navigation nav ul li[aria-current="true"]>*:not(details):hover,
-main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary:hover {
+main aside#navigation nav ul li[aria-current="page"]>*:not(details):hover,
+main aside#navigation nav ul li[aria-current="page"]>*:is(details)>summary:hover {
     background-color: rgb(from var(--lumo-accent-color) r g b / 0.4);
 }
 
-main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary::before {
+main aside#navigation nav ul li[aria-current="page"]>*:is(details)>summary::before {
     filter: brightness(0) invert(1);
 }
 
@@ -1049,8 +1050,8 @@ main aside#navigation nav ul li:has(details) {
     cursor: default;
 }
 
-main aside#navigation nav ul li:has(details):not([aria-current="true"]) summary:hover,
-main aside#navigation nav ul li:not(:has(details), [aria-current="true"])>*:hover {
+main aside#navigation nav ul li:has(details):not([aria-current="page"]) summary:hover,
+main aside#navigation nav ul li:not(:has(details), [aria-current="page"])>*:hover {
     background-color: rgb(from var(--lumo-text-color) r g b / 0.075);
     text-decoration: underline;
 }
@@ -1078,18 +1079,18 @@ main aside#navigation nav ul li details ul {
     padding-left: 1rem;
 }
 
-main aside#navigation nav ul li[aria-current="true"]>*,
-main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary {
+main aside#navigation nav ul li[aria-current="page"]>*,
+main aside#navigation nav ul li[aria-current="page"]>*:is(details)>summary {
     --lumo-transition: 150ms ease-in-out;
     transition: box-shadow var(--lumo-transition);
 }
 
-main aside#navigation nav ul li[aria-current="true"]>*:hover {
+main aside#navigation nav ul li[aria-current="page"]>*:hover {
     filter: brightness(0.9);
 }
 
-main aside#navigation nav ul li[aria-current="true"]>*:active,
-main aside#navigation nav ul li[aria-current="true"]>*:is(details)>summary:active {
+main aside#navigation nav ul li[aria-current="page"]>*:active,
+main aside#navigation nav ul li[aria-current="page"]>*:is(details)>summary:active {
     filter: brightness(0.8);
     outline: none;
 }
@@ -1130,7 +1131,7 @@ section>*:not(hr),
  */
 [role="region"] {
     border: var(--lumo-border-default);
-    border-radius: calc(0.75rem * var(--lumo-border-radius-scale));
+    border-radius: calc(0.5rem * var(--lumo-border-radius-scale));
     padding: 1rem;
     overflow: hidden;
     display: block;
@@ -1149,11 +1150,11 @@ section>*:not(hr),
     border-radius: calc(0.75rem * var(--lumo-border-radius-scale));
 }
 
-[role="region"].centered {
+[role="region"].align-center {
     text-align: center;
 }
 
-[role="region"].centered>*:not(hr) {
+[role="region"].align-center>*:not(hr) {
     margin-left: auto;
     margin-right: auto;
 }
@@ -1313,6 +1314,7 @@ hr {
 
 hr[aria-orientation="vertical"] {
     border-right: 0;
+    width: 1px;
     margin: 0 calc(var(--lumo-spacing) * 0.5);
 }
 
@@ -1545,7 +1547,7 @@ input[type=radio] {
 }
 
 input[type=radio]:checked {
-    border: 5px solid var(--lumo-accent-color);
+    border: 0.35rem solid var(--lumo-accent-color);
     background-color: var(--lumo-accent-contrast-color);
 }
 
@@ -1870,6 +1872,7 @@ nav.breadcrumb>ol {
     width: fit-content;
     display: flex;
     flex-wrap: wrap;
+    height: unset;
     gap: calc(var(--lumo-spacing) * 0.35);
     padding: 0;
     margin: 0;
