@@ -564,7 +564,7 @@ details:has(menu) menu li {
 }
 
 details:has(menu) menu li:hover {
-    background-color: rgb(from var(--lumo-text-color) r g b / 0.075);
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.13);
 }
 
 details:has(menu) menu li:hover>a {
