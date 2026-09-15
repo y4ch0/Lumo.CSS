@@ -1015,7 +1015,7 @@ main aside#navigation nav ul li:has(details) summary {
     padding: 0.5rem 1rem;
     display: flex;
     color: var(--lumo-text-color);
-    border-radius: calc(0.5rem * var(--lumo-border-radius-scale));
+    border-radius: calc(0.375rem * var(--lumo-border-radius-scale));
     column-gap: calc(var(--lumo-spacing) * 0.5);
     cursor: pointer;
 }
@@ -1042,7 +1042,7 @@ main aside#navigation nav ul li[aria-current="page"]>*:is(details)>summary::befo
 }
 
 main aside#navigation nav ul li:not(:has(details))>*[aria-current="false"]:hover {
-    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.11);
 }
 
 main aside#navigation nav ul li:has(details) {
@@ -1052,7 +1052,7 @@ main aside#navigation nav ul li:has(details) {
 
 main aside#navigation nav ul li:has(details):not([aria-current="page"]) summary:hover,
 main aside#navigation nav ul li:not(:has(details), [aria-current="page"])>*:hover {
-    background-color: rgb(from var(--lumo-text-color) r g b / 0.075);
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.11);
     text-decoration: underline;
 }
 
