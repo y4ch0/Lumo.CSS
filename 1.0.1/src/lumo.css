@@ -535,7 +535,7 @@ details:has(menu).size-large menu {
 }
 
 details:has(menu).size-large menu li>* {
-    padding: 0.5rem 1rem !important;
+    padding: 0.55rem 1rem !important;
     font-size: 1rem;
 }
 
@@ -586,7 +586,7 @@ details:has(menu) menu li:hover * {
 }
 
 details:has(menu) menu li>* {
-    padding: 0.25rem 0.75rem !important;
+    padding: 0.35rem 0.75rem !important;
     display: flex;
     align-items: center;
     justify-content: start;
