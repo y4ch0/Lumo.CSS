@@ -535,7 +535,7 @@ details:has(menu).size-large menu {
 }
 
 details:has(menu).size-large menu li>* {
-    padding: 0.55rem 1rem !important;
+    padding: 0.5rem 1rem !important;
     font-size: 1rem;
 }
 
@@ -586,7 +586,7 @@ details:has(menu) menu li:hover * {
 }
 
 details:has(menu) menu li>* {
-    padding: 0.35rem 0.75rem !important;
+    padding: 0.25rem 0.75rem !important;
     display: flex;
     align-items: center;
     justify-content: start;
@@ -1015,7 +1015,7 @@ main aside#navigation nav ul li:has(details) summary {
     padding: 0.5rem 1rem;
     display: flex;
     color: var(--lumo-text-color);
-    border-radius: calc(0.375rem * var(--lumo-border-radius-scale));
+    border-radius: calc(0.5rem * var(--lumo-border-radius-scale));
     column-gap: calc(var(--lumo-spacing) * 0.5);
     cursor: pointer;
 }
@@ -1042,7 +1042,7 @@ main aside#navigation nav ul li[aria-current="page"]>*:is(details)>summary::befo
 }
 
 main aside#navigation nav ul li:not(:has(details))>*[aria-current="false"]:hover {
-    background-color: rgb(from var(--lumo-text-color) r g b / 0.11);
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.05);
 }
 
 main aside#navigation nav ul li:has(details) {
@@ -1052,7 +1052,7 @@ main aside#navigation nav ul li:has(details) {
 
 main aside#navigation nav ul li:has(details):not([aria-current="page"]) summary:hover,
 main aside#navigation nav ul li:not(:has(details), [aria-current="page"])>*:hover {
-    background-color: rgb(from var(--lumo-text-color) r g b / 0.11);
+    background-color: rgb(from var(--lumo-text-color) r g b / 0.075);
     text-decoration: underline;
 }
 
