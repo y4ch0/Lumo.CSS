@@ -2,7 +2,8 @@
 
 :root {
     /* color palette */
-    --lumo-color-blue: #0F56DA;
+    --lumo-color-blue: #296FD7;
+    --lumo-color-navy: #305C9F;
     --lumo-color-indigo: #471ED9;
     --lumo-color-purple: #7827E9;
     --lumo-color-pink: #CA2BE3;
@@ -116,6 +117,7 @@ body[data-theme="dark"] {
 
 body[data-theme="dark"] {
     --lumo-color-blue: #276DEF;
+    --lumo-color-navy: #2050AA;
     --lumo-color-indigo: #5229E8;
     --lumo-color-purple: #853AEE;
     --lumo-color-pink: #D244E8;
