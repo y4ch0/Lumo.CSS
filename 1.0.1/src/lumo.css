@@ -1412,10 +1412,10 @@ hr[aria-orientation="vertical"] {
     textarea, select):focus {
     /*border-color: rgb(from var(--lumo-contrast-color) r g b / 0.65);*/
     border-color: var(--lumo-contrast-color);
-    outline-offset: -3px;
+    outline-offset: -2px;
     /*outline: 3px solid rgb(from var(--lumo-contrast-color) r g b / 0.35);*/
-    outline: 3px solid var(--lumo-contrast-color);
-    /*box-shadow: 0 0 0 4px #FFFFFF;*/
+    outline: 2px solid var(--lumo-contrast-color);
+    box-shadow: 0 0 0 3px rgb(from var(--lumo-contrast-color) r g b / 0.3);
 }
 
 :where(input[type=date],
