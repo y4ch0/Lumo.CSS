@@ -326,7 +326,7 @@ progress:indeterminate::-webkit-progress-value {
 /*
  * Header
  */
-header {
+body>header {
     width: 100vw;
     display: flex;
     padding: 0.35rem 0;
@@ -887,7 +887,7 @@ p {
  * Main
  */
 
-main {
+body:has(header)>main {
     margin-top: calc(var(--lumo-spacing) * 5);
 }
 
