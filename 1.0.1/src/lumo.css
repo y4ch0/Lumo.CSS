@@ -1108,7 +1108,7 @@ main aside#navigation nav ul li[aria-current="page"]>*:is(details)>summary:activ
 /*
  * Section
  */
-section:has(article, div),
+section:has(>article, >div),
 .grid {
     display: flex;
     flex-direction: row;
